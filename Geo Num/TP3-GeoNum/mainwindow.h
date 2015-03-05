@@ -27,6 +27,10 @@ public:
     void setTaille(int value);
 
     void AlgoBSplines();
+    QPointF PointBSplines(double t);
+    int TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds);
+    double omega(int i, int k, double t, double tabP[]);
+    double aine(int i, int k, double t, double tabP[]);
 
 public slots:
     void lancerBezier();
@@ -35,7 +39,7 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
-    QPointF tab[50];
+    QPointF tab[50]; //table des points de contrôle
     QPointF tabControle[2];
     int taille;
     float t;

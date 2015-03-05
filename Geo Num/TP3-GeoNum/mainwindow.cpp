@@ -126,21 +126,95 @@ void MainWindow::courbeBezier(QPointF tabP[], int t){
     dessinerCourbe(tabGlobal, pas, (Qt::red));
 }
 
-void MainWindow::AlgoBSplines(){
+double MainWindow::omega(int i, int k, double t, double tabP[]){
+    if(tabP[i] < tabP[i+k]){
+        return ((t - tabP[i])/(tabP[i+k] + tabP[i]));
+    }else{
+        return 0;
+    }
+}
 
+double MainWindow::aine(int i, int k, double t, double tabP[]){
+//    if(k == 0){
+//        if( t >= tabP[i] && t <= tabP[i+1] ){
+//            return 1;
+//        }else{
+//            return 0;
+//        }
+//    }else{
+//        return (omega(i, k, t)*aine(i, k-1, t) + (1 - omega(i+1, k, t))*aine(i+1, k-1, t));
+//    }
+}
+
+//void MainWindow::clone(double src[], double **dst, int nbCopies){
+//    for (int i = 0; i < nbCopies; ++var) {
+//        *dst
+//    }
+//}
+
+int MainWindow::TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds){ //fonction retournant
+    int j= 0;
+    bool fini = false;
+
+    while(!fini){
+        if(t >= tabnoeuds[j] && j <= tabnoeuds[j+1]){ //valeur trouvée
+            fini= true;
+        }else if(j > tailleTabNoeuds){ //valeur impossible à trouver
+            fini= true;
+            j = -1;
+        }else{ //continuer l'itération
+            j++;
+        }
+    }
+
+    return j;
+}
+
+QPointF MainWindow::PointBSplines(double t){
     //degré de la courbe
     int k = ui->spinBoxDegre->value();
 
-    //points de controle
+    //table des noeuds
     int m = taille + k;
-    int tabPointsControles[m];
-
-    //noeuds
     int nbNoeuds = m + 1;
     double tabNoeuds[nbNoeuds];
     for (int i = 0; i < nbNoeuds; ++i) {
         tabNoeuds[i] = float(i);
     }
 
+    int j= TrouverJ(j, tabNoeuds, nbNoeuds);
+    if( j >=k && j <= (taille -1) ){ //calcul possible du point de la courbe
+
+        //calcul du point final de la courbe
+        QPointF tabPointsInter[taille]; //recopie des points de contrôle en local
+        for (int i = 0; i < taille; ++i) {
+            tabPointsInter[i] = tab[i];
+        }
+        int x,y;
+        int nbSousPoints = j;
+        for (int r = 1; r < k; ++r) { //calcul des sous points
+            for (int i = 0; i < nbSousPoints--; ++i) {
+                x = (1- omega(i,k-r,t, tabNoeuds))*tabPointsInter[i].x() + omega(i,k-r,t, tabNoeuds)*tabPointsInter[i+1].x();
+                y = (1- omega(i,k-r,t, tabNoeuds))*tabPointsInter[i].y() + omega(i,k-r,t, tabNoeuds)*tabPointsInter[i+1].y();
+                tabPointsInter[i] = *(new QPointF(x, y));
+            }
+        }
+
+        return tabPointsInter[0];
+
+    }else{
+
+    }
+
+
 }
 
+void MainWindow::AlgoBSplines(){
+    QPointF result[50];
+    for (int t = 0; t < 50; t++) {
+        result[t] = PointBSplines(t);
+    }
+
+    dessinerCourbe(result, 50,(Qt::red));
+
+}
