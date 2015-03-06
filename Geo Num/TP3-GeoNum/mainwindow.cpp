@@ -127,11 +127,12 @@ void MainWindow::courbeBezier(QPointF tabP[], int t){
 }
 
 double MainWindow::omega(int i, int k, double t, double tabP[]){
-    if(tabP[i] < tabP[i+k]){
-        return ((t - tabP[i])/(tabP[i+k] + tabP[i]));
-    }else{
-        return 0;
-    }
+//   if(tabP[i] < tabP[i+k]){
+//       return ((t -tabP[i])/(tabP[i+k] - tabP[i]));
+//   }else{
+//       return 0;
+//   }
+    return ((t - tabP[i])/(tabP[i+k] + tabP[i]));
 }
 
 double MainWindow::aine(int i, int k, double t, double tabP[]){
@@ -146,18 +147,12 @@ double MainWindow::aine(int i, int k, double t, double tabP[]){
 //    }
 }
 
-//void MainWindow::clone(double src[], double **dst, int nbCopies){
-//    for (int i = 0; i < nbCopies; ++var) {
-//        *dst
-//    }
-//}
-
 int MainWindow::TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds){ //fonction retournant
     int j= 0;
     bool fini = false;
 
     while(!fini){
-        if(t >= tabnoeuds[j] && j <= tabnoeuds[j+1]){ //valeur trouvée
+        if(t >= tabnoeuds[j] && t <= tabnoeuds[j+1]){ //valeur trouvée
             fini= true;
         }else if(j > tailleTabNoeuds){ //valeur impossible à trouver
             fini= true;
@@ -166,7 +161,8 @@ int MainWindow::TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds){ //f
             j++;
         }
     }
-
+//    std::cout << "valeur de j: " << j << std::endl;
+//    std::cout << "valeur de t: " << t << std::endl;
     return j;
 }
 
@@ -182,7 +178,7 @@ QPointF MainWindow::PointBSplines(double t){
         tabNoeuds[i] = float(i);
     }
 
-    int j= TrouverJ(j, tabNoeuds, nbNoeuds);
+    int j= TrouverJ(t, tabNoeuds, nbNoeuds);
     if( j >=k && j <= (taille -1) ){ //calcul possible du point de la courbe
 
         //calcul du point final de la courbe
@@ -191,15 +187,18 @@ QPointF MainWindow::PointBSplines(double t){
             tabPointsInter[i] = tab[i];
         }
         int x,y;
-        int nbSousPoints = j;
-        for (int r = 1; r < k; ++r) { //calcul des sous points
-            for (int i = 0; i < nbSousPoints--; ++i) {
+        int nbSousPoints = taille-k;
+        for (int r = 1; r < k+1; ++r) { //calcul des sous points
+            for (int i = 0; i < nbSousPoints; ++i) {
                 x = (1- omega(i,k-r,t, tabNoeuds))*tabPointsInter[i].x() + omega(i,k-r,t, tabNoeuds)*tabPointsInter[i+1].x();
                 y = (1- omega(i,k-r,t, tabNoeuds))*tabPointsInter[i].y() + omega(i,k-r,t, tabNoeuds)*tabPointsInter[i+1].y();
                 tabPointsInter[i] = *(new QPointF(x, y));
+                //std::cout << "x*" << (1- omega(i,k-r,t, tabNoeuds)) << " + y*" << omega(i,k-r,t, tabNoeuds) << std::endl;
+                nbSousPoints--;
             }
         }
 
+        //std::cout << "valeur du point généré: " << tabPointsInter[0].x() << ";" << tabPointsInter[0].y() << std::endl;
         return tabPointsInter[0];
 
     }else{
