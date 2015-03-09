@@ -34,10 +34,12 @@ public class Grapher extends JPanel {
 
 	protected Vector<Function> functions;
 	
+	private EcouteurDeSouris ec;
+	
 	public Grapher() {
 		xmin = -PI/2.; xmax = 3*PI/2;
 		ymin = -1.5;   ymax = 1.5;
-		EcouteurDeSouris ec = new EcouteurDeSouris(this);
+		ec = new EcouteurDeSouris(this);
 		this.addMouseListener(ec);
 		this.addMouseMotionListener(ec);
 		this.addMouseWheelListener(ec);
@@ -122,6 +124,8 @@ public class Grapher extends JPanel {
 		for(double x = -xstep; x > xmin; x -= xstep) { drawXTick(g2, x); }
 		for(double y = ystep; y < ymax; y += ystep)  { drawYTick(g2, y); }
 		for(double y = -ystep; y > ymin; y -= ystep) { drawYTick(g2, y); }
+		
+		ec.paint(g2);
 	}
 	
 	protected double dx(int dX) { return  (double)((xmax-xmin)*dX/W); }

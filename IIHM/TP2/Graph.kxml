@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kmad-model SYSTEM "file:KMADModelJT.dtd">
+<kmad-model version="1.2">
+    <project classkmad="project.Project" idkmad="K1"/>
+    <task classkmad="tache.Tache" id-task-point="K3" id-task-subtasks-list="K7 K10 K13 K16 K19 K28 K31 K40 " idkmad="K4">
+        <task-name>Faire une sortie ASCII</task-name>
+        <task-numero>Racine   </task-numero>
+        <task-observation>Patrick</task-observation>
+        <task-executant>USER</task-executant>
+        <task-modality>COGN</task-modality>
+        <task-optional>false</task-optional>
+        <task-interruptible>false</task-interruptible>
+        <task-decomposition>SEQ</task-decomposition>
+        <task-precondition>true</task-precondition>
+        <task-effetsdebord>void</task-effetsdebord>
+        <task-iteration>[1]</task-iteration>
+        <point classkmad="tache.Point" idkmad="K3">
+            <point-x>737</point-x>
+            <point-y>13</point-y>
+        </point>
+        <task classkmad="tache.Tache" id-task-point="K6" id-task-subtasks-list="K22 K25 " idkmad="K7">
+            <task-name>Aller à ChevalNoir</task-name>
+            <task-numero>1</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>SEQ</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K6">
+                <point-x>165</point-x>
+                <point-y>289</point-y>
+            </point>
+            <task classkmad="tache.Tache" id-task-actors-list="K96 K97 K98 K99 K100 K101 K199 K200 K201 K202 " id-task-point="K21" idkmad="K22">
+                <task-name>Aller à St François</task-name>
+                <task-numero>1.1</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>false</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K21">
+                    <point-x>164</point-x>
+                    <point-y>510</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K96">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K97">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K98">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K99">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K100">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K101">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K199">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K200">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K201">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K202">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+            <task classkmad="tache.Tache" id-task-actors-list="K102 K103 K104 K105 K106 K107 K203 K204 K205 K206 " id-task-point="K24" idkmad="K25">
+                <task-name>Aller à la station</task-name>
+                <task-numero>1.2</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>false</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K24">
+                    <point-x>357</point-x>
+                    <point-y>510</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K102">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K103">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K104">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K105">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K106">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K107">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K203">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K204">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K205">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K206">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+        </task>
+        <task classkmad="tache.Tache" id-task-actors-list="K52 K53 K54 K55 K56 K57 K207 K208 K209 K210 " id-task-point="K9" idkmad="K10">
+            <task-name>Decider de l'objectif</task-name>
+            <task-numero>2</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>LEAF</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K9">
+                <point-x>386</point-x>
+                <point-y>289</point-y>
+            </point>
+            <actor classkmad="tache.Acteur" id-user="K45" idkmad="K52">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K46" idkmad="K53">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K47" idkmad="K54">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K42" idkmad="K55">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K43" idkmad="K56">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K44" idkmad="K57">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K198" idkmad="K207">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K195" idkmad="K208">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K196" idkmad="K209">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K197" idkmad="K210">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+        </task>
+        <task classkmad="tache.Tache" id-task-actors-list="K58 K59 K60 K61 K62 K63 K211 K212 K213 K214 " id-task-point="K12" idkmad="K13">
+            <task-name>SCIIer pour Monter</task-name>
+            <task-numero>3</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>LEAF</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K12">
+                <point-x>629</point-x>
+                <point-y>286</point-y>
+            </point>
+            <actor classkmad="tache.Acteur" id-user="K45" idkmad="K58">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K46" idkmad="K59">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K47" idkmad="K60">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K42" idkmad="K61">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K43" idkmad="K62">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K44" idkmad="K63">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K198" idkmad="K211">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K195" idkmad="K212">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K196" idkmad="K213">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K197" idkmad="K214">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+        </task>
+        <task classkmad="tache.Tache" id-task-actors-list="K64 K65 K66 K67 K68 K69 K215 K216 K217 K218 " id-task-point="K15" idkmad="K16">
+            <task-name>Mettre fin à la montée</task-name>
+            <task-numero>4</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>LEAF</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K15">
+                <point-x>852</point-x>
+                <point-y>286</point-y>
+            </point>
+            <actor classkmad="tache.Acteur" id-user="K45" idkmad="K64">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K46" idkmad="K65">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K47" idkmad="K66">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K43" idkmad="K67">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K42" idkmad="K68">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K44" idkmad="K69">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K198" idkmad="K215">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K195" idkmad="K216">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K196" idkmad="K217">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K197" idkmad="K218">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+        </task>
+        <task classkmad="tache.Tache" id-task-actors-list="K70 K71 K72 K73 K74 K75 K247 K248 K249 K250 " id-task-point="K18" id-task-subtasks-list="K136 K115 K118 K127 " idkmad="K19">
+            <task-name>Faire la descente ASCII</task-name>
+            <task-numero>5</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>PAR</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K18">
+                <point-x>1113</point-x>
+                <point-y>286</point-y>
+            </point>
+            <actor classkmad="tache.Acteur" id-user="K45" idkmad="K70">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K46" idkmad="K71">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K47" idkmad="K72">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K42" idkmad="K73">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K43" idkmad="K74">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K44" idkmad="K75">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K198" idkmad="K247">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K195" idkmad="K248">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K196" idkmad="K249">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K197" idkmad="K250">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <task classkmad="tache.Tache" id-task-actors-list="K138 K139 K140 K141 K142 K143 K219 K220 K221 K222 " id-task-point="K135" idkmad="K136">
+                <task-name>Descente tranquille</task-name>
+                <task-numero>5.1</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>true</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K135">
+                    <point-x>584</point-x>
+                    <point-y>540</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K138">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K139">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K140">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K141">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K142">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K143">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K219">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K220">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K221">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K222">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+            <task classkmad="tache.Tache" id-task-actors-list="K144 K145 K146 K147 K148 K149 K223 K224 K225 K226 " id-task-point="K114" idkmad="K115">
+                <task-name>Faire du hors piste</task-name>
+                <task-numero>5.2</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>true</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K114">
+                    <point-x>786</point-x>
+                    <point-y>540</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K144">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K145">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K146">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K147">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K148">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K149">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K223">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K224">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K225">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K226">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+            <task classkmad="tache.Tache" id-task-actors-list="K150 K151 K152 K153 K154 K155 K227 K228 K229 K230 " id-task-point="K117" id-task-subtasks-list="K121 K124 " idkmad="K118">
+                <task-name>Lancer un backflip</task-name>
+                <task-numero>5.3</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>true</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>ALT</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K117">
+                    <point-x>989</point-x>
+                    <point-y>540</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K150">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K151">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K152">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K153">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K154">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K155">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K227">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K228">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K229">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K230">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <task classkmad="tache.Tache" id-task-actors-list="K162 K163 K164 K165 K166 K167 K231 K232 K251 " id-task-point="K120" idkmad="K121">
+                    <task-name>Rater son back</task-name>
+                    <task-numero>5.3.1</task-numero>
+                    <task-observation/>
+                    <task-executant>USER</task-executant>
+                    <task-modality>COGN</task-modality>
+                    <task-optional>false</task-optional>
+                    <task-interruptible>false</task-interruptible>
+                    <task-decomposition>LEAF</task-decomposition>
+                    <task-precondition>true</task-precondition>
+                    <task-effetsdebord>void</task-effetsdebord>
+                    <task-iteration>[1]</task-iteration>
+                    <point classkmad="tache.Point" idkmad="K120">
+                        <point-x>852</point-x>
+                        <point-y>691</point-y>
+                    </point>
+                    <actor classkmad="tache.Acteur" id-user="K45" idkmad="K162">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K46" idkmad="K163">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K47" idkmad="K164">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K42" idkmad="K165">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K43" idkmad="K166">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K44" idkmad="K167">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K195" idkmad="K231">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K196" idkmad="K232">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K198" idkmad="K251">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                </task>
+                <task classkmad="tache.Tache" id-task-actors-list="K168 K169 K170 K171 K172 K173 K233 K234 K252 " id-task-point="K123" idkmad="K124">
+                    <task-name>Passer son back</task-name>
+                    <task-numero>5.3.2</task-numero>
+                    <task-observation/>
+                    <task-executant>USER</task-executant>
+                    <task-modality>COGN</task-modality>
+                    <task-optional>false</task-optional>
+                    <task-interruptible>false</task-interruptible>
+                    <task-decomposition>LEAF</task-decomposition>
+                    <task-precondition>true</task-precondition>
+                    <task-effetsdebord>void</task-effetsdebord>
+                    <task-iteration>[1]</task-iteration>
+                    <point classkmad="tache.Point" idkmad="K123">
+                        <point-x>1023</point-x>
+                        <point-y>691</point-y>
+                    </point>
+                    <actor classkmad="tache.Acteur" id-user="K45" idkmad="K168">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K46" idkmad="K169">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K47" idkmad="K170">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K42" idkmad="K171">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K43" idkmad="K172">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K44" idkmad="K173">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K196" idkmad="K233">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K197" idkmad="K234">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K198" idkmad="K252">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                </task>
+            </task>
+            <task classkmad="tache.Tache" id-task-actors-list="K156 K157 K158 K159 K160 K161 K235 K236 K237 K238 " id-task-point="K126" id-task-subtasks-list="K130 K133 " idkmad="K127">
+                <task-name>Declencher une avalanche</task-name>
+                <task-numero>5.4</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>true</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>ALT</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K126">
+                    <point-x>1222</point-x>
+                    <point-y>540</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K156">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K157">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K158">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K159">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K160">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K161">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K235">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K236">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K237">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K238">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <task classkmad="tache.Tache" id-task-actors-list="K174 K175 K176 K177 K178 K179 K239 K240 K241 K242 " id-task-point="K129" idkmad="K130">
+                    <task-name>Survivre</task-name>
+                    <task-numero>5.4.1</task-numero>
+                    <task-observation/>
+                    <task-executant>USER</task-executant>
+                    <task-modality>COGN</task-modality>
+                    <task-optional>false</task-optional>
+                    <task-interruptible>false</task-interruptible>
+                    <task-decomposition>LEAF</task-decomposition>
+                    <task-precondition>true</task-precondition>
+                    <task-effetsdebord>void</task-effetsdebord>
+                    <task-iteration>[1]</task-iteration>
+                    <point classkmad="tache.Point" idkmad="K129">
+                        <point-x>1217</point-x>
+                        <point-y>691</point-y>
+                    </point>
+                    <actor classkmad="tache.Acteur" id-user="K45" idkmad="K174">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K46" idkmad="K175">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K47" idkmad="K176">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K42" idkmad="K177">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K43" idkmad="K178">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K44" idkmad="K179">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K198" idkmad="K239">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K195" idkmad="K240">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K196" idkmad="K241">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K197" idkmad="K242">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                </task>
+                <task classkmad="tache.Tache" id-task-actors-list="K180 K181 K182 K183 K184 K185 K243 K244 K245 K246 " id-task-point="K132" idkmad="K133">
+                    <task-name>Creve charogne</task-name>
+                    <task-numero>5.4.2</task-numero>
+                    <task-observation/>
+                    <task-executant>USER</task-executant>
+                    <task-modality>COGN</task-modality>
+                    <task-optional>false</task-optional>
+                    <task-interruptible>false</task-interruptible>
+                    <task-decomposition>LEAF</task-decomposition>
+                    <task-precondition>true</task-precondition>
+                    <task-effetsdebord>void</task-effetsdebord>
+                    <task-iteration>[1]</task-iteration>
+                    <point classkmad="tache.Point" idkmad="K132">
+                        <point-x>1358</point-x>
+                        <point-y>691</point-y>
+                    </point>
+                    <actor classkmad="tache.Acteur" id-user="K45" idkmad="K180">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K46" idkmad="K181">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K47" idkmad="K182">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K42" idkmad="K183">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K43" idkmad="K184">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K44" idkmad="K185">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K198" idkmad="K243">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K195" idkmad="K244">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K196" idkmad="K245">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                    <actor classkmad="tache.Acteur" id-user="K197" idkmad="K246">
+                        <actor-experience>UNK</actor-experience>
+                    </actor>
+                </task>
+            </task>
+        </task>
+        <task classkmad="tache.Tache" id-task-actors-list="K108 K109 K110 K111 K112 K113 K253 K254 K255 K256 " id-task-point="K27" idkmad="K28">
+            <task-name>Ranger SCII dans la voiture</task-name>
+            <task-numero>6</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>LEAF</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K27">
+                <point-x>1360</point-x>
+                <point-y>286</point-y>
+            </point>
+            <actor classkmad="tache.Acteur" id-user="K45" idkmad="K108">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K46" idkmad="K109">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K47" idkmad="K110">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K42" idkmad="K111">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K43" idkmad="K112">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K44" idkmad="K113">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K198" idkmad="K253">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K195" idkmad="K254">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K196" idkmad="K255">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K197" idkmad="K256">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+        </task>
+        <task classkmad="tache.Tache" id-task-point="K30" id-task-subtasks-list="K34 K187 K37 " idkmad="K31">
+            <task-name>Gouter</task-name>
+            <task-numero>7</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>PAR</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K30">
+                <point-x>1644</point-x>
+                <point-y>286</point-y>
+            </point>
+            <task classkmad="tache.Tache" id-task-actors-list="K86 K87 K257 K258 K259 K260 " id-task-point="K33" idkmad="K34">
+                <task-name>Caféééééééé</task-name>
+                <task-numero>7.1</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>true</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-descriptionprecondition>Le bar doit être ouvert.</task-descriptionprecondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K33">
+                    <point-x>1562</point-x>
+                    <point-y>477</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K86">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K87">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K257">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K258">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K259">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K260">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+            <task classkmad="tache.Tache" id-task-actors-list="K189 K190 K191 K192 K193 K194 K261 K262 K263 K264 " id-task-point="K186" idkmad="K187">
+                <task-name>Tartine de nutella</task-name>
+                <task-numero>7.2</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>false</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K186">
+                    <point-x>1624</point-x>
+                    <point-y>623</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K45" idkmad="K189">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K46" idkmad="K190">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K191">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K192">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K43" idkmad="K193">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K44" idkmad="K194">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K261">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K262">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K263">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K264">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+            <task classkmad="tache.Tache" id-task-actors-list="K88 K89 K265 K266 K267 K268 " id-task-point="K36" idkmad="K37">
+                <task-name>Manger !!!</task-name>
+                <task-numero>7.3</task-numero>
+                <task-observation/>
+                <task-executant>USER</task-executant>
+                <task-modality>COGN</task-modality>
+                <task-optional>true</task-optional>
+                <task-interruptible>false</task-interruptible>
+                <task-decomposition>LEAF</task-decomposition>
+                <task-precondition>true</task-precondition>
+                <task-descriptionprecondition>Le bar doit être ouvert.</task-descriptionprecondition>
+                <task-effetsdebord>void</task-effetsdebord>
+                <task-iteration>[1]</task-iteration>
+                <point classkmad="tache.Point" idkmad="K36">
+                    <point-x>1724</point-x>
+                    <point-y>477</point-y>
+                </point>
+                <actor classkmad="tache.Acteur" id-user="K47" idkmad="K88">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K42" idkmad="K89">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K198" idkmad="K265">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K195" idkmad="K266">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K196" idkmad="K267">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+                <actor classkmad="tache.Acteur" id-user="K197" idkmad="K268">
+                    <actor-experience>UNK</actor-experience>
+                </actor>
+            </task>
+        </task>
+        <task classkmad="tache.Tache" id-task-actors-list="K90 K91 K92 K93 K94 K95 K269 K270 K271 K272 " id-task-point="K39" idkmad="K40">
+            <task-name>Maison !!!</task-name>
+            <task-numero>8</task-numero>
+            <task-observation/>
+            <task-executant>USER</task-executant>
+            <task-modality>COGN</task-modality>
+            <task-optional>false</task-optional>
+            <task-interruptible>false</task-interruptible>
+            <task-decomposition>LEAF</task-decomposition>
+            <task-precondition>true</task-precondition>
+            <task-effetsdebord>void</task-effetsdebord>
+            <task-iteration>[1]</task-iteration>
+            <point classkmad="tache.Point" idkmad="K39">
+                <point-x>1846</point-x>
+                <point-y>286</point-y>
+            </point>
+            <actor classkmad="tache.Acteur" id-user="K45" idkmad="K90">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K46" idkmad="K91">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K47" idkmad="K92">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K42" idkmad="K93">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K43" idkmad="K94">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K44" idkmad="K95">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K198" idkmad="K269">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K195" idkmad="K270">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K196" idkmad="K271">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+            <actor classkmad="tache.Acteur" id-user="K197" idkmad="K272">
+                <actor-experience>UNK</actor-experience>
+            </actor>
+        </task>
+    </task>
+    <Individu classkmad="tache.Individu" id-organisation="K45 K47 " idkmad="K42">
+        <individu-name>Patrick</individu-name>
+        <id-organisation>K45</id-organisation>
+        <id-organisation>K47</id-organisation>
+    </Individu>
+    <Individu classkmad="tache.Individu" id-organisation="K45 K46 " idkmad="K43">
+        <individu-name>Sophie</individu-name>
+        <id-organisation>K45</id-organisation>
+        <id-organisation>K46</id-organisation>
+    </Individu>
+    <Individu classkmad="tache.Individu" id-organisation="K45 K46 " idkmad="K44">
+        <individu-name>Thomas</individu-name>
+        <id-organisation>K45</id-organisation>
+        <id-organisation>K46</id-organisation>
+    </Individu>
+    <Organisation classkmad="tache.Organisation" idkmad="K45">
+        <organisation-name>Randonneurs</organisation-name>
+    </Organisation>
+    <Organisation classkmad="tache.Organisation" idkmad="K46">
+        <organisation-name>Randonneurs_Voiture1</organisation-name>
+    </Organisation>
+    <Organisation classkmad="tache.Organisation" idkmad="K47">
+        <organisation-name>Randonneurs_Voiture2</organisation-name>
+    </Organisation>
+    <Individu classkmad="tache.Individu" id-organisation="K198 " idkmad="K195">
+        <individu-name>Louis</individu-name>
+        <id-organisation>K198</id-organisation>
+    </Individu>
+    <Individu classkmad="tache.Individu" id-organisation="K198 " idkmad="K196">
+        <individu-name>Gillian</individu-name>
+        <id-organisation>K198</id-organisation>
+    </Individu>
+    <Individu classkmad="tache.Individu" id-organisation="K198 " idkmad="K197">
+        <individu-name>Aymeric</individu-name>
+        <id-organisation>K198</id-organisation>
+    </Individu>
+    <Organisation classkmad="tache.Organisation" idkmad="K198">
+        <organisation-name>Copains_Voiture3</organisation-name>
+    </Organisation>
+</kmad-model>

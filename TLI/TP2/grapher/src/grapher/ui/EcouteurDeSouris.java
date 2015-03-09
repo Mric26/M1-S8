@@ -1,33 +1,42 @@
 package grapher.ui;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 import javax.swing.event.MouseInputAdapter;
 
-import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 
 class EcouteurDeSouris extends MouseInputAdapter implements MouseWheelListener {
 	public Grapher graph;
-	int etat;
+	Etat etat;
 	int posx;
 	int posy;
-	boolean zoom= false;
+	boolean rectangle;
+	int pos2x;
+	int pos2y;
+	
+	enum Etat {
+		init,
+		clicGaucheP,
+		clicGaucheZoom5,
+		clicGaucheDrag,
+		molette,
+		clicDroitP,
+		clicDroitZoom5,
+		clicDroitZoomZone
+	};
 
     EcouteurDeSouris(Grapher g) {
     	graph = g;
-    	etat = 0;
+    	etat = Etat.init;
+    	rectangle = false;
     }
 
     public void mousePressed(MouseEvent e) {
@@ -36,16 +45,15 @@ class EcouteurDeSouris extends MouseInputAdapter implements MouseWheelListener {
     	//clic gauche
     	if(e.getButton() == MouseEvent.BUTTON1 ){
     		graph.setCursor(new Cursor(Cursor.MOVE_CURSOR));
-    		etat = 1;
+    		etat = Etat.clicGaucheP;
     	}
     	//clic molette
     	else if ( e.getButton() == MouseEvent.BUTTON2 ){
-    		etat = 2;
+    		etat = Etat.molette;
     	}
     	//clic droit
     	else if ( e.getButton() == MouseEvent.BUTTON3 ){
-    		graph.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
-    		etat = 3;
+    		etat = Etat.clicDroitP;
     	}
     	else{
     		System.out.println("Mais quel est ce bouton !!!!");
@@ -53,59 +61,77 @@ class EcouteurDeSouris extends MouseInputAdapter implements MouseWheelListener {
     }
     
     public void mouseDragged(MouseEvent e) {
-    	if( etat == 1 ){
-    		graph.translate( e.getX() - posx, e.getY() - posy );
+    	switch (etat) {
+		case clicGaucheP:
+			etat = Etat.clicGaucheDrag;
+			graph.translate( e.getX() - posx, e.getY() - posy );
     		posx = e.getX();
     		posy = e.getY();
-    	}
-    	else if ( etat == 2){
-    		Point p1 = new Point(posx,posy);
-    		graph.zoom(p1, e.getY()-posy );
-    	}
-    	else if ( etat == 3){
-    		zoom= true;
-    	}
-    	else{
-    		System.out.println("Autre !!!");
-    	}
-    	
+			break;
+		case clicGaucheDrag:
+			etat = Etat.clicGaucheDrag;
+			graph.translate( e.getX() - posx, e.getY() - posy );
+    		posx = e.getX();
+    		posy = e.getY();
+			break;
+		case clicDroitP :
+			etat = Etat.clicDroitZoomZone;
+			rectangle = true;
+			graph.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+			break;
+		case clicDroitZoomZone :
+			pos2x = e.getX();
+			pos2y = e.getY();
+			graph.repaint();
+			break;
+		default:
+			break;
+		}	
     }
     
-    public void mouseClicked(MouseEvent e) {
+    public void paint(Graphics2D g){
+    	if( rectangle ){
+    		int rectx = min(posx, pos2x);
+    		int recty = min(posy, pos2y);
+    		int rect2x = max(posx, pos2x);
+    		int rect2y = max(posy, pos2y);
+    		int width = rect2x - rectx;
+    		int height = rect2y - recty;
+			g.drawRect(rectx, recty, width, height);
+		}
     }
     
     public void mouseReleased(MouseEvent e) {
-    	if(etat == 1){ //zoom de 5%
-    		Dimension d= graph.getPreferredSize();
-    		int x, y;
-    		x= (int)((d.width -d.width*0.05)/2);
-    		y= (int)((d.height -d.height*0.05)/2);
-    		Point p1 = new Point(e.getX() -x,e.getY() -y);
-    		Point p2 = new Point(e.getX() +x,e.getY() +y);
+    	Point p1;
+    	Point p2;
+    	switch (etat) {
+		case clicGaucheP :
+			etat = Etat.clicGaucheZoom5;
+			p1 = new Point(e.getX(), e.getY());
+			graph.zoom(p1, 5);
+			break;
+		case molette :
+			break;
+		case clicDroitP:
+			etat = Etat.clicDroitZoom5;
+			p1 = new Point(e.getX(), e.getY());
+			graph.zoom(p1, -5);
+			break;
+		case clicDroitZoomZone :
+			rectangle = false;
+			p1 = new Point(posx,posy);
+    		p2 = new Point(e.getX(),e.getY());
     		graph.zoom(p1, p2);
-    	}else if(etat == 3){
-    		if (zoom){ //zoom selon une région rectangulaire
-    			Point p1 = new Point(posx,posy);
-        		Point p2 = new Point(e.getX(),e.getY());
-        		graph.zoom(p1, p2);
-        		zoom = false;
-    		}else{ //dézoom de 5%
-    			Dimension d= graph.getPreferredSize();
-        		int x, y;
-        		x= (int)((d.width +d.width*0.05)/2);
-        		y= (int)((d.height +d.height*0.05)/2);
-        		Point p1 = new Point(e.getX() -x,e.getY() -y);
-        		Point p2 = new Point(e.getX() +x,e.getY() +y);
-        		graph.zoom(p1, p2);
-    		}
-    		
-    	}
+			break;
+		default:
+			break;
+		}
     	graph.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }
     
     public void mouseWheelMoved(MouseWheelEvent e){
     	Point p1 = new Point(e.getX(), e.getY());
-		graph.zoom(p1, e.getUnitsToScroll());
+		graph.zoom(p1, -e.getUnitsToScroll());
     }
     
 }
