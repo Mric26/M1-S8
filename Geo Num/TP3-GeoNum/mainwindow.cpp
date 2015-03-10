@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -127,24 +128,11 @@ void MainWindow::courbeBezier(QPointF tabP[], int t){
 }
 
 double MainWindow::omega(int i, int k, double t, double tabP[]){
-//   if(tabP[i] < tabP[i+k]){
-//       return ((t -tabP[i])/(tabP[i+k] - tabP[i]));
-//   }else{
-//       return 0;
-//   }
-    return ((t - tabP[i])/(tabP[i+k] + tabP[i]));
-}
-
-double MainWindow::aine(int i, int k, double t, double tabP[]){
-//    if(k == 0){
-//        if( t >= tabP[i] && t <= tabP[i+1] ){
-//            return 1;
-//        }else{
-//            return 0;
-//        }
-//    }else{
-//        return (omega(i, k, t)*aine(i, k-1, t) + (1 - omega(i+1, k, t))*aine(i+1, k-1, t));
-//    }
+   if(tabP[i] < tabP[i+k]){
+       return ((t -tabP[i])/(tabP[i+k] - tabP[i]));
+   }else{
+       return 0;
+   }
 }
 
 int MainWindow::TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds){ //fonction retournant
@@ -161,8 +149,6 @@ int MainWindow::TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds){ //f
             j++;
         }
     }
-//    std::cout << "valeur de j: " << j << std::endl;
-//    std::cout << "valeur de t: " << t << std::endl;
     return j;
 }
 
@@ -175,45 +161,42 @@ QPointF MainWindow::PointBSplines(double t){
     int nbNoeuds = m + 1;
     double tabNoeuds[nbNoeuds];
     for (int i = 0; i < nbNoeuds; ++i) {
-        tabNoeuds[i] = float(i);
+        tabNoeuds[i] = double(i);
     }
 
     int j= TrouverJ(t, tabNoeuds, nbNoeuds);
-    if( j >=k && j <= (taille -1) ){ //calcul possible du point de la courbe
 
         //calcul du point final de la courbe
-        QPointF tabPointsInter[taille]; //recopie des points de contrôle en local
-        for (int i = 0; i < taille; ++i) {
-            tabPointsInter[i] = tab[i];
+        QPointF tabPointsInter[k+1]; //recopie des points de contrôle en local
+        for (int i = 0; i < k+1; ++i) {
+            tabPointsInter[i] = tab[j-k+i];
         }
         int x,y;
-        int nbSousPoints = taille-k;
+        int nbSousPoints = k+1;
         for (int r = 1; r < k+1; ++r) { //calcul des sous points
-            for (int i = 0; i < nbSousPoints; ++i) {
-                x = (1- omega(i,k-r,t, tabNoeuds))*tabPointsInter[i].x() + omega(i,k-r,t, tabNoeuds)*tabPointsInter[i+1].x();
-                y = (1- omega(i,k-r,t, tabNoeuds))*tabPointsInter[i].y() + omega(i,k-r,t, tabNoeuds)*tabPointsInter[i+1].y();
-                tabPointsInter[i] = *(new QPointF(x, y));
-                //std::cout << "x*" << (1- omega(i,k-r,t, tabNoeuds)) << " + y*" << omega(i,k-r,t, tabNoeuds) << std::endl;
-                nbSousPoints--;
+            for (int i = 1; i < nbSousPoints; ++i) {
+                double om = omega(j - k + r + i - 1,k-r+1,t, tabNoeuds);
+                x = (1- om)*tabPointsInter[i-1].x() + om*tabPointsInter[i].x();
+                y = (1- om)*tabPointsInter[i-1].y() + om*tabPointsInter[i].y();
+                tabPointsInter[i-1] = QPointF(x, y);
+                std::cout << "x*" << x << " + y*" << y << std::endl;
             }
+            nbSousPoints--;
         }
 
-        //std::cout << "valeur du point généré: " << tabPointsInter[0].x() << ";" << tabPointsInter[0].y() << std::endl;
+        std::cout << "valeur du point généré: " << tabPointsInter[0].x() << ";" << tabPointsInter[0].y() << std::endl;
         return tabPointsInter[0];
-
-    }else{
-
-    }
-
-
 }
 
 void MainWindow::AlgoBSplines(){
     QPointF result[50];
-    for (int t = 0; t < 50; t++) {
-        result[t] = PointBSplines(t);
+    int i= 0;
+    int k = ui->spinBoxDegre->value();
+    for (double t = k; t < taille; t+=0.1) {
+        result[i] = PointBSplines(t);
+        i++;
     }
 
-    dessinerCourbe(result, 50,(Qt::red));
+    dessinerCourbe(result, (taille - k)*10,(Qt::red));
 
 }

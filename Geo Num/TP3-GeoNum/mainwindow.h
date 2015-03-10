@@ -30,7 +30,6 @@ public:
     QPointF PointBSplines(double t);
     int TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds);
     double omega(int i, int k, double t, double tabP[]);
-    double aine(int i, int k, double t, double tabP[]);
 
 public slots:
     void lancerBezier();

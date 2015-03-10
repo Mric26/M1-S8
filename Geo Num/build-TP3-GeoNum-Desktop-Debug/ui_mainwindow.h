@@ -135,7 +135,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;300)(300;100)(500;300)(700;100)(900;300)(1100;100)", 0));
+        zonePoints->setPlainText(QApplication::translate("MainWindow", "(150;200)(100;100)(200;100)(300;150)(400;50)(500;200)", 0));
         Bezier->setText(QApplication::translate("MainWindow", "Bezier", 0));
         BSplines->setText(QApplication::translate("MainWindow", "BSplines", 0));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0));
