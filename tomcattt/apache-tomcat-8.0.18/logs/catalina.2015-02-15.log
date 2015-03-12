@@ -1,0 +1,31 @@
+15-Feb-2015 13:43:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.10.2
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_45-b18
+15-Feb-2015 13:43:40.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/vania/Code/VANIA_apache-tomcat-8.0.18
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/vania/Code/VANIA_apache-tomcat-8.0.18
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/vania/Code/VANIA_apache-tomcat-8.0.18/conf/logging.properties
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/Users/vania/Code/VANIA_apache-tomcat-8.0.18/endorsed
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/vania/Code/VANIA_apache-tomcat-8.0.18
+15-Feb-2015 13:43:40.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/vania/Code/VANIA_apache-tomcat-8.0.18
+15-Feb-2015 13:43:40.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/vania/Code/VANIA_apache-tomcat-8.0.18/temp
+15-Feb-2015 13:43:40.203 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/vania/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+15-Feb-2015 13:43:40.378 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+15-Feb-2015 13:43:40.407 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+15-Feb-2015 13:43:40.410 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+15-Feb-2015 13:43:40.412 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+15-Feb-2015 13:43:40.412 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 780 ms
+15-Feb-2015 13:43:40.440 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+15-Feb-2015 13:43:40.440 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+15-Feb-2015 13:43:40.449 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/VANIA_apache-tomcat-8.0.18/webapps/ROOT de l'application web
+15-Feb-2015 13:43:41.415 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [606] milliseconds.
+15-Feb-2015 13:43:41.440 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/VANIA_apache-tomcat-8.0.18/webapps/ROOT has finished in 991 ms
+15-Feb-2015 13:43:41.443 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+15-Feb-2015 13:43:41.449 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+15-Feb-2015 13:43:41.449 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1036 ms

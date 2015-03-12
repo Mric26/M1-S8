@@ -1,0 +1,247 @@
+13-Feb-2015 16:09:31.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+13-Feb-2015 16:09:31.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+13-Feb-2015 16:09:31.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+13-Feb-2015 16:09:31.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+13-Feb-2015 16:09:31.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.10.2
+13-Feb-2015 16:09:31.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+13-Feb-2015 16:09:31.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre
+13-Feb-2015 16:09:31.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_45-b18
+13-Feb-2015 16:09:31.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+13-Feb-2015 16:09:31.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:09:31.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:09:31.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/vania/Code/apache-tomcat-8.0.18/conf/logging.properties
+13-Feb-2015 16:09:31.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Feb-2015 16:09:31.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/Users/vania/Code/apache-tomcat-8.0.18/endorsed
+13-Feb-2015 16:09:31.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:09:31.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:09:31.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/vania/Code/apache-tomcat-8.0.18/temp
+13-Feb-2015 16:09:31.348 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/vania/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+13-Feb-2015 16:09:31.522 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:09:31.551 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+13-Feb-2015 16:09:31.554 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:09:31.557 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+13-Feb-2015 16:09:31.557 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 748 ms
+13-Feb-2015 16:09:31.582 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+13-Feb-2015 16:09:31.582 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+13-Feb-2015 16:09:31.592 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/docs de l'application web
+13-Feb-2015 16:09:31.907 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/docs has finished in 315 ms
+13-Feb-2015 16:09:31.908 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/examples de l'application web
+13-Feb-2015 16:09:32.286 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/examples has finished in 378 ms
+13-Feb-2015 16:09:32.286 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/host-manager de l'application web
+13-Feb-2015 16:09:32.312 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/host-manager has finished in 26 ms
+13-Feb-2015 16:09:32.312 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/manager de l'application web
+13-Feb-2015 16:09:32.337 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/manager has finished in 25 ms
+13-Feb-2015 16:09:32.337 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/ROOT de l'application web
+13-Feb-2015 16:09:32.354 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/ROOT has finished in 17 ms
+13-Feb-2015 16:09:32.357 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:09:32.362 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:09:32.363 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 805 ms
+13-Feb-2015 16:25:18.791 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+13-Feb-2015 16:25:18.791 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:25:18.845 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:25:18.896 INFO [main] org.apache.catalina.core.StandardService.stopInternal Arrêt du service Catalina
+13-Feb-2015 16:25:18.941 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:25:18.952 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:25:18.953 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:25:18.953 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:25:21.856 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+13-Feb-2015 16:25:21.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.10.2
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_45-b18
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:25:21.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/vania/Code/apache-tomcat-8.0.18/conf/logging.properties
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/Users/vania/Code/apache-tomcat-8.0.18/endorsed
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/vania/Code/apache-tomcat-8.0.18
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/vania/Code/apache-tomcat-8.0.18/temp
+13-Feb-2015 16:25:21.859 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/vania/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+13-Feb-2015 16:25:21.958 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:25:21.974 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+13-Feb-2015 16:25:21.976 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:25:21.979 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+13-Feb-2015 16:25:21.979 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 512 ms
+13-Feb-2015 16:25:22.001 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+13-Feb-2015 16:25:22.001 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+13-Feb-2015 16:25:22.009 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/docs de l'application web
+13-Feb-2015 16:25:22.304 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/docs has finished in 294 ms
+13-Feb-2015 16:25:22.304 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/examples de l'application web
+13-Feb-2015 16:25:22.650 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/examples has finished in 346 ms
+13-Feb-2015 16:25:22.650 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/host-manager de l'application web
+13-Feb-2015 16:25:22.673 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/host-manager has finished in 23 ms
+13-Feb-2015 16:25:22.673 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/manager de l'application web
+13-Feb-2015 16:25:22.706 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/manager has finished in 33 ms
+13-Feb-2015 16:25:22.706 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /Users/vania/Code/apache-tomcat-8.0.18/webapps/ROOT de l'application web
+13-Feb-2015 16:25:22.788 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/vania/Code/apache-tomcat-8.0.18/webapps/ROOT has finished in 82 ms
+13-Feb-2015 16:25:22.791 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+13-Feb-2015 16:25:22.796 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+13-Feb-2015 16:25:22.796 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 817 ms
+13-Feb-2015 16:32:13.506 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Repli (undeploy) de l'application web ayant pour chemin de contexte /host-manager
+13-Feb-2015 16:32:13.513 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [host-manager]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1608)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1543)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1495)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5410)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+
+13-Feb-2015 16:32:14.028 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Repli (undeploy) de l'application web ayant pour chemin de contexte /docs
+13-Feb-2015 16:32:14.034 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [docs]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1608)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1543)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1495)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5410)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+
+13-Feb-2015 16:32:14.538 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Repli (undeploy) de l'application web ayant pour chemin de contexte 
+13-Feb-2015 16:32:14.544 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [ROOT]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1608)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1543)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1495)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5410)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+
+13-Feb-2015 16:32:15.051 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Repli (undeploy) de l'application web ayant pour chemin de contexte /examples
+13-Feb-2015 16:32:15.058 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [examples]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1608)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1543)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1495)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5410)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+
+13-Feb-2015 16:32:15.565 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Repli (undeploy) de l'application web ayant pour chemin de contexte /manager
+13-Feb-2015 16:32:15.566 SEVERE [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.session.StandardManager.doUnload "IOException" lors de la sauvegarde de sessions persistantes: java.io.FileNotFoundException: /Users/vania/Code/apache-tomcat-8.0.18/work/Catalina/localhost/manager/SESSIONS.ser (No such file or directory)
+ java.io.FileNotFoundException: /Users/vania/Code/apache-tomcat-8.0.18/work/Catalina/localhost/manager/SESSIONS.ser (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:110)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:354)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:320)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:487)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5367)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+
+13-Feb-2015 16:32:15.566 SEVERE [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.session.StandardManager.stopInternal Exception au déchargement des sessions vers le stockage persistant (persistent storage)
+ java.io.FileNotFoundException: /Users/vania/Code/apache-tomcat-8.0.18/work/Catalina/localhost/manager/SESSIONS.ser (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:110)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:354)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:320)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:487)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5367)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+
+13-Feb-2015 16:32:15.571 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [manager]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1608)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1543)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1495)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5410)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:828)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1323)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1271)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1471)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1142)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1378)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1350)
+	at java.lang.Thread.run(Thread.java:744)
+

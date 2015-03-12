@@ -38,7 +38,7 @@
            </size>
           </property>
           <property name="plainText">
-           <string>(100;100)(100;300)(300;300)(300;100)</string>
+           <string>(100;100)(100;300)(300;300)(300;100)(100;100)</string>
           </property>
          </widget>
         </item>
@@ -46,6 +46,13 @@
       </item>
       <item>
        <layout class="QVBoxLayout" name="zoneBoutons">
+        <item>
+         <widget class="QPushButton" name="Courbe">
+          <property name="text">
+           <string>Courbe</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QPushButton" name="chaikin">
           <property name="text">
@@ -79,7 +86,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

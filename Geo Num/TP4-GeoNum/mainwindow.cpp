@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->ui->graphicsView->setScene(this->scene);
     this->setVisible(true);
 
+    QObject::connect( ui->Courbe, SIGNAL(clicked()), this, SLOT(courbe()));
     QObject::connect( ui->chaikin, SIGNAL(clicked()), this, SLOT(lancerChaikin()));
     QObject::connect( ui->QuatrePts, SIGNAL(clicked()), this, SLOT(lancer4Pts()));
     QObject::connect( ui->cornerCutting, SIGNAL(clicked()), this, SLOT(lancerCornerCutting()));
@@ -83,9 +84,18 @@ void MainWindow::dessinerCourbe(Qt::GlobalColor coul){
     }
 }
 
+void MainWindow::courbe(){
+    scene->clear();
+    dessinerGraphe();
+    tab.clear();
+    recupererPoints();
+    dessinerCourbe((Qt::black));
+}
+
 void MainWindow::lancerChaikin(){
         scene->clear();
         dessinerGraphe();
+        tab.clear();
         recupererPoints();
         dessinerCourbe((Qt::black));
         for (int i = 0; i < 5; ++i) {
@@ -110,9 +120,10 @@ void MainWindow::AlgoChaikin(){
 void MainWindow::lancer4Pts(){
     scene->clear();
     dessinerGraphe();
+    tab.clear();
     recupererPoints();
     dessinerCourbe((Qt::black));
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 8; ++i) {
         Algo4Pts();
     }
     dessinerCourbe(Qt::red);
@@ -121,21 +132,51 @@ void MainWindow::lancer4Pts(){
 void MainWindow::Algo4Pts(){
     QPointF x1, x2, x3, x4;
     std::vector<QPointF> tab2;
-        for (size_t i = 1; i < tab.size()-2; ++i) {
-            x1 = tab[i-1];
-            x2 = tab[i];
-            x3 = tab[i+1];
-            x4 = tab[i+2];
+        for (size_t i = 0; i < tab.size(); ++i) {
+            x1 = tab[(i-1)%tab.size()];
+            x2 = tab[(i)%tab.size()];
+            x3 = tab[(i+1)%tab.size()];
+            x4 = tab[(i+2)%tab.size()];
+            double x = ( 0.0625*( -x1.x() + 9*x2.x() + 9*x3.x() - x4.x() ) );
+            double y = ( 0.0625*( -x1.y() + 9*x2.y() + 9*x3.y() - x4.y() ) );
+            QPointF res = QPointF(x,y);
             tab2.push_back( x2 );
-            QPointF res = *(new QPointF());
-            res.setX( 0.0625*( -x1.x() + 9*x2.x() + 9*x3.x() - x4.x() ) );
-            res.setY( 0.0625*( -x1.y() + 9*x2.y() + 9*x3.y() - x4.y() ) );
             tab2.push_back( res );
         }
         tab = tab2;
 }
 
 void MainWindow::lancerCornerCutting(){
+    scene->clear();
+    dessinerGraphe();
+    tab.clear();
+    recupererPoints();
+    dessinerCourbe((Qt::black));
+    for (int i = 0; i < 10; ++i) {
+        AlgoCornerCutting();
+    }
+    dessinerCourbe(Qt::red);
+}
 
+void MainWindow::AlgoCornerCutting(){
+    double a = 0.34;
+    double b = 0.66;
+    QPointF x1, x2;
+    double x, y;
+    std::vector<QPointF> tab2;
+        for (size_t i = 0; i < tab.size(); ++i) {
+            x1 = tab[(i)%tab.size()];
+            x2 = tab[(i+1)%tab.size()];
+            double x = ( (1-a) * x1.x() + a * x2.x() );
+            double y = ( (1-a) * x1.y() + a * x2.y() );
+            QPointF res = QPointF(x,y);
+            x = ( (1-b) * x1.x() + b * x2.x() );
+            y = ( (1-b) * x1.y() + b * x2.y() );
+            QPointF res2 = QPointF(x,y);
+            tab2.push_back( res );
+            tab2.push_back( res2 );
+        }
+    tab.clear();
+    tab = tab2;
 }
 

@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:43:54 +0100] "GET / HTTP/1.1" 200 916
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:43:59 +0100] "GET /servlet/HelloWorldServlet HTTP/1.1" 200 95
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:44:02 +0100] "GET /src/HelloWorldServlet.java HTTP/1.1" 200 711
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:44:17 +0100] "GET /servlet/HelloToServlet HTTP/1.1" 200 326
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:44:24 +0100] "POST /servlet/HelloToServlet HTTP/1.1" 200 89
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:44:32 +0100] "GET /src/HelloToServlet.java HTTP/1.1" 200 1790
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:47:47 +0100] "GET /servlet/HelloWorldServlet HTTP/1.1" 200 95
+0:0:0:0:0:0:0:1 - - [15/Feb/2015:13:47:50 +0100] "GET /servlet/HelloToServlet HTTP/1.1" 200 326
