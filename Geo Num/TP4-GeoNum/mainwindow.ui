@@ -38,7 +38,7 @@
            </size>
           </property>
           <property name="plainText">
-           <string>(100;100)(100;300)(300;300)(300;100)(100;100)</string>
+           <string>(100;100)(100;300)(300;300)(300;100)</string>
           </property>
          </widget>
         </item>
@@ -63,7 +63,14 @@
         <item>
          <widget class="QPushButton" name="QuatrePts">
           <property name="text">
-           <string>shéma à 4pts</string>
+           <string>schéma à 4pts</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="quatreptgene">
+          <property name="text">
+           <string>4 pts gene</string>
           </property>
          </widget>
         </item>
@@ -86,7 +93,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

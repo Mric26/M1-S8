@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect( ui->Courbe, SIGNAL(clicked()), this, SLOT(courbe()));
     QObject::connect( ui->chaikin, SIGNAL(clicked()), this, SLOT(lancerChaikin()));
     QObject::connect( ui->QuatrePts, SIGNAL(clicked()), this, SLOT(lancer4Pts()));
+    QObject::connect( ui->quatreptgene, SIGNAL(clicked()), this, SLOT(lancer4PtsG()));
     QObject::connect( ui->cornerCutting, SIGNAL(clicked()), this, SLOT(lancerCornerCutting()));
 
     dessinerGraphe();
@@ -139,6 +140,36 @@ void MainWindow::Algo4Pts(){
             x4 = tab[(i+2)%tab.size()];
             double x = ( 0.0625*( -x1.x() + 9*x2.x() + 9*x3.x() - x4.x() ) );
             double y = ( 0.0625*( -x1.y() + 9*x2.y() + 9*x3.y() - x4.y() ) );
+            QPointF res = QPointF(x,y);
+            tab2.push_back( x2 );
+            tab2.push_back( res );
+        }
+        tab = tab2;
+}
+
+void MainWindow::lancer4PtsG(){
+    scene->clear();
+    dessinerGraphe();
+    tab.clear();
+    recupererPoints();
+    dessinerCourbe((Qt::black));
+    for (int i = 0; i < 8; ++i) {
+        Algo4PtsG();
+    }
+    dessinerCourbe(Qt::red);
+}
+
+void MainWindow::Algo4PtsG(){
+    double epsilone = 0.15;
+    QPointF x1, x2, x3, x4;
+    std::vector<QPointF> tab2;
+        for (size_t i = 0; i < tab.size(); ++i) {
+            x1 = tab[(i-1)%tab.size()];
+            x2 = tab[(i)%tab.size()];
+            x3 = tab[(i+1)%tab.size()];
+            x4 = tab[(i+2)%tab.size()];
+            double x = ( -(epsilone/8) * 0.5 * (x1.x() + x4.x()) + ((8 + epsilone)/8)*(x2.x() + x3.x()) * 0.5);//( -x1.x() + 9*x2.x() + 9*x3.x() - x4.x() ) );
+            double y = ( -(epsilone/8) * 0.5 * (x1.y() + x4.y()) + ((8 + epsilone)/8)*(x2.y() + x3.y()) * 0.5);
             QPointF res = QPointF(x,y);
             tab2.push_back( x2 );
             tab2.push_back( res );

@@ -40,6 +40,7 @@ public:
     QPushButton *Courbe;
     QPushButton *chaikin;
     QPushButton *QuatrePts;
+    QPushButton *quatreptgene;
     QPushButton *cornerCutting;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -96,6 +97,11 @@ public:
 
         zoneBoutons->addWidget(QuatrePts);
 
+        quatreptgene = new QPushButton(centralWidget);
+        quatreptgene->setObjectName(QStringLiteral("quatreptgene"));
+
+        zoneBoutons->addWidget(quatreptgene);
+
         cornerCutting = new QPushButton(centralWidget);
         cornerCutting->setObjectName(QStringLiteral("cornerCutting"));
 
@@ -110,7 +116,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1200, 19));
+        menuBar->setGeometry(QRect(0, 0, 1200, 20));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -130,10 +136,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100)(100;300)(300;300)(300;100)(100;100)", 0));
+        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100)(100;300)(300;300)(300;100)", 0));
         Courbe->setText(QApplication::translate("MainWindow", "Courbe", 0));
         chaikin->setText(QApplication::translate("MainWindow", "chaikin", 0));
-        QuatrePts->setText(QApplication::translate("MainWindow", "sh\303\251ma \303\240 4pts", 0));
+        QuatrePts->setText(QApplication::translate("MainWindow", "sch\303\251ma \303\240 4pts", 0));
+        quatreptgene->setText(QApplication::translate("MainWindow", "4 pts gene", 0));
         cornerCutting->setText(QApplication::translate("MainWindow", "corner-cutting", 0));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0));
     } // retranslateUi

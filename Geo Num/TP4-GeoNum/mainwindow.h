@@ -26,12 +26,14 @@ public:
 
     void AlgoChaikin();
     void Algo4Pts();
+    void Algo4PtsG();
     void AlgoCornerCutting();
 
 public slots:
     void courbe();
     void lancerChaikin();
     void lancer4Pts();
+    void lancer4PtsG();
     void lancerCornerCutting();
 
 
