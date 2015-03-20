@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setVisible(true);
 
     QObject::connect( ui->Courbe, SIGNAL(clicked()), this, SLOT(courbe()));
-    QObject::connect( ui->BsplinesUniformes, SIGNAL(clicked()), this, SLOT(lancer4PtsUniforme()));
+    QObject::connect( ui->Algo, SIGNAL(clicked()), this, SLOT(lancerAlgo()));
 
     dessinerGraphe();
 }
@@ -90,44 +90,50 @@ void MainWindow::courbe(){
     dessinerCourbe((Qt::black));
 }
 
-void MainWindow::lancer4PtsUniforme(){
+void MainWindow::lancerAlgo(){
         scene->clear();
         dessinerGraphe();
         tab.clear();
         recupererPoints();
         dessinerCourbe((Qt::black));
-        Algo4PtsUniforme();
+        Algo();
         dessinerCourbe(Qt::red);
 }
 
-void MainWindow::Algo4PtsUniforme(){
-    degre= ui->degre->value();
-    std::vector<QPointF> tab2;
-    QPointF x1, x2;
+void MainWindow::Algo(){
+}
 
-    for (int n = 0; n < 8; ++n) {
-        //dédoublement des points
-        for (int j = 0; j < tab.size(); ++j) {
-            x1 = tab[j];
-            tab2.push_back(x1);
-            tab2.push_back(x1);
-        }
-
-        tab= tab2;
-        tab2.clear();
-        for (int k = 0; k < degre; ++k) {
-            //moyennage
-            for (int i = 0; i < tab.size()-1; ++i) {
-               x1= tab[i];
-               x2= tab[i+1];
-               tab2.push_back(QPointF(0.5*(x1.x() + x2.x()) , 0.5*(x1.y() + x2.y())));
+void MainWindow::courbeBezier( QPointF tab[] ){
+    QPointF tabGlobal[10];
+    //sauvegarde
+    QPointF tabSauv[taille];
+    for (int l = 0; l < taille; ++l) {
+        tabSauv[l] = tab[l];
+    }
+    //calcul courbe
+    for (int k = 0; k < 10; ++k) {
+        for (int j = taille-1; j > 0; j--) {
+            for (int i = 0; i < j; ++i) {
+                float x = ((float)(tab[i+1].x()) - (float)(tab[i].x()))*(0.1*k);
+                float y = ((float)(tab[i+1].y()) - (float)(tab[i].y()))*(0.1*k);
+                tab[i] = *(new QPointF(tab[i].x()+x,tab[i].y()+y));
             }
-            tab= tab2;
-            tab2.clear();
+            //dessine pour t = 0.3
+            if( k == 3){
+//                dessinerCourbe(tab,j, (Qt::green));
+            }
+        }
+        //sauvegarde du point de la courbe
+        float x = ((float)(tab[1].x()) - (float)(tab[0].x()))*(0.1*k);
+        float y = ((float)(tab[1].y()) - (float)(tab[0].y()))*(0.1*k);
+        tabGlobal[k] = *(new QPointF(tab[0].x()+x,tab[0].y()+y));
+        //remise au tab des point initiaux
+        for (int l = 0; l < taille; ++l) {
+            tab[l] = tabSauv[l];
         }
     }
-
-
+    //dessin courbe de bezier
+//    dessinerCourbe(tabGlobal, 10, (Qt::red));
 }
 
 

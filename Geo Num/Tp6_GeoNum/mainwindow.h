@@ -24,11 +24,13 @@ public:
     int getTaille() const;
     void setTaille(int value);
 
-    void Algo4PtsUniforme();
+    void Algo();
+
+    void courbeBezier(QPointF tab[]);
 
 public slots:
     void courbe();
-    void lancer4PtsUniforme();
+    void lancerAlgo();
 
 private:
     Ui::MainWindow *ui;

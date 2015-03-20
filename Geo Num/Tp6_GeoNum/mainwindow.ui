@@ -43,7 +43,28 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="degre"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QSpinBox" name="spinBox">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="largeur">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -57,9 +78,9 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="BsplinesUniformes">
+         <widget class="QPushButton" name="Algo">
           <property name="text">
-           <string>Bsplines uniformes</string>
+           <string>Algo</string>
           </property>
          </widget>
         </item>
