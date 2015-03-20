@@ -1,31 +1,47 @@
 package grapher.ui;
 
+import grapher.fc.Function;
+import grapher.fc.FunctionFactory;
+
+import java.util.Vector;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JSplitPane;
 import javax.swing.SwingUtilities;
 
 
+@SuppressWarnings("serial")
 public class Main extends JFrame {
+	private DefaultListModel<Function> functions;
+
 	Main(String title, String[] expressions) {
 		super(title);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		Grapher grapher = new Grapher();		
+		//liste des fonctions
+		functions = new DefaultListModel<Function>();
 		for(String expression : expressions) {
-			grapher.add(expression);
+			functions.add(functions.size(), FunctionFactory.createFunction(expression) );
 		}
 		
-		Grapher grapher2 = new Grapher();		
-		for(String expression : expressions) {
-			grapher2.add(expression);
-		}
+		//grapher
+		Grapher grapher = new Grapher( functions );		
 		
-		JSplitPane jp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		//liste
+	    JList<Function> list = new JList<Function>(functions);
+	    EcouteurDeListe ecdl = new EcouteurDeListe();
+	    list.addListSelectionListener(ecdl);
+	    
+	    //split
+	    JSplitPane jp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		jp.setOneTouchExpandable(true);
-		jp.setDividerLocation(400);
-
+		jp.setDividerLocation(100);
+	    
+		//Ajouts
+		jp.add(list);
 		jp.add(grapher);
-		jp.add(grapher2);
 		add(jp);
 		pack();
 	}

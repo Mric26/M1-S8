@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import java.text.*;
 
 /**
  * A simple Servlet that requests parameters.
@@ -19,16 +20,18 @@ public class HappyBirthday extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>happy Brthday motherlover!</title>");
+        out.println("<title>Happy Birthday !</title>");
         out.println("</head>");
         out.println("<body>");
 	year = String.toInt(request.getParameter("year"));
 	month= String.toInt(request.getParameter("month"));
 	day= String.toInt(request.getParameter("days"));
-        if (firstName != null && lastName != null) {
+        if (year != null && month != null && days==null) {
             out.println("<h1>Hello " + firstName + " " + lastName + "!</h1>");
+	    
+
         } else {
-            out.println("Firstname and lastname parameters not specified, Please enter some.");
+           /* out.println("Firstname and lastname parameters not specified, Please enter some.");
             out.println("<P>");
             out.print("<form action=\"");
             out.print("HelloToServlet\" ");
@@ -40,7 +43,7 @@ public class HappyBirthday extends HttpServlet {
             out.println("<input type=text size=20 name=lastname>");
             out.println("<br>");
             out.println("<input type=submit>");
-            out.println("</form>");
+            out.println("</form>"); */
         }
 	out.println("<a href=\"index.html\">");
 	out.println("retour vers l'index");

@@ -5,14 +5,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.BasicStroke;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
 
 import java.awt.Point;
-
 import java.util.Vector;
 
 import static java.lang.Math.*;
-
 import grapher.fc.*;
 
 
@@ -32,7 +32,7 @@ public class Grapher extends JPanel {
 	protected double xmin, xmax;
 	protected double ymin, ymax;
 
-	protected Vector<Function> functions;
+	protected DefaultListModel<Function> functions;
 	
 	private EcouteurDeSouris ec;
 	
@@ -43,7 +43,17 @@ public class Grapher extends JPanel {
 		this.addMouseListener(ec);
 		this.addMouseMotionListener(ec);
 		this.addMouseWheelListener(ec);
-		functions = new Vector<Function>();
+		functions = new DefaultListModel<Function>();
+	}
+	
+	public Grapher( DefaultListModel<Function> functions2 ) {
+		xmin = -PI/2.; xmax = 3*PI/2;
+		ymin = -1.5;   ymax = 1.5;
+		ec = new EcouteurDeSouris(this);
+		this.addMouseListener(ec);
+		this.addMouseMotionListener(ec);
+		this.addMouseWheelListener(ec);
+		functions = functions2;
 	}
 	
 	public void add(String expression) {
@@ -51,7 +61,7 @@ public class Grapher extends JPanel {
 	}
 	
 	public void add(Function function) {
-		functions.add(function);
+		functions.add(functions.size(), function);
 		repaint();
 	}
 		
@@ -100,7 +110,8 @@ public class Grapher extends JPanel {
 			Xs[i] = X(x);
 		}
 		
-		for(Function f : functions) {
+		for (int j = 0; j < functions.size(); j++) {
+			Function f = functions.get(j);
 			// y values
 			int Ys[] = new int[N];
 			for(int i = 0; i < N; i++) {
@@ -109,6 +120,7 @@ public class Grapher extends JPanel {
 			
 			g2.drawPolyline(Xs, Ys, N);
 		}
+		
 
 		g2.setClip(null);
 

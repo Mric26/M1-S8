@@ -69,7 +69,6 @@ class EcouteurDeSouris extends MouseInputAdapter implements MouseWheelListener {
     		posy = e.getY();
 			break;
 		case clicGaucheDrag:
-			etat = Etat.clicGaucheDrag;
 			graph.translate( e.getX() - posx, e.getY() - posy );
     		posx = e.getX();
     		posy = e.getY();
@@ -127,6 +126,7 @@ class EcouteurDeSouris extends MouseInputAdapter implements MouseWheelListener {
 			break;
 		}
     	graph.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    	etat = Etat.init;
     }
     
     public void mouseWheelMoved(MouseWheelEvent e){
