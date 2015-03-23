@@ -16,12 +16,9 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="minimumSize">
-       <size>
-        <width>500</width>
-        <height>400</height>
-       </size>
+     <widget class="QTextEdit" name="zoneSortie">
+      <property name="textInteractionFlags">
+       <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
       </property>
      </widget>
     </item>
@@ -70,13 +67,6 @@
       </item>
       <item>
        <layout class="QVBoxLayout" name="zoneBoutons">
-        <item>
-         <widget class="QPushButton" name="Courbe">
-          <property name="text">
-           <string>Courbe</string>
-          </property>
-         </widget>
-        </item>
         <item>
          <widget class="QPushButton" name="Algo">
           <property name="text">

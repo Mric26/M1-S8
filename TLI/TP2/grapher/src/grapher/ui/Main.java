@@ -3,12 +3,15 @@ package grapher.ui;
 import grapher.fc.Function;
 import grapher.fc.FunctionFactory;
 
-import java.util.Vector;
+import java.awt.BorderLayout;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.JToolBar;
 import javax.swing.SwingUtilities;
 
 
@@ -30,9 +33,25 @@ public class Main extends JFrame {
 		Grapher grapher = new Grapher( functions );		
 		
 		//liste
-	    JList<Function> list = new JList<Function>(functions);
-	    EcouteurDeListe ecdl = new EcouteurDeListe();
+	    JList<Function> list = new JList<Function>( functions );
+	    EcouteurDeListe ecdl = new EcouteurDeListe( list, grapher );
 	    list.addListSelectionListener(ecdl);
+	    
+	    //toolbar ajout/supp
+	    JButton b1 = new JButton("+");
+	    b1.addActionListener( new AjouterFonctionListe(functions, grapher) );
+	    JButton b2 = new JButton("-");
+	    b2.addActionListener( new SupprimerFonctionListe(functions, list, grapher) );
+	    JToolBar barre = new JToolBar();
+	    barre.add( b1 );
+	    barre.add( b2 );
+	    barre.setFloatable(false);
+	    
+	    //panel
+	    JPanel panel = new JPanel();
+	    panel.setLayout( new BorderLayout() );
+	    panel.add( list );
+	    panel.add( barre, BorderLayout.SOUTH );
 	    
 	    //split
 	    JSplitPane jp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -40,7 +59,7 @@ public class Main extends JFrame {
 		jp.setDividerLocation(100);
 	    
 		//Ajouts
-		jp.add(list);
+		jp.add(panel);
 		jp.add(grapher);
 		add(jp);
 		pack();
@@ -54,4 +73,5 @@ public class Main extends JFrame {
 			}
 		});
 	}
+
 }
