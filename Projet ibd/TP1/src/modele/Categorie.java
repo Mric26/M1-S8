@@ -3,9 +3,9 @@ package modele;
 public class Categorie {
 
 	private String categorie;
-	private float prix;
+	private double prix;
 	
-	public Categorie (String c, float p) {
+	public Categorie (String c, double p) {
 		this.categorie = c;
 		this.prix = p;
 	}
@@ -14,7 +14,7 @@ public class Categorie {
 		return this.categorie;
 	}
 	
-	public float getPrix () {
+	public double getPrix () {
 		return this.prix;
 	}
 	
@@ -22,7 +22,7 @@ public class Categorie {
 		this.categorie = c;
 	}
 	
-	public void setPrix (float p) {
+	public void setPrix (double p) {
 		this.prix = p;
 	}
 }

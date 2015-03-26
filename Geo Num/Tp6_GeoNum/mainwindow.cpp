@@ -9,28 +9,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->scene = new QGraphicsScene(this);
-    this->ui->graphicsView->setScene(this->scene);
     this->setVisible(true);
 
-    QObject::connect( ui->Courbe, SIGNAL(clicked()), this, SLOT(courbe()));
     QObject::connect( ui->Algo, SIGNAL(clicked()), this, SLOT(lancerAlgo()));
-
-    dessinerGraphe();
 }
 
 MainWindow::~MainWindow(){
-    delete scene;
     delete ui;
 }
 
-int MainWindow::getTaille() const{
-    return taille;
-}
 
-void MainWindow::setTaille(int value){
-    taille = value;
-}
+
 
 void MainWindow::recupererPoints(){ //format du texte: (x1;y1;z1)(x2;y2;z2)...(xn;yn;zn)
     QString contenu = ui->zonePoints->toPlainText();
@@ -75,32 +64,6 @@ void MainWindow::recupererPoints(){ //format du texte: (x1;y1;z1)(x2;y2;z2)...(x
     }
 }
 
-void MainWindow::dessinerGraphe(){
-    QPen YBrush(Qt::black);
-    int height = ui->graphicsView->height();
-    int width = ui->graphicsView->width();
-
-    scene->addLine(5, 5, 5, height-5, YBrush);
-    scene->addLine(5, height-5, width-5, height-5, YBrush);
-}
-
-void MainWindow::dessinerCourbe(Qt::GlobalColor coul){
-    int bas = ui->graphicsView->height()-5;
-    for (size_t i = 0; i < tab.size()-1; ++i) {
-        QPointF p1 = tab[i];
-        QPointF p2 = tab[i+1];
-        scene->addLine(5+p1.x(), bas-p1.y(), 5+p2.x(), bas-p2.y(), QPen(coul));
-    }
-}
-
-void MainWindow::courbe(){
-    scene->clear();
-    dessinerGraphe();
-    tab.clear();
-    recupererPoints();
-    afficherMatrice();
-}
-
 void MainWindow::afficherMatrice(){
     for (int i = 0; i < nbLignes; ++i) {
         for (int j = 0; j < nbCols; ++j) {
@@ -112,19 +75,26 @@ void MainWindow::afficherMatrice(){
 
 void MainWindow::lancerAlgo(){
         matricePts.clear();
-        scene->clear();
-        dessinerGraphe();
         tab.clear();
         recupererPoints();
-        dessinerCourbe((Qt::black));
         Algo();
-        dessinerCourbe(Qt::red);
 }
+int MainWindow::getTaille() const
+{
+    return taille;
+}
+
+void MainWindow::setTaille(int value)
+{
+    taille = value;
+}
+
 
 void MainWindow::Algo(){
+    afficherMatrice();
 }
 
-void MainWindow::courbeBezier( QPointF tab[] ){
+void MainWindow::courbeBezier( vector<QPointF> tab ){
     QPointF tabGlobal[10];
     //sauvegarde
     QPointF tabSauv[taille];
@@ -139,10 +109,6 @@ void MainWindow::courbeBezier( QPointF tab[] ){
                 float y = ((float)(tab[i+1].y()) - (float)(tab[i].y()))*(0.1*k);
                 tab[i] = *(new QPointF(tab[i].x()+x,tab[i].y()+y));
             }
-            //dessine pour t = 0.3
-            if( k == 3){
-//                dessinerCourbe(tab,j, (Qt::green));
-            }
         }
         //sauvegarde du point de la courbe
         float x = ((float)(tab[1].x()) - (float)(tab[0].x()))*(0.1*k);
@@ -153,8 +119,17 @@ void MainWindow::courbeBezier( QPointF tab[] ){
             tab[l] = tabSauv[l];
         }
     }
-    //dessin courbe de bezier
-//    dessinerCourbe(tabGlobal, 10, (Qt::red));
+    //resultats
+    for (int k = 0; k < 10; ++k) {
+        QString p = pointToString(k, tabGlobal[k] );
+        ui->zoneSortie->setText( p );
+    }
+}
+
+QString MainWindow::pointToString( int indice, QPointF p ){
+    string temp = "P" + to_string(indice) + " : " + to_string(p.x()) + " ; " + to_string(p.y()) + " )";
+    QString res = "Yolo \n";
+    return res;
 }
 
 

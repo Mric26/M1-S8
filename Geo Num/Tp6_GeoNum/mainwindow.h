@@ -19,25 +19,23 @@ public:
     ~MainWindow();
 
     void recupererPoints();
-    void dessinerGraphe();
-    void dessinerCourbe(Qt::GlobalColor coul);
+
+    void Algo();
+
+    void courbeBezier( std::vector<QPointF> tab );
+
+    QString pointToString(int indice, QPointF p );
+
+    void afficherMatrice();
 
     int getTaille() const;
     void setTaille(int value);
 
-    void Algo();
-
-    void courbeBezier(QPointF tab[]);
-
-    void afficherMatrice();
-
 public slots:
-    void courbe();
     void lancerAlgo();
 
 private:
     Ui::MainWindow *ui;
-    QGraphicsScene *scene;
     std::vector<QPointF> tab;
     int taille;
     int degre;

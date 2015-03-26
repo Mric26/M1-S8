@@ -13,8 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QFormLayout>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -22,9 +20,9 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -36,23 +34,17 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_2;
-    QGraphicsView *graphicsView;
+    QTextEdit *zoneSortie;
     QHBoxLayout *horizontalLayout;
-    QFormLayout *formLayout;
+    QVBoxLayout *verticalLayout;
+    QPlainTextEdit *zonePoints;
     QHBoxLayout *horizontalLayout_2;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_3;
     QLabel *label;
     QSpinBox *lignes;
-    QSpacerItem *horizontalSpacer;
     QLabel *label_2;
     QSpinBox *colonnes;
-    QSpacerItem *horizontalSpacer_2;
-    QPlainTextEdit *zonePoints;
-    QFormLayout *formLayout_2;
-    QPushButton *Courbe;
+    QVBoxLayout *zoneBoutons;
     QPushButton *Algo;
-    QFormLayout *formLayout_3;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -69,98 +61,68 @@ public:
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        graphicsView = new QGraphicsView(centralWidget);
-        graphicsView->setObjectName(QStringLiteral("graphicsView"));
-        graphicsView->setMinimumSize(QSize(500, 400));
+        zoneSortie = new QTextEdit(centralWidget);
+        zoneSortie->setObjectName(QStringLiteral("zoneSortie"));
+        zoneSortie->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
-        verticalLayout_2->addWidget(graphicsView);
+        verticalLayout_2->addWidget(zoneSortie);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        formLayout = new QFormLayout();
-        formLayout->setSpacing(6);
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        zonePoints = new QPlainTextEdit(centralWidget);
+        zonePoints->setObjectName(QStringLiteral("zonePoints"));
+        zonePoints->setMaximumSize(QSize(1000000, 50));
+
+        verticalLayout->addWidget(zonePoints);
+
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_3);
-
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
 
-        horizontalLayout_3->addWidget(label);
+        horizontalLayout_2->addWidget(label);
 
         lignes = new QSpinBox(centralWidget);
         lignes->setObjectName(QStringLiteral("lignes"));
         lignes->setMaximumSize(QSize(50, 25));
 
-        horizontalLayout_3->addWidget(lignes);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer);
+        horizontalLayout_2->addWidget(lignes);
 
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        horizontalLayout_3->addWidget(label_2);
+        horizontalLayout_2->addWidget(label_2);
 
         colonnes = new QSpinBox(centralWidget);
         colonnes->setObjectName(QStringLiteral("colonnes"));
         colonnes->setMaximumSize(QSize(50, 25));
 
-        horizontalLayout_3->addWidget(colonnes);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_2);
+        horizontalLayout_2->addWidget(colonnes);
 
 
-        horizontalLayout_2->addLayout(horizontalLayout_3);
+        verticalLayout->addLayout(horizontalLayout_2);
 
 
-        formLayout->setLayout(1, QFormLayout::LabelRole, horizontalLayout_2);
+        horizontalLayout->addLayout(verticalLayout);
 
-        zonePoints = new QPlainTextEdit(centralWidget);
-        zonePoints->setObjectName(QStringLiteral("zonePoints"));
-        zonePoints->setMaximumSize(QSize(1000000, 50));
-
-        formLayout->setWidget(0, QFormLayout::SpanningRole, zonePoints);
-
-
-        horizontalLayout->addLayout(formLayout);
-
-        formLayout_2 = new QFormLayout();
-        formLayout_2->setSpacing(6);
-        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
-        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        Courbe = new QPushButton(centralWidget);
-        Courbe->setObjectName(QStringLiteral("Courbe"));
-
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, Courbe);
-
+        zoneBoutons = new QVBoxLayout();
+        zoneBoutons->setSpacing(6);
+        zoneBoutons->setObjectName(QStringLiteral("zoneBoutons"));
         Algo = new QPushButton(centralWidget);
         Algo->setObjectName(QStringLiteral("Algo"));
 
-        formLayout_2->setWidget(1, QFormLayout::LabelRole, Algo);
+        zoneBoutons->addWidget(Algo);
 
 
-        horizontalLayout->addLayout(formLayout_2);
+        horizontalLayout->addLayout(zoneBoutons);
 
 
         verticalLayout_2->addLayout(horizontalLayout);
-
-        formLayout_3 = new QFormLayout();
-        formLayout_3->setSpacing(6);
-        formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
-
-        verticalLayout_2->addLayout(formLayout_3);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -185,10 +147,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        label->setText(QApplication::translate("MainWindow", "nombre de lignes:", 0));
-        label_2->setText(QApplication::translate("MainWindow", "nombre de colonnes:", 0));
-        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;200;100)(100;200;300)(300;350;300)(300;200;100)", 0));
-        Courbe->setText(QApplication::translate("MainWindow", "Courbe", 0));
+        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100;100)(100;200;300)(300;350;300)(300;200;100)", 0));
+        label->setText(QApplication::translate("MainWindow", "                                                                                           nombre de lignes", 0));
+        label_2->setText(QApplication::translate("MainWindow", "                                                                                     nombre de colonnes", 0));
         Algo->setText(QApplication::translate("MainWindow", "Algo", 0));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0));
     } // retranslateUi
