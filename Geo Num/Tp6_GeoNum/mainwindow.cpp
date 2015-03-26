@@ -32,12 +32,15 @@ void MainWindow::setTaille(int value){
     taille = value;
 }
 
-void MainWindow::recupererPoints(){ //format du texte: (x1;y1)(x2;y2)...(xn;yn)
+void MainWindow::recupererPoints(){ //format du texte: (x1;y1;z1)(x2;y2;z2)...(xn;yn;zn)
     QString contenu = ui->zonePoints->toPlainText();
-    QPointF tabPoints[50];
+    nbCols = ui->colonnes->value();
+    nbLignes = ui->lignes->value();
+    QVector3D tabPoints[nbCols*nbLignes];
     int sizeText = contenu.size();
     int nbPoints = 0;
     QString num= NULL;
+    bool deuxiemeValeur= false;
 
     for (int i = 0; i < sizeText; ++i) {
         QChar c = contenu.at(i); //récupération du caractère
@@ -46,22 +49,30 @@ void MainWindow::recupererPoints(){ //format du texte: (x1;y1)(x2;y2)...(xn;yn)
         }else{
             if(c ==  '('){
                 nbPoints++;
-                tabPoints[nbPoints-1]= *(new QPointF(0,0));
-            }else if(c == (QChar)(';')){ //insèrer la nouvelle valeur X dans le tableau de points et réinitialiser la valeur de 'num'
-                tabPoints[nbPoints-1].setX(num.toFloat());
-                num = "";
-            }else if(c == (QChar)(')')){ //insèrer la nouvelle valeur Y dans le tableau de points et réinitialiser la valeur de 'num'
-                tabPoints[nbPoints-1].setY(num.toFloat());
+                tabPoints[nbPoints-1]= *(new QVector3D(0,0,0));
+                deuxiemeValeur= false;
+            }else if(c == (QChar)(';')){ //insèrer la nouvelle valeur X ou Y dans le tableau de points et réinitialiser la valeur de 'num'
+                if(!deuxiemeValeur){ //on enregistre la premiere valeur
+                    tabPoints[nbPoints-1].setX(num.toFloat());
+                    num = "";
+                    deuxiemeValeur = true;
+                }else{ //on enregistre la deuxième valeur
+                    tabPoints[nbPoints-1].setY(num.toFloat());
+                    num = "";
+                }
+            }else if(c == (QChar)(')')){ //insèrer la nouvelle valeur Z dans le tableau de points et réinitialiser la valeur de 'num'
+                tabPoints[nbPoints-1].setZ(num.toFloat());
                 num = "";
             }
         }
     }
 
-    taille = nbPoints;
-    for (int k = 0; k < taille; ++k) {
-        tab.push_back(tabPoints[k]);
+    for (int L = 0; L < nbLignes; ++L) {
+        matricePts.push_back(std::vector<QVector3D>());
+         for (int k = 0; k < nbCols; ++k){
+            matricePts[L].push_back(tabPoints[ L*nbCols + k]);
+        }
     }
-
 }
 
 void MainWindow::dessinerGraphe(){
@@ -87,10 +98,20 @@ void MainWindow::courbe(){
     dessinerGraphe();
     tab.clear();
     recupererPoints();
-    dessinerCourbe((Qt::black));
+    afficherMatrice();
+}
+
+void MainWindow::afficherMatrice(){
+    for (int i = 0; i < nbLignes; ++i) {
+        for (int j = 0; j < nbCols; ++j) {
+            std::cout << "(" << matricePts[i].at(j).x() << ";" << matricePts[i].at(j).y() << ";" << matricePts[i].at(j).z() << ") ";
+        }
+        std::cout << std::endl;
+    }
 }
 
 void MainWindow::lancerAlgo(){
+        matricePts.clear();
         scene->clear();
         dessinerGraphe();
         tab.clear();

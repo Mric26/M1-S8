@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QPen>
+#include <QVector3D>
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,8 @@ public:
 
     void courbeBezier(QPointF tab[]);
 
+    void afficherMatrice();
+
 public slots:
     void courbe();
     void lancerAlgo();
@@ -38,6 +41,8 @@ private:
     std::vector<QPointF> tab;
     int taille;
     int degre;
+    int nbCols, nbLignes;
+    std::vector<std::vector<QVector3D> > matricePts;
 };
 
 #endif // MAINWINDOW_H
