@@ -6,6 +6,8 @@ import java.util.Vector;
 import utils.Constantes;
 import utils.Utilitaires;
 
+
+
 import jus.util.IO;
 import modele.Utilisateur;
 import modele.Categorie;
@@ -28,10 +30,7 @@ public class Theatre {
 		choix.add("Quitter");
 		choix.add("Consulter les categories tarifaires ");
 		choix.add("Ajouter une categorie tarifaire ");
-		choix.add("Retirer une categorie tarifaire ");
-		choix.add("Modifier le nom d'une categorie tarifaire ");
-		choix.add("Modifier le prix d'une categorie tarifaire ");
-		choix.add("Modifier le nom et le prix d'une categorie tarifaire ");
+		choix.add("Modifier une categorie tarifaire ");
 		choix.add("Executer une requete");
 		return choix;
 	}
@@ -55,17 +54,11 @@ public class Theatre {
 						/* consulter les categories */
 						Utilitaires.AfficherCategories(user);
 					} else if (choix == 2) {
-						Utilitaires.AjouterCategories(user);
+						IO.afficherln ("programme a completer");
 					} else if (choix == 3) {
-						Utilitaires.RetirerCategories(user);	
-					} else if (choix == 4) {
-						Utilitaires.ModifierNomCategories(user);
-					}else if (choix == 5) {
-						Utilitaires.ModifierPrixCategories(user);
-					}else if (choix == 6) {
-						Utilitaires.ModifierNomPrixCategories(user);
-					}else if (choix == 7) {
-						Utilitaires.ExecuterRequete();
+						IO.afficherln ("programme a completer");
+					}else if (choix == 4) {
+						IO.afficherln ("programme a completer");
 					}
 
 				} while (choix != 0);
