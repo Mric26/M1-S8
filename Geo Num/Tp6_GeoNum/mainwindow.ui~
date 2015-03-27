@@ -42,6 +42,9 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
+<<<<<<< HEAD
+           <widget class="QSpinBox" name="hauteur">
+=======
            <widget class="QLabel" name="label">
             <property name="text">
              <string>                                                                                           nombre de lignes</string>
@@ -50,6 +53,7 @@
           </item>
           <item>
            <widget class="QSpinBox" name="lignes">
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
             <property name="maximumSize">
              <size>
               <width>50</width>

@@ -1,7 +1,11 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
+<<<<<<< HEAD
 ** Created by: Qt User Interface Compiler version 5.3.0
+=======
+** Created by: Qt User Interface Compiler version 5.2.1
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -15,6 +19,10 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+<<<<<<< HEAD
+=======
+#include <QtWidgets/QLabel>
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
@@ -38,8 +46,15 @@ public:
     QVBoxLayout *verticalLayout;
     QPlainTextEdit *zonePoints;
     QHBoxLayout *horizontalLayout_2;
+<<<<<<< HEAD
     QSpinBox *hauteur;
     QSpinBox *largeur;
+=======
+    QLabel *label;
+    QSpinBox *lignes;
+    QLabel *label_2;
+    QSpinBox *colonnes;
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
     QVBoxLayout *zoneBoutons;
     QPushButton *Algo;
     QMenuBar *menuBar;
@@ -79,6 +94,7 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+<<<<<<< HEAD
         hauteur = new QSpinBox(centralWidget);
         hauteur->setObjectName(QStringLiteral("hauteur"));
         hauteur->setMaximumSize(QSize(50, 25));
@@ -92,6 +108,29 @@ public:
         largeur->setValue(4);
 
         horizontalLayout_2->addWidget(largeur);
+=======
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        lignes = new QSpinBox(centralWidget);
+        lignes->setObjectName(QStringLiteral("lignes"));
+        lignes->setMaximumSize(QSize(50, 25));
+
+        horizontalLayout_2->addWidget(lignes);
+
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        horizontalLayout_2->addWidget(label_2);
+
+        colonnes = new QSpinBox(centralWidget);
+        colonnes->setObjectName(QStringLiteral("colonnes"));
+        colonnes->setMaximumSize(QSize(50, 25));
+
+        horizontalLayout_2->addWidget(colonnes);
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -116,7 +155,11 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
+<<<<<<< HEAD
         menuBar->setGeometry(QRect(0, 0, 1200, 19));
+=======
+        menuBar->setGeometry(QRect(0, 0, 1200, 20));
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -136,7 +179,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+<<<<<<< HEAD
         zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100)(100;300)(300;300)(300;100)", 0));
+=======
+        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100;100)(100;200;300)(300;350;300)(300;200;100)", 0));
+        label->setText(QApplication::translate("MainWindow", "                                                                                           nombre de lignes", 0));
+        label_2->setText(QApplication::translate("MainWindow", "                                                                                     nombre de colonnes", 0));
+>>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
         Algo->setText(QApplication::translate("MainWindow", "Algo", 0));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0));
     } // retranslateUi

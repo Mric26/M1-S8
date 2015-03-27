@@ -28,6 +28,11 @@ public:
     QString pointToString2(QVector3D p);
     void ecrireFichier(vector<QVector3D> tab);
 
+    void afficherMatrice();
+
+    int getTaille() const;
+    void setTaille(int value);
+
 public slots:
     void lancerAlgo();
 
@@ -36,6 +41,8 @@ private:
     std::vector<QPointF> tab;
     int taille;
     int degre;
+    int nbCols, nbLignes;
+    std::vector<std::vector<QVector3D> > matricePts;
 };
 
 #endif // MAINWINDOW_H
