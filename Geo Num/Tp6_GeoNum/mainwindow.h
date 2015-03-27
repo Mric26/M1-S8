@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QPen>
+#include <QVector3D>
+#include <fstream>
+
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -18,12 +22,11 @@ public:
     ~MainWindow();
 
     void recupererPoints();
-
     void Algo();
-
-    void courbeBezier( std::vector<QPointF> tab );
-
-    QString pointToString(int indice, QPointF p );
+    void courbeBezier( vector<QVector3D> tab );
+    QString pointToString(int indice1, int indice2, QVector3D p );
+    QString pointToString2(QVector3D p);
+    void ecrireFichier(vector<QVector3D> tab);
 
 public slots:
     void lancerAlgo();
