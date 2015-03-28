@@ -22,11 +22,15 @@ public:
     ~MainWindow();
 
     void recupererPoints();
-    void Algo();
-    void courbeBezier( vector<QVector3D> tab );
-    QString pointToString(int indice1, int indice2, QVector3D p );
-    QString pointToString2(QVector3D p);
-    void ecrireFichier(vector<QVector3D> tab);
+
+    double omega(int i, int k, double t, double tabP[]);
+    int TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds);
+
+    QVector3D PointBSplines(vector<QVector3D> tab, double t, int k);
+
+
+    QString pointToString(QVector3D p);
+    void ecrireFichier();
 
     void afficherMatrice();
 
@@ -34,15 +38,15 @@ public:
     void setTaille(int value);
 
 public slots:
-    void lancerAlgo();
+    void AlgoBSplines();
 
 private:
     Ui::MainWindow *ui;
-    std::vector<QPointF> tab;
     int taille;
     int degre;
     int nbCols, nbLignes;
     std::vector<std::vector<QVector3D> > matricePts;
+    std::vector<std::vector<QVector3D> > result;
 };
 
 #endif // MAINWINDOW_H

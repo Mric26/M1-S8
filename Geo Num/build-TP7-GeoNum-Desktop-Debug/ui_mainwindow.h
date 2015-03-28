@@ -1,11 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-<<<<<<< HEAD
-** Created by: Qt User Interface Compiler version 5.3.0
-=======
 ** Created by: Qt User Interface Compiler version 5.2.1
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -19,10 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-<<<<<<< HEAD
-=======
 #include <QtWidgets/QLabel>
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
@@ -46,15 +39,14 @@ public:
     QVBoxLayout *verticalLayout;
     QPlainTextEdit *zonePoints;
     QHBoxLayout *horizontalLayout_2;
-<<<<<<< HEAD
-    QSpinBox *hauteur;
-    QSpinBox *largeur;
-=======
+    QLabel *label_3;
+    QSpinBox *degK;
+    QLabel *label_4;
+    QSpinBox *degL;
     QLabel *label;
     QSpinBox *lignes;
     QLabel *label_2;
     QSpinBox *colonnes;
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
     QVBoxLayout *zoneBoutons;
     QPushButton *Algo;
     QMenuBar *menuBar;
@@ -94,21 +86,30 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-<<<<<<< HEAD
-        hauteur = new QSpinBox(centralWidget);
-        hauteur->setObjectName(QStringLiteral("hauteur"));
-        hauteur->setMaximumSize(QSize(50, 25));
-        hauteur->setValue(3);
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
 
-        horizontalLayout_2->addWidget(hauteur);
+        horizontalLayout_2->addWidget(label_3);
 
-        largeur = new QSpinBox(centralWidget);
-        largeur->setObjectName(QStringLiteral("largeur"));
-        largeur->setMaximumSize(QSize(50, 25));
-        largeur->setValue(4);
+        degK = new QSpinBox(centralWidget);
+        degK->setObjectName(QStringLiteral("degK"));
+        degK->setMaximum(10);
+        degK->setValue(2);
 
-        horizontalLayout_2->addWidget(largeur);
-=======
+        horizontalLayout_2->addWidget(degK);
+
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        horizontalLayout_2->addWidget(label_4);
+
+        degL = new QSpinBox(centralWidget);
+        degL->setObjectName(QStringLiteral("degL"));
+        degL->setMaximum(10);
+        degL->setValue(3);
+
+        horizontalLayout_2->addWidget(degL);
+
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
 
@@ -117,6 +118,7 @@ public:
         lignes = new QSpinBox(centralWidget);
         lignes->setObjectName(QStringLiteral("lignes"));
         lignes->setMaximumSize(QSize(50, 25));
+        lignes->setValue(6);
 
         horizontalLayout_2->addWidget(lignes);
 
@@ -128,9 +130,9 @@ public:
         colonnes = new QSpinBox(centralWidget);
         colonnes->setObjectName(QStringLiteral("colonnes"));
         colonnes->setMaximumSize(QSize(50, 25));
+        colonnes->setValue(6);
 
         horizontalLayout_2->addWidget(colonnes);
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -155,11 +157,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-<<<<<<< HEAD
-        menuBar->setGeometry(QRect(0, 0, 1200, 19));
-=======
         menuBar->setGeometry(QRect(0, 0, 1200, 20));
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -179,13 +177,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-<<<<<<< HEAD
-        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100)(100;300)(300;300)(300;100)", 0));
-=======
-        zonePoints->setPlainText(QApplication::translate("MainWindow", "(100;100;100)(100;200;300)(300;350;300)(300;200;100)", 0));
-        label->setText(QApplication::translate("MainWindow", "                                                                                           nombre de lignes", 0));
-        label_2->setText(QApplication::translate("MainWindow", "                                                                                     nombre de colonnes", 0));
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
+        zonePoints->setPlainText(QApplication::translate("MainWindow", "(0;0;0)(2;0;0)(5;0;0)(7;0;0)(10;0;0)(12;0;0)(0;2;0)(2;2;1)(5;2;2)(7;2;3)(10;2;1)(12;2;0)(0;5;0)(2;5;1)(5;5;2)(7;5;3)(10;5;1)(12;5;0)(0;7;0)(2;7;-1)(5;7;-2)(7;7;-3)(10;7;-1)(12;7;0)(0;10;0)(2;10;-1)(5;10;-2)(7;10;-3)(10;10;-1)(12;10;0)(0;12;0)(2;12;0)(5;12;0)(7;12;0)(10;12;0)(12;12;0)", 0));
+        label_3->setText(QApplication::translate("MainWindow", "degr\303\251 K", 0));
+        label_4->setText(QApplication::translate("MainWindow", "       degr\303\251 L", 0));
+        label->setText(QApplication::translate("MainWindow", "  nombre de lignes", 0));
+        label_2->setText(QApplication::translate("MainWindow", " nombre de colonnes", 0));
         Algo->setText(QApplication::translate("MainWindow", "Algo", 0));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0));
     } // retranslateUi

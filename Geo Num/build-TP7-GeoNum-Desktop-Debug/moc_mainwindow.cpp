@@ -1,26 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-<<<<<<< HEAD
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.0)
-=======
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.2.1)
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Tp6_GeoNum/mainwindow.h"
+#include "../TP7-GeoNum/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-<<<<<<< HEAD
-#error "This file was generated using the moc from 5.3.0. It"
-=======
 #error "This file was generated using the moc from 5.2.1. It"
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -28,33 +20,20 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[3];
-<<<<<<< HEAD
-    char stringdata[23];
-};
-#define QT_MOC_LITERAL(idx, ofs, len) \
-    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData)) \
-=======
-    char stringdata[24];
+    char stringdata[26];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
     offsetof(qt_meta_stringdata_MainWindow_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData) \
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
     )
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10),
-QT_MOC_LITERAL(1, 11, 10),
-QT_MOC_LITERAL(2, 22, 0)
+QT_MOC_LITERAL(1, 11, 12),
+QT_MOC_LITERAL(2, 24, 0)
     },
-<<<<<<< HEAD
-    "MainWindow\0lancerAlgo\0"
-=======
-    "MainWindow\0lancerAlgo\0\0"
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
+    "MainWindow\0AlgoBSplines\0\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,11 +51,7 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-<<<<<<< HEAD
-       1,    0,   19,    2, 0x0a /* Public */,
-=======
        1,    0,   19,    2, 0x0a,
->>>>>>> 21ed75b06b0e3152b02cf2c4b44d94a4a6e7fed4
 
  // slots: parameters
     QMetaType::Void,
@@ -89,7 +64,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->lancerAlgo(); break;
+        case 0: _t->AlgoBSplines(); break;
         default: ;
         }
     }
