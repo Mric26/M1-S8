@@ -86,7 +86,7 @@ QString MainWindow::pointToString( QVector3D p ){
 }
 
 void MainWindow::ecrireFichier(){
-    ofstream fichier("/home/g/gchev/Documents/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
+    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
     if(fichier){
         for (int j = 0; j < result.size(); ++j) {
            vector<QVector3D> yolo = result[j];
@@ -166,6 +166,8 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
 void MainWindow::AlgoBSplines(){
     result.clear();
     recupererPoints();
+
+    afficherMatrice();
     vector<QVector3D> resultLigne, vect, temp;
     int k = ui->degK->value();
     int l = ui->degL->value();
@@ -176,14 +178,21 @@ void MainWindow::AlgoBSplines(){
         for (double v = 0; v <= 10; v++) {
             vect.clear();
             temp.clear();
+            //cout << "Bsplines sur les lignes" << endl;
             for (int i = 0; i < nbLignes; ++i) {
                 vect = matricePts[i];
-                temp.push_back( PointBSplines(vect, u/10, k) );
+                QVector3D aSuppr = PointBSplines(vect, u/10, k);
+                //cout << aSuppr.x() << ";" << aSuppr.y() << ";" << aSuppr.z() << endl;
+                temp.push_back( aSuppr );
             }
+
+            //cout << "Bsplines sur la colonne résultante" << endl;
             resultLigne.push_back( PointBSplines(temp, v/10, l) );
         }
-        result.push_back( resultLigne );
+
+        cout << "Bspline pour u=" << u << endl;
     }
+
     ecrireFichier();
 }
 
