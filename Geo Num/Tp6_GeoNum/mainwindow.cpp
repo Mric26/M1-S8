@@ -108,8 +108,8 @@ void MainWindow::Algo(){
     tab[2].push_back( *(new QVector3D(300,175,0)) );
     tab[2].push_back( *(new QVector3D(375,100,0)) );
 
-    for (int i = 0; i < ui->hauteur->value(); ++i) {
-        for (int j = 0; j < ui->largeur->value(); ++j) {
+    for (int i = 0; i < ui->colonnes->value(); ++i) {
+        for (int j = 0; j < ui->lignes->value(); ++j) {
            QString p = pointToString(i, j, tab[i][j] );
            ui->zoneSortie->setText( ui->zoneSortie->toPlainText() + p );
         }
