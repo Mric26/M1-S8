@@ -47,7 +47,7 @@ public class Utilitaires {
 				IO.afficherln(" Liste vide ");
 			} else {
 				for (int i = 0; i < res.size(); i++) {
-					IO.afficherln(res.elementAt(i).getId() + ". "+  res.elementAt(i).getCategorie() + " (prix : "
+					IO.afficherln(res.elementAt(i).getCategorie() + " (prix : "
 							+ res.elementAt(i).getPrix() + ")");
 				}
 			}
@@ -140,13 +140,13 @@ public class Utilitaires {
 		
 		//recup
 		JOptionPane j = new JOptionPane();
-		int catId = Integer.parseInt(j.showInputDialog("Entrez le numéro de la categorie :"));
+		String nomC = j.showInputDialog("Entrez le nom de la categorie :");
 		
 		try {
 			IO.afficherln("===================");
 			IO.afficherln("Retrait de :");
-			IO.afficherln(catId );
-			BDCategories.enleverCategorie(user, catId);
+			IO.afficherln(nomC );
+			BDCategories.enleverCategorie(user, nomC);
 			IO.afficherln("===================");
 			IO.afficherln("Listes des categories après retrait :");
 			res = BDCategories.getCategorie(user);
@@ -288,11 +288,9 @@ public class Utilitaires {
 			}
 			IO.afficherln("===================");
 		} catch (CategorieException e) {
-			IO.afficherln(" Erreur dans l'affichage des categories : "
-					+ e.getMessage());
+			IO.afficherln(" Erreur dans l'affichage des categories : " + e.getMessage());
 		} catch (ExceptionConnexion e) {
-			IO.afficherln(" Erreur dans l'affichage des categories : "
-					+ e.getMessage());
+			IO.afficherln(" Erreur dans l'affichage des categories : " + e.getMessage());
 		}
 	}
 
@@ -302,7 +300,7 @@ public class Utilitaires {
 		//recup
 		JOptionPane j = new JOptionPane();
 		int numS = Integer.parseInt( j.showInputDialog("Entrez le n de la representation :") );
-		String dateRep = j.showInputDialog("Donner la date de representation (dd/MM/yyyy HH:mm:ss): ");
+		String dateRep = j.showInputDialog("Donner la date de representation : ");
 		
 		try {
 			IO.afficherln("===================");

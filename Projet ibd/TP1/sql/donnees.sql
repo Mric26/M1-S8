@@ -1,13 +1,13 @@
-insert into LESCATEGORIES values ('orchestre', '35');
-insert into LESCATEGORIES values ('balcon', '25');
-insert into LESCATEGORIES values ('poulailler', '10');
+insert into LESCATEGORIES values ('1','orchestre', '35');
+insert into LESCATEGORIES values ('2','balcon', '25');
+insert into LESCATEGORIES values ('3','poulailler', '10');
 
-insert into LESZONES values ('1', 'orchestre');
-insert into LESZONES values ('2', 'orchestre');
-insert into LESZONES values ('3', 'orchestre');
-insert into LESZONES values ('4', 'balcon');
-insert into LESZONES values ('5', 'balcon');
-insert into LESZONES values ('6', 'poulailler');
+insert into LESZONES values ('1', '1');
+insert into LESZONES values ('2', '1');
+insert into LESZONES values ('3', '1');
+insert into LESZONES values ('4', '2');
+insert into LESZONES values ('5', '2');
+insert into LESZONES values ('6', '3');
 insert into LESSPECTACLES values ('101', 'Cats');
 insert into LESSPECTACLES values ('102', 'Metallica');
 insert into LESSPECTACLES values ('103', 'Manu Chao');

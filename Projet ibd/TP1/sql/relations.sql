@@ -6,13 +6,13 @@ drop table LesPlaces ;
 drop table LesZones ; 
 drop table LesCategories ; 
  
-create table LesCategories (nomC varchar2(20), prix number (8,2), 
-      constraint cat_c1 primary key (nomC), 
+create table LesCategories (catId number (3),nomC varchar2(20), prix number (8,2), 
+      constraint cat_c1 primary key (catId), 
       constraint cat_c2 check (prix > 0)      
 ) ; 
-create table LesZones (numZ number (4), nomC varchar2(20), 
+create table LesZones (numZ number (4), catId number (3), 
       constraint zones_c1 primary key (numZ), 
-      constraint zones_c2 foreign key (nomC) references LesCategories (nomC),
+      constraint zones_c2 foreign key (catId) references LesCategories (catId),
       constraint zones_c3 check (numZ > 0)  
 ) ; 
 create table LesPlaces (noPlace number (4), noRang number (4), numZ number (4), 
@@ -33,7 +33,7 @@ create table LesDossiers (noDossier number (4), montant number (6,2),
       constraint dossiers_c1 primary key (noDossier)
 );
 
-create table LesTickets (noSerie number (4) AUTO_INCREMENT, numS number (4),  
+create table LesTickets (noSerie number (4), numS number (4),  
       dateRep date, noPlace number (4), noRang number (4), 
       dateEmission date, noDossier number (4), 
       constraint tickets_c1 primary key (noSerie), 

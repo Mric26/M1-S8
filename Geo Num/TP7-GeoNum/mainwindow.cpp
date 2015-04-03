@@ -86,7 +86,7 @@ QString MainWindow::pointToString( QVector3D p ){
 }
 
 void MainWindow::ecrireFichier(){
-    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
+    ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
     if(fichier){
         for (int j = 0; j < result.size(); ++j) {
            vector<QVector3D> yolo = result[j];
@@ -156,8 +156,7 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
             x = (1- om)*tabPointsInter[i-1].x() + om*tabPointsInter[i].x();
             y = (1- om)*tabPointsInter[i-1].y() + om*tabPointsInter[i].y();
             z = (1- om)*tabPointsInter[i-1].z() + om*tabPointsInter[i].z();
-            //tabPointsInter[i-1] = QVector3D(x, y, z);
-            tabPointsInter.push_back(QVector3D(x, y, z));
+            tabPointsInter[i-1] = QVector3D(x, y, z);
         }
         nbSousPoints--;
     }

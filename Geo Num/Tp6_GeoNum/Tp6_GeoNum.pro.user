@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 3.1.1, 2015-03-31T10:00:56. -->
-=======
-<!-- Written by QtCreator 3.0.1, 2015-03-27T16:40:13. -->
->>>>>>> 796c7a3c07990eefa3a2bfede43549465af4342e
+<!-- Written by QtCreator 3.1.1, 2015-03-31T10:12:19. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">-1</value>
+  <value type="int">0</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -33,9 +29,12 @@
    <value type="bool" key="EditorConfiguration.ConstrainTooltips">false</value>
    <value type="int" key="EditorConfiguration.IndentSize">4</value>
    <value type="bool" key="EditorConfiguration.KeyboardTooltips">false</value>
+   <value type="int" key="EditorConfiguration.MarginColumn">80</value>
+   <value type="bool" key="EditorConfiguration.MouseHiding">true</value>
    <value type="bool" key="EditorConfiguration.MouseNavigation">true</value>
    <value type="int" key="EditorConfiguration.PaddingMode">1</value>
    <value type="bool" key="EditorConfiguration.ScrollWheelZooming">true</value>
+   <value type="bool" key="EditorConfiguration.ShowMargin">false</value>
    <value type="int" key="EditorConfiguration.SmartBackspaceBehavior">0</value>
    <value type="bool" key="EditorConfiguration.SpacesForTabs">true</value>
    <value type="int" key="EditorConfiguration.TabKeyBehavior">0</value>
@@ -53,7 +52,6 @@
   <valuemap type="QVariantMap"/>
  </data>
  <data>
-<<<<<<< HEAD
   <variable>ProjectExplorer.Project.Target.0</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop</value>
@@ -251,18 +249,12 @@
   </valuemap>
  </data>
  <data>
-=======
->>>>>>> 796c7a3c07990eefa3a2bfede43549465af4342e
   <variable>ProjectExplorer.Project.TargetCount</variable>
-  <value type="int">0</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.EnvironmentId</variable>
-<<<<<<< HEAD
   <value type="QByteArray">{9ad77c20-c24f-42ff-b59a-152256cbf05d}</value>
-=======
-  <value type="QByteArray">{5b508463-3c63-4e99-b618-e235a87fc87c}</value>
->>>>>>> 796c7a3c07990eefa3a2bfede43549465af4342e
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.FileVersion</variable>

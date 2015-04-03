@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -88,6 +88,7 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_3);
 
@@ -100,6 +101,7 @@ public:
 
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_4);
 
@@ -112,6 +114,7 @@ public:
 
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
+        label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label);
 
@@ -124,6 +127,7 @@ public:
 
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_2);
 
@@ -157,7 +161,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1200, 20));
+        menuBar->setGeometry(QRect(0, 0, 1200, 19));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
