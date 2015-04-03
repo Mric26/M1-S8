@@ -159,6 +159,7 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
         nbSousPoints--;
     }
     return tabPointsInter.at(0);
+    tabPointsInter.clear();
 }
 
 void MainWindow::AlgoBSplines(){
@@ -170,14 +171,18 @@ void MainWindow::AlgoBSplines(){
     int k = ui->degK->value();
     int l = ui->degL->value();
 
-    for (double u = k; u <= nbLignes; u++) {
-        resultLigne.clear();
-        for (double v = l; v <= nbCols; v++) {
+    for (double u = k; u < ui->lignes->value(); u+=0.1) {
+        cout << "étape pour u=" << u << endl;
+        for (double v = l; v < ui->colonnes->value(); v+=0.1) {
             vect.clear();
             temp.clear();
-            for (int i = 0; i < nbLignes; ++i) {
-                vect = matricePts[i];
-                temp.push_back( PointBSplines(vect, u, k) );
+            for (int i = 0; i < matricePts.size(); ++i) {
+                vect = matricePts.at(i);
+                QVector3D tmp= PointBSplines(vect, u, k);
+                //problème de génération de points
+                cout << tmp.x() << ";" << tmp.y() << ";" << tmp.z() << endl;
+                temp.push_back( tmp );
+                vect.clear();
             }
             resultLigne.push_back( PointBSplines(temp, v, l) );
         }
@@ -185,6 +190,18 @@ void MainWindow::AlgoBSplines(){
         resultLigne.clear();
     }
 
-    //ecrireFichier();
+    cout << "le résultat possède " << result.size() << " lignes et " << result.at(1).size() << " colonnes" << endl;
+    for (int var = 0; var < result.size(); ++var) {
+        for (int var2 = 0; var2 < result.at(var).size(); ++var2) {
+            //string sortie = to_string(result.at(var)[var2].x()) + "   " + to_string(result.at(var)[var2].y()) + "   " + to_string(result.at(var)[var2].z()) + " \n";
+            //ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
+            cout << result.at(var).at(var2).x() << ";" << result.at(var).at(var2).y() << ";" << result.at(var).at(var2).z() << "   ";
+        }
+        cout << endl;
+    }
+    cout << "verif de valeur des points récupérés" << endl;
+
+    ecrireFichier();
+    resultLigne.clear(); vect.clear(); temp.clear();
 }
 
