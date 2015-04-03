@@ -97,7 +97,6 @@ void MainWindow::ecrireFichier(){
            }
         }
         fichier.close();
-        ui->zoneSortie->setText( ui->zoneSortie->toPlainText() + "C'est finis les amis !!!");
     }
     else{
         cerr << "Erreur à l'ouverture !" << endl;
@@ -139,28 +138,30 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
     }
 
     int j= TrouverJ(t, tabNoeuds, nbNoeuds);
+    //cout << "j trouvé: " << j << endl;
 
     //calcul du point final de la courbe
-    QVector3D tabPointsInter[k+1];
+    //QVector3D tabPointsInter[k+1];
+    vector <QVector3D> tabPointsInter;
+    tabPointsInter.clear();
     //recopie des points de contrôle en local
     for (int i = 0; i < k+1; ++i) {
-        tabPointsInter[i] = tab[j-k+i];
+        tabPointsInter.push_back(tab[j-k+i]);
     }
     double x,y,z;
     int nbSousPoints = k+1;
     for (int r = 1; r < k+1; ++r) { //calcul des sous points
         for (int i = 1; i < nbSousPoints; ++i) {
-            double om = omega(j - k + r + i - 1,k-r+1,t, tabNoeuds);
+            double om = omega(j - k + r + i - 1, k-r+1, t, tabNoeuds);
             x = (1- om)*tabPointsInter[i-1].x() + om*tabPointsInter[i].x();
             y = (1- om)*tabPointsInter[i-1].y() + om*tabPointsInter[i].y();
             z = (1- om)*tabPointsInter[i-1].z() + om*tabPointsInter[i].z();
-            string sortie = to_string(x) + "   " + to_string(y) + "   " + to_string(z);
-            ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
-            tabPointsInter[i-1] = QVector3D(x, y, z);
+            //tabPointsInter[i-1] = QVector3D(x, y, z);
+            tabPointsInter.push_back(QVector3D(x, y, z));
         }
         nbSousPoints--;
     }
-    return tabPointsInter[0];
+    return tabPointsInter.at(0);
 }
 
 void MainWindow::AlgoBSplines(){
@@ -172,26 +173,33 @@ void MainWindow::AlgoBSplines(){
     int k = ui->degK->value();
     int l = ui->degL->value();
 
-    for (double u = 0; u <= 10; u++) {
-        ui->zoneSortie->setText( ui->zoneSortie->toPlainText() + "Coucou \n" );
-        resultLigne.clear();
-        for (double v = 0; v <= 10; v++) {
+    for (double u = 0; u < 10; u+=0.5) {
+        cout << "étape pour u=" << u << endl;
+        for (double v = 0; v < 10; v+=0.5) {
             vect.clear();
             temp.clear();
-            //cout << "Bsplines sur les lignes" << endl;
-            for (int i = 0; i < nbLignes; ++i) {
-                vect = matricePts[i];
-                QVector3D aSuppr = PointBSplines(vect, u/10, k);
-                //cout << aSuppr.x() << ";" << aSuppr.y() << ";" << aSuppr.z() << endl;
-                temp.push_back( aSuppr );
+            for (int i = 0; i < matricePts.size(); ++i) {
+                vect = matricePts.at(i);
+                QVector3D tmp= PointBSplines(vect, u, k);
+                //problème de génération de points
+                cout << tmp.x() << ";" << tmp.y() << ";" << tmp.z() << endl;
+                temp.push_back( tmp );
             }
-
-            //cout << "Bsplines sur la colonne résultante" << endl;
-            resultLigne.push_back( PointBSplines(temp, v/10, l) );
+            resultLigne.push_back( PointBSplines(temp, v, l) );
         }
-
-        cout << "Bspline pour u=" << u << endl;
+        result.push_back( resultLigne );
+        resultLigne.clear();
     }
+
+    cout << "le résultat possède " << result.size() << " lignes et " << result.at(1).size() << " colonnes" << endl;
+    for (int var = 0; var < result.size(); ++var) {
+        for (int var2 = 0; var2 < result.at(var).size(); ++var2) {
+            string sortie = to_string(result.at(var)[var2].x()) + "   " + to_string(result.at(var)[var2].y()) + "   " + to_string(result.at(var)[var2].z()) + " \n";
+            ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
+            //cout << result.at(var).at(var2).x() << ";" << result.at(var).at(var2).y() << ";" << result.at(var).at(var2).z() << endl;
+        }
+    }
+    cout << "verif de valeur des points récupérés" << endl;
 
     ecrireFichier();
 }
