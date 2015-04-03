@@ -138,10 +138,8 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
     }
 
     int j= TrouverJ(t, tabNoeuds, nbNoeuds);
-    //cout << "j trouvé: " << j << endl;
 
     //calcul du point final de la courbe
-    //QVector3D tabPointsInter[k+1];
     vector <QVector3D> tabPointsInter;
     tabPointsInter.clear();
     //recopie des points de contrôle en local
@@ -172,16 +170,14 @@ void MainWindow::AlgoBSplines(){
     int k = ui->degK->value();
     int l = ui->degL->value();
 
-    for (double u = 0; u <= 10; u++) {
-        cout << "u : " << u << endl;
+    for (double u = k; u <= nbLignes; u++) {
         resultLigne.clear();
-        for (double v = 0; v <= 1; v++) {
+        for (double v = l; v <= nbCols; v++) {
             vect.clear();
             temp.clear();
             for (int i = 0; i < nbLignes; ++i) {
-                cout << "v : " << v << endl;
                 vect = matricePts[i];
-                temp.push_back( PointBSplines(vect, u/10, k) );
+                temp.push_back( PointBSplines(vect, u, k) );
             }
             resultLigne.push_back( PointBSplines(temp, v, l) );
         }
@@ -189,16 +185,6 @@ void MainWindow::AlgoBSplines(){
         resultLigne.clear();
     }
 
-    cout << "le résultat possède " << result.size() << " lignes et " << result.at(1).size() << " colonnes" << endl;
-    for (int var = 0; var < result.size(); ++var) {
-        for (int var2 = 0; var2 < result.at(var).size(); ++var2) {
-            string sortie = to_string(result.at(var)[var2].x()) + "   " + to_string(result.at(var)[var2].y()) + "   " + to_string(result.at(var)[var2].z()) + " \n";
-            ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
-            //cout << result.at(var).at(var2).x() << ";" << result.at(var).at(var2).y() << ";" << result.at(var).at(var2).z() << endl;
-        }
-    }
-    cout << "verif de valeur des points récupérés" << endl;
-
-    ecrireFichier();
+    //ecrireFichier();
 }
 
