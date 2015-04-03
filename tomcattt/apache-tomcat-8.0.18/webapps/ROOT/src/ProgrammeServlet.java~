@@ -72,7 +72,7 @@ public class ProgrammeServlet extends HttpServlet {
 		out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de l'affichage du programme - Contacter un administrateur </i></p>");
 	  }
 	 
-	  // END TO DO
+	  // END TO DO //////////////////////
 	  //out.println("<p><i><font color=\"#FFFFFF\">A compl&eacute;ter</i></p>");
 	  //out.println("<p><i><font color=\"#FFFFFF\">...</i></p>");
 

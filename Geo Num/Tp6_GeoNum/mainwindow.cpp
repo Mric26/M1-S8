@@ -76,13 +76,12 @@ void MainWindow::lancerAlgo(){
         recupererPoints();
         Algo();
 }
-int MainWindow::getTaille() const
-{
+
+int MainWindow::getTaille() const{
     return taille;
 }
 
-void MainWindow::setTaille(int value)
-{
+void MainWindow::setTaille(int value){
     taille = value;
 }
 

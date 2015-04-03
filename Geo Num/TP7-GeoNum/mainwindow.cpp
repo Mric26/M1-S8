@@ -86,7 +86,7 @@ QString MainWindow::pointToString( QVector3D p ){
 }
 
 void MainWindow::ecrireFichier(){
-    ofstream fichier("/home/g/gchev/Documents/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
+    ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
     if(fichier){
         for (int j = 0; j < result.size(); ++j) {
            vector<QVector3D> yolo = result[j];
@@ -154,8 +154,6 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
             x = (1- om)*tabPointsInter[i-1].x() + om*tabPointsInter[i].x();
             y = (1- om)*tabPointsInter[i-1].y() + om*tabPointsInter[i].y();
             z = (1- om)*tabPointsInter[i-1].z() + om*tabPointsInter[i].z();
-            string sortie = to_string(x) + "   " + to_string(y) + "   " + to_string(z);
-            ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
             tabPointsInter[i-1] = QVector3D(x, y, z);
         }
         nbSousPoints--;
@@ -171,12 +169,13 @@ void MainWindow::AlgoBSplines(){
     int l = ui->degL->value();
 
     for (double u = 0; u <= 10; u++) {
-        ui->zoneSortie->setText( ui->zoneSortie->toPlainText() + "Coucou \n" );
+        cout << "u : " << u << endl;
         resultLigne.clear();
-        for (double v = 0; v <= 10; v++) {
+        for (double v = 0; v <= 1; v++) {
             vect.clear();
             temp.clear();
             for (int i = 0; i < nbLignes; ++i) {
+                cout << "v : " << v << endl;
                 vect = matricePts[i];
                 temp.push_back( PointBSplines(vect, u/10, k) );
             }
