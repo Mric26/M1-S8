@@ -13,6 +13,7 @@ import java.util.Vector;
 import exceptions.CategorieException;
 import exceptions.ExceptionConnexion;
 import modele.Categorie;
+import modele.Representation;
 import modele.Utilisateur;
 
 public class BDCategories {
@@ -35,12 +36,42 @@ public class BDCategories {
 		ResultSet rs ;
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 		
-		requete = "select nomc, prix from LesCategories order by nomc";
+		requete = "select catId, nomc, prix from LesCategories ";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(requete);
 			while (rs.next()) {
-				res.addElement(new Categorie (rs.getString(1), rs.getDouble(2)));
+				res.addElement(new Categorie (rs.getInt(1), rs.getString(2), rs.getDouble(3)));
+			}
+		} catch (SQLException e) {
+			throw new CategorieException (" Problème dans l'interrogation des catégories.."
+					+ "Code Oracle " + e.getErrorCode()
+					+ "Message " + e.getMessage());
+		}
+		BDConnexion.FermerTout(conn, stmt, rs);
+		return res;
+	}
+	
+	/**
+	 * retourne la liste des catégories définies dans la bd
+	 * @param Utilisateur
+	 * @return Vector<Categorie>
+	 * @throws CategorieException
+	 * @throws ExceptionConnexion
+	 */
+	public static Vector<Representation> getRepresentation (Utilisateur user) throws CategorieException, ExceptionConnexion {
+		Vector<Representation> res = new Vector<Representation>();
+		String requete ;
+		Statement stmt ;
+		ResultSet rs ;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "select numS, dateRep from LesRepresentations order by numS";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			while (rs.next()) {
+				res.addElement(new Representation (rs.getString(1), rs.getString(2)));
 			}
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."
@@ -62,16 +93,62 @@ public class BDCategories {
 	public static void ajouterCategorie(Utilisateur user, String nomCat,double prix) throws CategorieException, ExceptionConnexion {
 		String requete ;
 		PreparedStatement preparedStatement;
+		Statement stmt ;
+		ResultSet rs ;
+		
+		int catId;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "select max(catId) FROM LesCategories";
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			rs.next();
+			catId = rs.getInt(1) +1;
+				
+		requete = "INSERT INTO LesCategories(catId, nomC, prix) VALUES(?,?,?)";
+		
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, catId);
+			preparedStatement.setString(2, nomCat);
+			preparedStatement.setDouble(3, prix);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println("Erreur lors du lancement de la requete");
+			e.printStackTrace();
+		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			System.err.println("Erreur lors de la fermeture de la connexion");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Permet d'ajouter une representation
+	 * @param user
+	 * @param nomCat
+	 * @param prix
+	 * @throws CategorieException
+	 * @throws ExceptionConnexion
+	 */
+	public static void ajouterRepresentations(Utilisateur user, int numS,  String dateRep) throws CategorieException, ExceptionConnexion {
+		String requete ;
+		PreparedStatement preparedStatement;
 		
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 		
-		requete = "INSERT INTO LesCategories(nomC, prix) VALUES(?,?)";
+		requete = "INSERT INTO LesRepresentations(numS, dateRep) VALUES(?,?)";
 		try {
 			preparedStatement = conn.prepareStatement(requete);
-			preparedStatement.setString(1, nomCat);
-			preparedStatement.setDouble(2, prix);
+			preparedStatement.setInt(1, numS);
+			Date d = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(dateRep);
+			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
+			preparedStatement.setDate(2, sqlDate);
 			preparedStatement.executeUpdate();
-		} catch (SQLException e) {
+		} catch (SQLException | ParseException e) {
 			System.err.println("Erreur lors du lancement de la requete");
 			e.printStackTrace();
 		}
@@ -91,16 +168,16 @@ public class BDCategories {
 	 * @throws CategorieException
 	 * @throws ExceptionConnexion
 	 */
-	public static void enleverCategorie(Utilisateur user, String nomCat) throws CategorieException, ExceptionConnexion {
+	public static void enleverCategorie(Utilisateur user, int catId) throws CategorieException, ExceptionConnexion {
 		String requete ;
 		PreparedStatement preparedStatement;
 		
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 		
-		requete = "DELETE FROM LesCategories where nomC = ?";
+		requete = "DELETE FROM LesCategories where catId = ?";
 		try {
 			preparedStatement = conn.prepareStatement(requete);
-			preparedStatement.setString(1, nomCat);
+			preparedStatement.setInt(1, catId);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			System.err.println("Erreur lors du lancement de la requete");
@@ -155,27 +232,50 @@ public class BDCategories {
 	 * @throws ExceptionConnexion
 	 */
 	public static void modifierNomCategorie(Utilisateur user, String ancienNom,String nouvNom) throws CategorieException, ExceptionConnexion {
+		// TODO
 		String requete ;
 		PreparedStatement preparedStatement;
+		Statement stmt ;
+		ResultSet rs ;
 		
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
-		
-		requete = "UPDATE LesCategories set nomC = ? where nomC = ?";
+	
+		//1ere requete : creer nouvelle catgeorie avec le nouveau nom et l'ancien prix
+		int prix = 0;
+		requete = "select prix from LesCategories where nomC = " + ancienNom;
 		try {
-			preparedStatement = conn.prepareStatement(requete);
-			preparedStatement.setString(1, ancienNom);
-			preparedStatement.setString(2, nouvNom);
-			preparedStatement.executeUpdate();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			prix = rs.getInt(1);
 		} catch (SQLException e) {
-			System.err.println("Erreur lors du lancement de la requete");
+			System.err.println("Erreur lors de la recuperation du prix");
 			e.printStackTrace();
 		}
+		
+		ajouterCategorie(user, nouvNom, prix);
+		
+		//2eme requete : modifier les zones afin de mettre en relation avec la nouvelle categorie
+		requete = "update LesZones set nomC = ? where nomC = ?";
+		try {
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setString(1, nouvNom);
+			preparedStatement.setString(2, ancienNom);
+			rs = preparedStatement.executeQuery(requete);
+		} catch (SQLException e) {
+			System.err.println("Erreur lors de la modification des zones");
+			e.printStackTrace();
+		}
+		
+		//3eme requete : supprimer l'ancienne categorie
+		enleverCategorie(user, ancienNom);
+		
 		try {
 			conn.close();
 		} catch (SQLException e) {
 			System.err.println("Erreur lors de la fermeture de la connexion");
 			e.printStackTrace();
 		}
+		
 	}
 	
 	/**
@@ -188,8 +288,9 @@ public class BDCategories {
 	 * @throws CategorieException
 	 * @throws ExceptionConnexion
 	 */
-	public static ResultSet interrogerBase(Utilisateur user, String listArgs, String nomCat, String conditions) throws CategorieException, ExceptionConnexion {
-		Vector<Categorie> res = new Vector<Categorie>();
+	public static Vector<String> interrogerBase(Utilisateur user, String listArgs, String nomCat, String conditions) throws CategorieException, ExceptionConnexion {
+		// TODO
+		Vector<String> res = new Vector<String>();
 		String requete ;
 		Statement stmt ;
 		ResultSet rs ;
@@ -199,13 +300,21 @@ public class BDCategories {
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(requete);
+			int colone = rs.getRow();
+			while (rs.next()) {
+				String elem = "";
+				for (int i = 0; i < colone; i++) {
+					elem = elem + rs.getString(i);
+				}
+				res.addElement( elem );
+			}
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème lors de l'execution de la requete"
 					+ "Code Oracle " + e.getErrorCode()
 					+ "Message " + e.getMessage());
 		}
 		BDConnexion.FermerTout(conn, stmt, rs);
-		return rs;
+		return res;
 	}
 	
 	/**
@@ -254,7 +363,6 @@ public class BDCategories {
 	 * @param noDossier
 	 */
 	public static void reseverTicket(Utilisateur user, int numS, String dateRep, int noPlace, int noRang, int noDossier){
-		
 		String requete ;
 		PreparedStatement preparedStatement;
 		
@@ -266,16 +374,16 @@ public class BDCategories {
 				requete = "INSERT INTO LesTickets(numS ,dateRep,noPlace,noRang,dateEmission,noDossier)  VALUES(?,?,?,?,?,?)";
 				try {
 					preparedStatement = conn.prepareStatement(requete);
-					preparedStatement.setInt(0, numS);
-					Date d = new SimpleDateFormat("dd/MMM/yyyy").parse(dateRep);
+					preparedStatement.setInt(1, numS);
+					Date d = new SimpleDateFormat("dd/MM/yyyy").parse(dateRep);
 					java.sql.Date sqlDate = new java.sql.Date(d.getTime());
-					preparedStatement.setDate(1, sqlDate);
-					preparedStatement.setInt(2, noPlace);
-					preparedStatement.setInt(3, noRang);
-					Date d2 = new SimpleDateFormat("dd/MMM/yyyy").parse(new Date().toString());
+					preparedStatement.setDate(2, sqlDate);
+					preparedStatement.setInt(3, noPlace);
+					preparedStatement.setInt(4, noRang);
+					Date d2 = new SimpleDateFormat("dd/MM/yyyy").parse(new Date().toString());
 					java.sql.Date sqlDate2 = new java.sql.Date(d2.getTime());
-					preparedStatement.setDate(4, sqlDate2); 
-					preparedStatement.setInt(5, noDossier);
+					preparedStatement.setDate(5, sqlDate2); 
+					preparedStatement.setInt(6, noDossier);
 					preparedStatement.executeUpdate();
 					conn.close();
 				} catch (SQLException e) {
@@ -304,7 +412,6 @@ public class BDCategories {
 	 * @throws ExceptionConnexion
 	 */
 	public static int nbPlacesDispoDansZone(Utilisateur user, int numS, String dateRep, int numZ) throws CategorieException, ExceptionConnexion {
-		
 		int nbPlaces = 0;
 		String requete ;
 		Statement stmt ;

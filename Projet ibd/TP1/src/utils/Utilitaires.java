@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import jus.util.IO;
 import accesBD.BDCategories;
 import accesBD.BDConnexion;
+import modele.Representation;
 import modele.Utilisateur;
 import modele.Categorie;
 import exceptions.ExceptionUtilisateur;
@@ -46,7 +47,7 @@ public class Utilitaires {
 				IO.afficherln(" Liste vide ");
 			} else {
 				for (int i = 0; i < res.size(); i++) {
-					IO.afficherln(res.elementAt(i).getCategorie() + " (prix : "
+					IO.afficherln(res.elementAt(i).getId() + ". "+  res.elementAt(i).getCategorie() + " (prix : "
 							+ res.elementAt(i).getPrix() + ")");
 				}
 			}
@@ -139,13 +140,13 @@ public class Utilitaires {
 		
 		//recup
 		JOptionPane j = new JOptionPane();
-		String nomC = j.showInputDialog("Entrez le nom de la categorie :");
+		int catId = Integer.parseInt(j.showInputDialog("Entrez le numéro de la categorie :"));
 		
 		try {
 			IO.afficherln("===================");
 			IO.afficherln("Retrait de :");
-			IO.afficherln(nomC );
-			BDCategories.enleverCategorie(user, nomC);
+			IO.afficherln(catId );
+			BDCategories.enleverCategorie(user, catId);
 			IO.afficherln("===================");
 			IO.afficherln("Listes des categories après retrait :");
 			res = BDCategories.getCategorie(user);
@@ -236,17 +237,96 @@ public class Utilitaires {
 	}
 
 	public static void ModifierNomPrixCategories(Utilisateur user) {
-		// TODO
-		IO.afficherln("===================");
-		IO.afficherln("A COMPLETER !!!!!");
-		IO.afficherln("===================");
+		ModifierNomCategories(user);
+		ModifierPrixCategories(user);
 	}
 
-	public static void ExecuterRequete() {
-		// TODO
-		IO.afficherln("===================");
-		IO.afficherln("A COMPLETER !!!!!");
-		IO.afficherln("===================");
+	public static void ExecuterRequete(Utilisateur user) {
+		Vector<String> res = new Vector<String>();
+		
+		//recup
+		JOptionPane j = new JOptionPane();
+		String listArgs = j.showInputDialog("Entrez les elements à afficher");
+		String nomCat = j.showInputDialog("Entrez le nom de la categorie");
+		String conditions = j.showInputDialog("Entrez les conditions");
+		
+		try {
+			IO.afficherln("===================");
+			IO.afficherln("Affichage de :");
+			IO.afficherln("Select " + listArgs + " from " + nomCat + " where " + conditions);
+			res = BDCategories.interrogerBase(user, listArgs, nomCat, conditions);
+			if (res.isEmpty()) {
+				IO.afficherln(" Liste vide ");
+			} else {
+				for (int i = 0; i < res.size(); i++) {
+					IO.afficherln( res.elementAt(i) );
+				}
+			}
+			IO.afficherln("===================");
+		} catch (CategorieException e) {
+			IO.afficherln(" Erreur dans l'affichage des categories : "
+					+ e.getMessage());
+		} catch (ExceptionConnexion e) {
+			IO.afficherln(" Erreur dans l'affichage des categories : "
+					+ e.getMessage());
+		}
+
+	}
+
+	public static void AfficherRepresentation(Utilisateur user) {
+		Vector<Representation> res = new Vector<Representation>();
+		try {
+			IO.afficherln("===================");
+			IO.afficherln("Listes des representation");
+			res = BDCategories.getRepresentation(user);
+			if (res.isEmpty()) {
+				IO.afficherln(" Liste vide ");
+			} else {
+				for (int i = 0; i < res.size(); i++) {
+					IO.afficherln(res.elementAt(i).getNom() + " (date : " + res.elementAt(i).getDate() + ")");
+				}
+			}
+			IO.afficherln("===================");
+		} catch (CategorieException e) {
+			IO.afficherln(" Erreur dans l'affichage des categories : "
+					+ e.getMessage());
+		} catch (ExceptionConnexion e) {
+			IO.afficherln(" Erreur dans l'affichage des categories : "
+					+ e.getMessage());
+		}
+	}
+
+	public static void AjouterRepresentation(Utilisateur user) {
+		Vector<Representation> res = new Vector<Representation>();
+		
+		//recup
+		JOptionPane j = new JOptionPane();
+		int numS = Integer.parseInt( j.showInputDialog("Entrez le n de la representation :") );
+		String dateRep = j.showInputDialog("Donner la date de representation (dd/MM/yyyy HH:mm:ss): ");
+		
+		try {
+			IO.afficherln("===================");
+			IO.afficherln("Ajout de :");
+			IO.afficherln(numS + " pour la date : " + dateRep);
+			BDCategories.ajouterRepresentations(user, numS, dateRep);
+			IO.afficherln("===================");
+			IO.afficherln("Listes des representations");
+			res = BDCategories.getRepresentation(user);
+			if (res.isEmpty()) {
+				IO.afficherln(" Liste vide ");
+			} else {
+				for (int i = 0; i < res.size(); i++) {
+					IO.afficherln(res.elementAt(i).getNom() + " (date : " + res.elementAt(i).getDate() + ")");
+				}
+			}
+			IO.afficherln("===================");
+		} catch (CategorieException e) {
+			IO.afficherln(" Erreur dans l'affichage des representations : "
+					+ e.getMessage());
+		} catch (ExceptionConnexion e) {
+			IO.afficherln(" Erreur dans l'affichage des representations : "
+					+ e.getMessage());
+		}
 	}
 
 }
