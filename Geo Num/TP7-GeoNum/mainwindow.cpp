@@ -193,8 +193,6 @@ void MainWindow::AlgoBSplines(){
     cout << "le résultat possède " << result.size() << " lignes et " << result.at(1).size() << " colonnes" << endl;
     for (int var = 0; var < result.size(); ++var) {
         for (int var2 = 0; var2 < result.at(var).size(); ++var2) {
-            //string sortie = to_string(result.at(var)[var2].x()) + "   " + to_string(result.at(var)[var2].y()) + "   " + to_string(result.at(var)[var2].z()) + " \n";
-            //ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
             cout << result.at(var).at(var2).x() << ";" << result.at(var).at(var2).y() << ";" << result.at(var).at(var2).z() << "   ";
         }
         cout << endl;
@@ -202,6 +200,10 @@ void MainWindow::AlgoBSplines(){
     cout << "verif de valeur des points récupérés" << endl;
 
     ecrireFichier();
-    resultLigne.clear(); vect.clear(); temp.clear();
+
+    //clear
+    resultLigne.clear();
+    vect.clear();
+    temp.clear();
 }
 
