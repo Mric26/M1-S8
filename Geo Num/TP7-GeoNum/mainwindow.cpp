@@ -165,10 +165,8 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
 
 
     int j= TrouverJ(t, tabNoeuds, nbNoeuds);
-    //cout << "j trouvé: " << j << endl;
 
     //calcul du point final de la courbe
-    //QVector3D tabPointsInter[k+1];
     vector <QVector3D> tabPointsInter;
     tabPointsInter.clear();
     //recopie des points de contrôle en local
@@ -207,7 +205,6 @@ void MainWindow::AlgoBSplines(){
     int l = ui->degL->value();
 
     for (double u = k; u < ui->lignes->value(); u+=0.1) {
-        //cout << "étape pour u=" << u << endl;
         for (double v = l; v < ui->colonnes->value(); v+=0.1) {
             vect.clear();
             temp.clear();
@@ -236,5 +233,10 @@ void MainWindow::AlgoBSplines(){
 
     ecrireFichier("test.obj");
     resultLigne.clear(); vect.clear(); temp.clear();
+
+    //clear
+    resultLigne.clear();
+    vect.clear();
+    temp.clear();
 }
 

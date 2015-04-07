@@ -44,6 +44,22 @@ public class ProgrammeServlet extends HttpServlet {
 	  // TO DO
 	  // Récupération de la liste de tous les spectacles de la saison.
 	  // Puis construction dynamique d'une page web décrivant ces spectacles.
+	  <TABLE BORDER>
+          <CAPTION>Titre du tableau</CAPTION>
+          <TR>
+             <TH>1ere colonne</TH>
+             <TH>2eme colonne</TH>
+          </TR>
+          <TR>
+             <TD>A</TD>
+             <TD>B</TD>
+          </TR>
+          <TR>
+             <TD>D</TD>
+             <TD>E</TD>
+          </TR>
+        </TABLE>
+	  // END TODO //////////////////////
 	  out.println("<p><i><font color=\"#FFFFFF\">A compl&eacute;ter</i></p>");
 	  out.println("<p><i><font color=\"#FFFFFF\">...</i></p>");
 
