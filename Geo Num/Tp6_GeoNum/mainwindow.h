@@ -21,27 +21,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void recupererPoints();
-    void Algo();
-    void courbeBezier( vector<QVector3D> tab );
-    QString pointToString(int indice1, int indice2, QVector3D p );
-    QString pointToString2(QVector3D p);
-    void ecrireFichier(vector<QVector3D> tab);
-
+    void recupererPoints();    
     void afficherMatrice();
 
-    int getTaille() const;
-    void setTaille(int value);
+    QString pointToString(QVector3D p);
+     void ecrireFichier(string Nomfichier);
+
+    void Algo();
+    void courbeBezier( vector<QVector3D> tab );
 
 public slots:
     void lancerAlgo();
 
 private:
     Ui::MainWindow *ui;
-    std::vector<QPointF> tab;
-    int taille;
     int degre;
     int nbCols, nbLignes;
+    std::vector<std::vector<QVector3D> > result;
     std::vector<std::vector<QVector3D> > matricePts;
 };
 

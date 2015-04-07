@@ -30,7 +30,7 @@ public:
 
 
     QString pointToString(QVector3D p);
-    void ecrireFichier();
+    void ecrireFichier(string Nomfichier);
 
     void afficherMatrice();
 

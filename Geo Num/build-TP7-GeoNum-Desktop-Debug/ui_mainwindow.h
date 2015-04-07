@@ -88,18 +88,20 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_3);
 
         degK = new QSpinBox(centralWidget);
         degK->setObjectName(QStringLiteral("degK"));
         degK->setMaximum(10);
-        degK->setValue(2);
+        degK->setValue(3);
 
         horizontalLayout_2->addWidget(degK);
 
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_4);
 
@@ -112,6 +114,7 @@ public:
 
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
+        label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label);
 
@@ -124,6 +127,7 @@ public:
 
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_2);
 
