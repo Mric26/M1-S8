@@ -193,3 +193,74 @@ Caused by: java.io.IOException: Server returned HTTP response code: 503 for URL:
 	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:338)
 	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
 	... 9 more
+!SESSION 2015-04-08 15:12:14.226 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-04-08 15:12:27.523
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.core 4 4 2015-04-08 15:12:56.564
+!MESSAGE Exception while reading /ROOT/.classpath
+!STACK 0
+java.io.IOException: Bad format
+	at org.eclipse.jdt.internal.core.JavaProject.decodeClasspath(JavaProject.java:916)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntriesWithException(JavaProject.java:2498)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntries(JavaProject.java:2508)
+	at org.eclipse.jdt.internal.core.JavaProject.readOutputLocation(JavaProject.java:2526)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaProjectLite.readOutputLocation(JavaProjectLite.java:148)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaLiteUtilities.getDefaultJavaOutputContainer(JavaLiteUtilities.java:170)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaLiteUtilities.getJavaContainers(JavaLiteUtilities.java:121)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaLiteUtilities.getJavaOutputContainers(JavaLiteUtilities.java:90)
+	at org.eclipse.jst.j2ee.internal.project.J2EEProjectUtilities.getOutputContainers(J2EEProjectUtilities.java:840)
+	at org.eclipse.jst.j2ee.internal.validation.ProjectValidationHelper.getCachedOutputContainers(ProjectValidationHelper.java:52)
+	at org.eclipse.jst.j2ee.internal.validation.ProjectValidationHelper.getOutputContainers(ProjectValidationHelper.java:61)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.checkIfValidSourceFile(ValidatorMetaData.java:340)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.isApplicableTo(ValidatorMetaData.java:311)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.isApplicableTo(ValidatorMetaData.java:302)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.isApplicableTo(ValidatorMetaData.java:287)
+	at org.eclipse.wst.validation.Validator$V1.shouldValidate(Validator.java:734)
+	at org.eclipse.wst.validation.Validator.shouldValidate(Validator.java:320)
+	at org.eclipse.wst.validation.Friend.shouldValidate(Friend.java:50)
+	at org.eclipse.wst.validation.internal.ValManager.accept(ValManager.java:800)
+	at org.eclipse.wst.validation.internal.DisabledValidatorManager$DisabledValidationFinder.findDisabledValidatorsFor(DisabledValidatorManager.java:109)
+	at org.eclipse.wst.validation.internal.DisabledValidatorManager.getDisabledValidatorsFor(DisabledValidatorManager.java:62)
+	at org.eclipse.wst.validation.ValidationFramework.getDisabledValidatorsFor(ValidationFramework.java:232)
+	at org.eclipse.wst.sse.ui.internal.reconcile.validator.ValidatorStrategy.reconcile(ValidatorStrategy.java:205)
+	at org.eclipse.wst.sse.ui.internal.reconcile.DocumentRegionProcessor.process(DocumentRegionProcessor.java:321)
+	at org.eclipse.wst.sse.ui.internal.reconcile.StructuredRegionProcessor.process(StructuredRegionProcessor.java:258)
+	at org.eclipse.wst.sse.ui.internal.reconcile.DirtyRegionProcessor$BackgroundThread.run(DirtyRegionProcessor.java:691)
+
+!ENTRY org.eclipse.jdt.core 4 4 2015-04-08 15:12:56.576
+!MESSAGE Exception while reading /ROOT/.classpath
+!STACK 0
+java.io.IOException: Bad format
+	at org.eclipse.jdt.internal.core.JavaProject.decodeClasspath(JavaProject.java:916)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntriesWithException(JavaProject.java:2498)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntries(JavaProject.java:2508)
+	at org.eclipse.jdt.internal.core.JavaProject.readRawClasspath(JavaProject.java:2546)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaProjectLite.readRawClasspath(JavaProjectLite.java:116)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaLiteUtilities.getJavaContainers(JavaLiteUtilities.java:130)
+	at org.eclipse.jst.common.jdt.internal.javalite.JavaLiteUtilities.getJavaOutputContainers(JavaLiteUtilities.java:90)
+	at org.eclipse.jst.j2ee.internal.project.J2EEProjectUtilities.getOutputContainers(J2EEProjectUtilities.java:840)
+	at org.eclipse.jst.j2ee.internal.validation.ProjectValidationHelper.getCachedOutputContainers(ProjectValidationHelper.java:52)
+	at org.eclipse.jst.j2ee.internal.validation.ProjectValidationHelper.getOutputContainers(ProjectValidationHelper.java:61)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.checkIfValidSourceFile(ValidatorMetaData.java:340)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.isApplicableTo(ValidatorMetaData.java:311)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.isApplicableTo(ValidatorMetaData.java:302)
+	at org.eclipse.wst.validation.internal.ValidatorMetaData.isApplicableTo(ValidatorMetaData.java:287)
+	at org.eclipse.wst.validation.Validator$V1.shouldValidate(Validator.java:734)
+	at org.eclipse.wst.validation.Validator.shouldValidate(Validator.java:320)
+	at org.eclipse.wst.validation.Friend.shouldValidate(Friend.java:50)
+	at org.eclipse.wst.validation.internal.ValManager.accept(ValManager.java:800)
+	at org.eclipse.wst.validation.internal.DisabledValidatorManager$DisabledValidationFinder.findDisabledValidatorsFor(DisabledValidatorManager.java:109)
+	at org.eclipse.wst.validation.internal.DisabledValidatorManager.getDisabledValidatorsFor(DisabledValidatorManager.java:62)
+	at org.eclipse.wst.validation.ValidationFramework.getDisabledValidatorsFor(ValidationFramework.java:232)
+	at org.eclipse.wst.sse.ui.internal.reconcile.validator.ValidatorStrategy.reconcile(ValidatorStrategy.java:205)
+	at org.eclipse.wst.sse.ui.internal.reconcile.DocumentRegionProcessor.process(DocumentRegionProcessor.java:321)
+	at org.eclipse.wst.sse.ui.internal.reconcile.StructuredRegionProcessor.process(StructuredRegionProcessor.java:258)
+	at org.eclipse.wst.sse.ui.internal.reconcile.DirtyRegionProcessor$BackgroundThread.run(DirtyRegionProcessor.java:691)

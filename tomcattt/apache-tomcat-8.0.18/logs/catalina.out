@@ -14032,3 +14032,288 @@ Connexion reussie...
 >>>>>>> b9f4336630fc1511097d3c69642bbc95d1a50549
 >>>>>>> 55f565c5f6a7b1419f29de53b8eb6d45aba80960
 >>>>>>> c6d31f1cb36b1f3356866737311644bda1d46026
+08-Apr-2015 12:45:30.266 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+08-Apr-2015 12:45:30.270 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+08-Apr-2015 12:45:30.273 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+08-Apr-2015 12:45:30.274 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+08-Apr-2015 12:45:30.274 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.13.0-24-generic
+08-Apr-2015 12:45:30.274 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Apr-2015 12:45:30.274 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-7-openjdk-amd64/jre
+08-Apr-2015 12:45:30.275 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_55-b14
+08-Apr-2015 12:45:30.275 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Apr-2015 12:45:30.275 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:45:30.275 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:45:30.279 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/conf/logging.properties
+08-Apr-2015 12:45:30.280 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Apr-2015 12:45:30.280 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/endorsed
+08-Apr-2015 12:45:30.280 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:45:30.280 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:45:30.281 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/temp
+08-Apr-2015 12:45:30.281 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+08-Apr-2015 12:45:30.562 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:45:30.642 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 12:45:30.657 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:45:30.660 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 12:45:30.664 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1940 ms
+08-Apr-2015 12:45:30.791 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+08-Apr-2015 12:45:30.792 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+08-Apr-2015 12:45:30.848 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT de l'application web
+08-Apr-2015 12:45:33.071 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 12:45:33.276 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT has finished in 2 426 ms
+08-Apr-2015 12:45:33.277 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata de l'application web
+08-Apr-2015 12:45:33.605 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 12:45:33.612 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata has finished in 334 ms
+08-Apr-2015 12:45:33.612 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles de l'application web
+08-Apr-2015 12:45:33.885 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 12:45:33.890 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles has finished in 278 ms
+08-Apr-2015 12:45:33.899 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:45:33.906 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:45:33.914 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3249 ms
+Connexion reussie...
+Connexion reussie...
+exceptions.CategorieException:  Problème dans l'interrogation des catégories..Code Oracle 17011Message Ensemble de résultats épuisé
+	at accesBD.BDCategories.nbZone(BDCategories.java:619)
+	at ReservationServlet.doGet(ReservationServlet.java:62)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:618)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:516)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1086)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:659)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:223)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1558)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:744)
+Connexion reussie...
+08-Apr-2015 12:47:02.738 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+08-Apr-2015 12:47:02.739 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:47:02.791 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:47:02.841 INFO [main] org.apache.catalina.core.StandardService.stopInternal Arrêt du service Catalina
+08-Apr-2015 12:47:02.862 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ROOT] appears to have started a thread named [AWT-EventQueue-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+ java.awt.EventQueue.getNextEvent(EventQueue.java:543)
+ java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:211)
+ java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+ java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+ java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+ java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+ java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+08-Apr-2015 12:47:02.900 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:47:02.902 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:47:02.903 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:47:02.903 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:47:04.537 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+08-Apr-2015 12:47:04.540 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+08-Apr-2015 12:47:04.540 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+08-Apr-2015 12:47:04.540 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+08-Apr-2015 12:47:04.540 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.13.0-24-generic
+08-Apr-2015 12:47:04.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Apr-2015 12:47:04.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-7-openjdk-amd64/jre
+08-Apr-2015 12:47:04.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_55-b14
+08-Apr-2015 12:47:04.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Apr-2015 12:47:04.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:47:04.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:47:04.548 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/conf/logging.properties
+08-Apr-2015 12:47:04.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Apr-2015 12:47:04.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/endorsed
+08-Apr-2015 12:47:04.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:47:04.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 12:47:04.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/temp
+08-Apr-2015 12:47:04.550 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+08-Apr-2015 12:47:04.835 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:47:04.888 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 12:47:04.905 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:47:04.907 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 12:47:04.910 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1184 ms
+08-Apr-2015 12:47:04.958 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+08-Apr-2015 12:47:04.961 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+08-Apr-2015 12:47:04.989 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT de l'application web
+08-Apr-2015 12:47:06.026 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 12:47:06.123 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT has finished in 1 133 ms
+08-Apr-2015 12:47:06.123 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata de l'application web
+08-Apr-2015 12:47:06.342 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 12:47:06.347 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata has finished in 223 ms
+08-Apr-2015 12:47:06.347 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles de l'application web
+08-Apr-2015 12:47:06.585 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 12:47:06.590 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles has finished in 243 ms
+08-Apr-2015 12:47:06.594 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 12:47:06.601 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 12:47:06.602 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1691 ms
+Connexion reussie...
+08-Apr-2015 15:06:34.621 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+08-Apr-2015 15:06:34.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+08-Apr-2015 15:06:34.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+08-Apr-2015 15:06:34.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+08-Apr-2015 15:06:34.622 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.13.0-24-generic
+08-Apr-2015 15:06:34.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Apr-2015 15:06:34.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-7-openjdk-amd64/jre
+08-Apr-2015 15:06:34.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_55-b14
+08-Apr-2015 15:06:34.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Apr-2015 15:06:34.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:06:34.623 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:06:34.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/conf/logging.properties
+08-Apr-2015 15:06:34.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Apr-2015 15:06:34.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/endorsed
+08-Apr-2015 15:06:34.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:06:34.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:06:34.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/temp
+08-Apr-2015 15:06:34.625 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+08-Apr-2015 15:06:35.212 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 15:06:35.242 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 15:06:35.247 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 15:06:35.257 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 15:06:35.261 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1861 ms
+08-Apr-2015 15:06:35.375 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+08-Apr-2015 15:06:35.375 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+08-Apr-2015 15:06:35.435 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT de l'application web
+08-Apr-2015 15:06:37.520 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 15:06:37.672 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT has finished in 2 237 ms
+08-Apr-2015 15:06:37.675 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata de l'application web
+08-Apr-2015 15:06:38.067 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 15:06:38.084 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata has finished in 409 ms
+08-Apr-2015 15:06:38.084 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles de l'application web
+08-Apr-2015 15:06:38.578 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 15:06:38.590 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles has finished in 506 ms
+08-Apr-2015 15:06:38.598 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 15:06:38.606 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 15:06:38.607 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3346 ms
+Connexion reussie...
+Connexion reussie...
+exceptions.CategorieException:  Problème dans l'interrogation des catégories..Code Oracle 17011Message Ensemble de résultats épuisé
+	at accesBD.BDCategories.nbZone(BDCategories.java:619)
+	at ReservationServlet.doGet(ReservationServlet.java:62)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:618)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:516)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1086)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:659)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:223)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1558)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:744)
+Connexion reussie...
+exceptions.CategorieException:  Problème dans l'interrogation des catégories..Code Oracle 17011Message Ensemble de résultats épuisé
+	at accesBD.BDCategories.nbZone(BDCategories.java:619)
+	at ReservationServlet.doGet(ReservationServlet.java:62)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:618)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:516)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1086)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:659)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:223)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1558)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:744)
+08-Apr-2015 15:16:17.237 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.18
+08-Apr-2015 15:16:17.238 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2015 11:56:07 UTC
+08-Apr-2015 15:16:17.238 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.18.0
+08-Apr-2015 15:16:17.238 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.13.0-24-generic
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-7-openjdk-amd64/jre
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_55-b14
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:16:17.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/conf/logging.properties
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/endorsed
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/temp
+08-Apr-2015 15:16:17.240 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+08-Apr-2015 15:16:17.435 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 15:16:17.458 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 15:16:17.461 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 15:16:17.464 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Apr-2015 15:16:17.465 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1224 ms
+08-Apr-2015 15:16:17.501 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+08-Apr-2015 15:16:17.501 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.18
+08-Apr-2015 15:16:17.530 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT de l'application web
+08-Apr-2015 15:16:18.772 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 15:16:18.852 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT has finished in 1 322 ms
+08-Apr-2015 15:16:18.852 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata de l'application web
+08-Apr-2015 15:16:19.090 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 15:16:19.115 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata has finished in 263 ms
+08-Apr-2015 15:16:19.115 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles de l'application web
+08-Apr-2015 15:16:19.355 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Apr-2015 15:16:19.359 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/RemoteSystemsTempFiles has finished in 244 ms
+08-Apr-2015 15:16:19.362 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-Apr-2015 15:16:19.369 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+08-Apr-2015 15:16:19.370 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1904 ms
+Connexion reussie...
+Connexion reussie...
+Connexion reussie...
+exceptions.CategorieException:  Problème dans l'interrogation des catégories..Code Oracle 17011Message Ensemble de résultats épuisé
+	at accesBD.BDCategories.nbZone(BDCategories.java:619)
+	at ReservationServlet.doGet(ReservationServlet.java:62)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:618)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:516)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1086)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:659)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:223)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1558)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:744)

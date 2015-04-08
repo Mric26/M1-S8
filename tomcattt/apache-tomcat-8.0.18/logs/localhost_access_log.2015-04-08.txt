@@ -436,3 +436,41 @@
 >>>>>>> b9f4336630fc1511097d3c69642bbc95d1a50549
 >>>>>>> 55f565c5f6a7b1419f29de53b8eb6d45aba80960
 >>>>>>> c6d31f1cb36b1f3356866737311644bda1d46026
+127.0.0.1 - - [08/Apr/2015:12:45:34 +0200] "GET /index.html HTTP/1.1" 200 2282
+127.0.0.1 - - [08/Apr/2015:12:45:35 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1293
+127.0.0.1 - - [08/Apr/2015:12:45:38 +0200] "GET /servlet/ReservationServlet HTTP/1.1" 200 1411
+127.0.0.1 - - [08/Apr/2015:12:45:41 +0200] "GET /servlet/CaddieServlet HTTP/1.1" 200 735
+127.0.0.1 - - [08/Apr/2015:12:45:43 +0200] "GET /servlet/CaddieServlet HTTP/1.1" 200 735
+127.0.0.1 - - [08/Apr/2015:12:45:44 +0200] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:12:45:45 +0200] "GET /admin HTTP/1.1" 500 3906
+127.0.0.1 - - [08/Apr/2015:12:46:21 +0200] "GET /admin HTTP/1.1" 404 1003
+127.0.0.1 - - [08/Apr/2015:12:46:32 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1293
+127.0.0.1 - - [08/Apr/2015:12:46:34 +0200] "GET /servlet/CaddieServlet HTTP/1.1" 200 735
+127.0.0.1 - - [08/Apr/2015:12:46:36 +0200] "GET /admin HTTP/1.1" 404 1003
+127.0.0.1 - - [08/Apr/2015:12:47:09 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1293
+127.0.0.1 - - [08/Apr/2015:12:47:10 +0200] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:12:47:11 +0200] "GET /admin HTTP/1.1" 500 3906
+127.0.0.1 - - [08/Apr/2015:12:47:14 +0200] "GET /admin HTTP/1.1" 404 1003
+127.0.0.1 - - [08/Apr/2015:15:06:50 +0200] "GET / HTTP/1.1" 200 2282
+127.0.0.1 - - [08/Apr/2015:15:06:50 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 200 6953
+127.0.0.1 - - [08/Apr/2015:15:06:50 +0200] "GET /images/rideau-droit.jpg HTTP/1.1" 200 6884
+127.0.0.1 - - [08/Apr/2015:15:06:50 +0200] "GET /images/theatre.jpg HTTP/1.1" 200 39378
+127.0.0.1 - - [08/Apr/2015:15:06:50 +0200] "GET /favicon.ico HTTP/1.1" 404 1027
+127.0.0.1 - - [08/Apr/2015:15:06:50 +0200] "GET /favicon.ico HTTP/1.1" 404 1027
+127.0.0.1 - - [08/Apr/2015:15:06:52 +0200] "GET /admin HTTP/1.1" 500 3906
+127.0.0.1 - - [08/Apr/2015:15:07:01 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1293
+127.0.0.1 - - [08/Apr/2015:15:07:01 +0200] "GET /images/rideau.JPG HTTP/1.1" 200 9742
+127.0.0.1 - - [08/Apr/2015:15:07:05 +0200] "GET /servlet/ReservationServlet HTTP/1.1" 200 1411
+127.0.0.1 - - [08/Apr/2015:15:07:10 +0200] "GET /servlet/CaddieServlet HTTP/1.1" 200 735
+127.0.0.1 - - [08/Apr/2015:15:07:13 +0200] "GET /servlet/ReservationServlet HTTP/1.1" 200 1411
+127.0.0.1 - - [08/Apr/2015:15:16:23 +0200] "GET / HTTP/1.1" 200 2282
+127.0.0.1 - - [08/Apr/2015:15:16:23 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 200 6953
+127.0.0.1 - - [08/Apr/2015:15:16:23 +0200] "GET /images/theatre.jpg HTTP/1.1" 200 39378
+127.0.0.1 - - [08/Apr/2015:15:16:23 +0200] "GET /images/rideau-droit.jpg HTTP/1.1" 200 6884
+127.0.0.1 - - [08/Apr/2015:15:16:23 +0200] "GET /favicon.ico HTTP/1.1" 404 1027
+127.0.0.1 - - [08/Apr/2015:15:16:23 +0200] "GET /favicon.ico HTTP/1.1" 404 1027
+127.0.0.1 - - [08/Apr/2015:15:18:49 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1293
+127.0.0.1 - - [08/Apr/2015:15:18:49 +0200] "GET /images/rideau.JPG HTTP/1.1" 200 9742
+127.0.0.1 - - [08/Apr/2015:15:19:16 +0200] "POST /servlet/ProgrammeServlet HTTP/1.1" 200 11572
+127.0.0.1 - - [08/Apr/2015:15:19:28 +0200] "GET /servlet/CaddieServlet HTTP/1.1" 200 735
+127.0.0.1 - - [08/Apr/2015:15:22:37 +0200] "GET /servlet/ReservationServlet HTTP/1.1" 200 1411
