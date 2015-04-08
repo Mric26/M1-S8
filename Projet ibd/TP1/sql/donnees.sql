@@ -643,3 +643,5 @@ insert into LESTICKETS values ('282', '104', '22-FEB-09', '10', '4', '22-FEB-09'
 insert into LESTICKETS values ('283', '104', '22-FEB-09', '20', '2', '08-FEB-09', '104');
 insert into LESTICKETS values ('284', '104', '22-FEB-09', '1', '5', '21-FEB-09', '104');
 insert into LESTICKETS values ('285', '104', '22-FEB-09', '13', '9', '09-FEB-09', '104');
+
+insert into Users values ('admin', '1234', 'admin');

@@ -23,7 +23,11 @@
 	</servlet>
 	
 	<servlet> 
+		<servlet-name>IdentificationServlet</servlet-name> 
+		<servlet-class>IdentificationServlet</servlet-class> 
+	</servlet>
 
+	<servlet> 
 		<servlet-name>ReservationServlet</servlet-name> 
 		<servlet-class>ReservationServlet</servlet-class> 
 	</servlet>
@@ -49,6 +53,16 @@
 	<servlet-mapping> 
 		<servlet-name>NouvelleRepresentationServlet</servlet-name> 
 		<url-pattern>/servlet/NouvelleRepresentationServlet</url-pattern> 
+	</servlet-mapping>
+	
+	<servlet-mapping> 
+		<servlet-name>IdentificationServlet</servlet-name> 
+		<url-pattern>/admin</url-pattern> 
+	</servlet-mapping>
+	
+	<servlet-mapping> 
+		<servlet-name>IdentificationServlet</servlet-name> 
+		<url-pattern>/IdentificationServlet</url-pattern> 
 	</servlet-mapping>
 
 	<servlet-mapping> 

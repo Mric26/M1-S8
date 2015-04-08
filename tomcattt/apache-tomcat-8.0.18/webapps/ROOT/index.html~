@@ -30,17 +30,24 @@
 &nbsp;</font></li>
       <li>
       <p align="left"><font face="Monotype Corsiva" style="font-size: 16pt">
+<<<<<<< HEAD
+=======
       <a href="servlet/CaddieServlet">Caddie</a><br>
 &nbsp;</font></li> 
       <li>
       <p align="left"><font face="Monotype Corsiva" style="font-size: 16pt">
+>>>>>>> 55f565c5f6a7b1419f29de53b8eb6d45aba80960
       Réservation</font></li>
     </ul>
     <p align="left">&nbsp;</p>
     <ul>
       <li>
       <p align="left"><font face="Monotype Corsiva" style="font-size: 16pt">
+<<<<<<< HEAD
+      <a href="admin">Administration - Accès restreint</a></font></li>
+=======
       <a href="admin/admin.html">Administration - Accès restreint</a></font></li>
+>>>>>>> 55f565c5f6a7b1419f29de53b8eb6d45aba80960
     </ul>
     </td>
     <td width="25%" align="right" valign="top" height="1">

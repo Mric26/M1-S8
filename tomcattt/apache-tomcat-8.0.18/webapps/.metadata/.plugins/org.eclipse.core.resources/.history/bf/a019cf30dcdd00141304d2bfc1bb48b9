@@ -1,0 +1,20 @@
+package utils;
+
+/**
+ * Rassemble les constantes de l'application
+ * @author fauvet
+ *
+ */
+public class Constantes {
+	public static final String Menu =
+		"Bienvenue - Theatre - Gestion des categories " + "\n";
+	
+	public static final String Invite = "Votre choix" ;
+	
+<<<<<<< HEAD
+	public static final String Config = "/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT/connection.conf";
+=======
+	public static final String Config = "/home/g/gchev/Documents/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT/connection.conf";
+>>>>>>> c6d31f1cb36b1f3356866737311644bda1d46026
+	
+}

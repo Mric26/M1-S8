@@ -410,27 +410,28 @@ public class BDCategories {
 		try {
 			Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 			
-			requete = "select count(noPlace) from LesPlaces NATURAL JOIN LesZones where numS = ? and dateRep= ? and numZ= ?";
+			requete = "select count(noPlace) from LesPlaces NATURAL JOIN LesZones where numZ = ?";
 
-			Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateRep);
+			Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRep);
 			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
-			
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numZ);
+//			preparedStatement.setInt(1, numS);
+//			preparedStatement.setDate(2, sqlDate);
+			rs = preparedStatement.executeQuery();
+			rs.next();
+			int nbPlacesTotal = rs.getInt(1);
+			preparedStatement.close();
+//			nbPlaces = nbPlacesTotal;
+			requete = "select count(noPlace) from LesTickets NATURAL JOIN LesZones NATURAL JOIN LesPlaces where numS = ? and dateRep= ? and numZ= ?";
 			preparedStatement = conn.prepareStatement(requete);
 			preparedStatement.setInt(1, numS);
 			preparedStatement.setDate(2, sqlDate);
 			preparedStatement.setInt(3, numZ);
-			rs = preparedStatement.executeQuery(requete);
-			int nbPlacesTotal = rs.getInt(1);
+			rs = preparedStatement.executeQuery();
+			rs.next();
+			nbPlaces = nbPlacesTotal - rs.getInt(1);	
 			preparedStatement.close();
-			nbPlaces = nbPlacesTotal;
-//			requete = "select count(noPlace) from LesTickets NATURAL JOIN LesZones where numS ="+numS+" and dateRep=" + dateRep + " and numZ=" + numZ;
-//			preparedStatement = conn.prepareStatement(requete);
-//			preparedStatement.setInt(1, numS);
-//			preparedStatement.setDate(2, sqlDate);
-//			preparedStatement.setInt(3, numZ);
-//			rs = preparedStatement.executeQuery(requete);
-//			nbPlaces = nbPlacesTotal - rs.getInt(1);	
-//			preparedStatement.close();
 			
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."
@@ -634,6 +635,35 @@ public class BDCategories {
 					+ "Code Oracle " + e.getErrorCode()
 					+ "Message " + e.getMessage());
 		}
+	}
+	
+	public static String identification(Utilisateur user, String name, String pswd){
+		String requete= null ;
+		Statement stmt ;
+		ResultSet rs ;
+		String res= null;
+		
+			Connection conn;
+			try {
+				conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+				
+				requete = "select role from Users where name='" + name + "' and password='" + pswd +"'" ;
+				
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(requete);
+				rs.next();
+				res= rs.getString(1);
+				BDConnexion.FermerTout(conn, stmt, rs);
+			} catch (ExceptionConnexion e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				//return e.getMessage();
+				return requete;
+			}
+			
+			return res;
+					
 	}
 	
 }
