@@ -1,0 +1,30 @@
+package modele;
+
+import java.util.Date;
+
+public class Ticket {
+	int noSerie; 
+	int numS;  
+    Date dateRep; 
+    int noPlace; 
+    int noRang;
+    Date dateEmission; 
+    int noDossier; 
+	
+	public Ticket (String n, String d, int id, int z, int p) {
+		this.setNom(n);
+		this.setDate(d);
+		this.setNumS(id);
+		this.setZone(z);
+		this.setNbPlaces(p);
+	}
+
+	public int getNumS() {
+		return numS;
+	}
+
+	public void setNumS(int numS) {
+		this.numS = numS;
+	}
+	
+}

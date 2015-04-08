@@ -1,6 +1,9 @@
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 import java.io.IOException;
+import java.sql.Date;
+
 import modele.*;
 
 public class CaddieServlet extends HttpServlet {
@@ -25,31 +28,39 @@ public class CaddieServlet extends HttpServlet {
 	  
 	  try {
 //		Utilisateur user = Utilitaires.Identification();
-		  Ticket t = new Ticket("Test", "28/03/2015", 10, 3, 5);
+		Date d1 = new Date(115, 04, 8);	
+		Date d2 = new Date(115, 03, 28);
+		Ticket t = new Ticket(1, 1, d1, 1, 1, d2, 1);
 		caddie.ajouterTicket(t);
 
 		if( (caddie!= null) && (caddie.getRepresentations().size()!=0) ){
 			//AFFICHAGE
 			out.println("<TABLE BORDER>");
           		out.println("<TR>");
-          			out.println("<TH> Num </TH>");
-          			out.println("<TH> Titre de la piece </TH>");
-          			out.println("<TH> Date de la representation </TH>");
-          			out.println("<TH> Zone </TH>");
-          			out.println("<TH> Nombre de place reservées </TH>");
+          			out.println("<TH> NoSerie </TH>");
+          			out.println("<TH> NumS </TH>");
+          			out.println("<TH> DateRep </TH>");
+          			out.println("<TH> NoPlace </TH>");
+          			out.println("<TH> NoPRang </TH>");
+          			out.println("<TH> DateEmission </TH>");
+          			out.println("<TH> NoDossier </TH>");
           		out.println("</TR>");
           		for( int i =0; i<caddie.getRepresentations().size(); i++){
             		out.println("<TR>");
+        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getNoSerie() + "</TD>");
         			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getNumS() + "</TD>");
-        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getNom() + "</TD>");
-        			out.println("<TD>" + caddie.getRepresentations().elementAt(i).getDate() + "</TD>");
-        			out.println("<TD>" + caddie.getRepresentations().elementAt(i).getZone() + "</TD>");
-        			out.println("<TD>" + caddie.getRepresentations().elementAt(i).getNbPlaces() + "</TD>");
+        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getDateRep() + "</TD>");
+        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getNoPlace() + "</TD>");
+        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getNoRang() + "</TD>");
+        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getDateEmission() + "</TD>");
+        			out.println("<TD> "+ caddie.getRepresentations().elementAt(i).getNoDossier() + "</TD>");
              	    out.println("</TR>");
     	 	}
           	out.println("</TABLE>");
           	out.println("<BR/>");
           	out.println("<P> Montant de votre caddie : " + caddie.getMontant() + " </P>");
+            //Validation
+          	out.println(" <a href=CaddieValideServlet target=_self> <input type=button value=Valider> </a> ");
 		}
 		else{
 			out.println("<P> Votre Caddie est vide </P>");
@@ -61,6 +72,7 @@ public class CaddieServlet extends HttpServlet {
 	  }
 
 	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/index.html\">Accueil</a></p>");
+	  out.println("<p><font color=\"#FFFFFF\"><a href=\"CaddieServlet\">Caddie</a></p>");
 	  out.println("</BODY>");
 	  out.close();
     }

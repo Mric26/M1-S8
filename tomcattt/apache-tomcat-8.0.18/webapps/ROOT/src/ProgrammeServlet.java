@@ -77,6 +77,7 @@ public class ProgrammeServlet extends HttpServlet {
           		out.println("<TH>Num</TH>");
          	    out.println("<TH>Titre de la piece</TH>");
          	    out.println("<TH>date de representation</TH>");
+         	    out.println("<TH>Reserver</TH>");
          	 out.println("</TR>");
 	 	 for( int i =0; i<res2.size(); i++){
           		out.println("<TR>");
@@ -128,6 +129,7 @@ public class ProgrammeServlet extends HttpServlet {
 	          	out.println("<TR>");
 	         	    out.println("<TH>Numéro Place</TH>");
 	         	    out.println("<TH>Numéro Rang</TH>");
+	         	    out.println("<TH>Reserver</TH>");
 	         	 out.println("</TR>");
 		 	 for( int i =0; i<res2.size(); i++){
 	          		out.println("<TR>");
@@ -151,6 +153,7 @@ public class ProgrammeServlet extends HttpServlet {
 	}
 
 	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/index.html\">Accueil</a></p>");
+	  out.println("<p><font color=\"#FFFFFF\"><a href=\"CaddieServlet\">Caddie</a></p>");
 	  out.println("</BODY>");
 	  out.close();
     }

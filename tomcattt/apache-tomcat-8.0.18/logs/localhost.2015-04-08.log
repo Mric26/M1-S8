@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 08-Apr-2015 10:14:48.966 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ReservationServlet] in context with path [] threw exception [L''exécution de la servlet a lancé une exception] with root cause
  java.lang.Error: Unresolved compilation problem: 
 	IO cannot be resolved
@@ -888,6 +889,13 @@
 
 	at accesBD.BDCategories.nbPlacesDispoDansZone(BDCategories.java:418)
 	at ReservationServlet.doGet(ReservationServlet.java:82)
+=======
+08-Apr-2015 12:00:34.534 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke "Servlet.service()" pour la servlet CaddieServlet a généré une exception
+ java.io.CharConversionException: € n'est pas un caractère ISO 8859-1
+	at javax.servlet.ServletOutputStream.print(ServletOutputStream.java:75)
+	at javax.servlet.ServletOutputStream.println(ServletOutputStream.java:185)
+	at CaddieServlet.doGet(CaddieServlet.java:71)
+>>>>>>> b9f4336630fc1511097d3c69642bbc95d1a50549
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:618)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)

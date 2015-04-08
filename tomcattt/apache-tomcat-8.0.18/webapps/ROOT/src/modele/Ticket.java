@@ -1,34 +1,24 @@
 package modele;
 
+import java.util.Date;
+
 public class Ticket {
-	private String nom;
-	private String date;
-	private int numS;
-	private int Zone;
-	private int NbPlaces;
+	private int noSerie; 
+	private int numS;  
+	private Date dateRep; 
+	private int noPlace; 
+	private int noRang;
+	private Date dateEmission; 
+	private int noDossier; 
 	
-	public Ticket (String n, String d, int id, int z, int p) {
-		this.setNom(n);
-		this.setDate(d);
-		this.setNumS(id);
-		this.setZone(z);
-		this.setNbPlaces(p);
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public Ticket (int ns, int n, Date dr, int np, int nr, Date de, int nd) {
+		this.setNoSerie(ns);
+		this.setNumS(numS);
+		this.setDateRep(dr);
+		this.setNoPlace(np);
+		this.setNoRang(nr);
+		this.setDateEmission(de);
+		this.setNoDossier(nd);
 	}
 
 	public int getNumS() {
@@ -39,20 +29,52 @@ public class Ticket {
 		this.numS = numS;
 	}
 
-	public int getZone() {
-		return Zone;
+	public int getNoSerie() {
+		return noSerie;
 	}
 
-	public void setZone(int zone) {
-		Zone = zone;
+	public void setNoSerie(int noSerie) {
+		this.noSerie = noSerie;
 	}
 
-	public int getNbPlaces() {
-		return NbPlaces;
+	public Date getDateRep() {
+		return dateRep;
 	}
 
-	public void setNbPlaces(int nbPlaces) {
-		NbPlaces = nbPlaces;
+	public void setDateRep(Date dateRep) {
+		this.dateRep = dateRep;
+	}
+
+	public int getNoRang() {
+		return noRang;
+	}
+
+	public void setNoRang(int noRang) {
+		this.noRang = noRang;
+	}
+
+	public int getNoPlace() {
+		return noPlace;
+	}
+
+	public void setNoPlace(int noPlace) {
+		this.noPlace = noPlace;
+	}
+
+	public Date getDateEmission() {
+		return dateEmission;
+	}
+
+	public void setDateEmission(Date dateEmission) {
+		this.dateEmission = dateEmission;
+	}
+
+	public int getNoDossier() {
+		return noDossier;
+	}
+
+	public void setNoDossier(int noDossier) {
+		this.noDossier = noDossier;
 	}
 	
 }

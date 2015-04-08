@@ -22,7 +22,25 @@
 		<servlet-class>NouvelleRepresentationServlet</servlet-class> 
 	</servlet>
 	
+	<servlet> 
+
+		<servlet-name>ReservationServlet</servlet-name> 
+		<servlet-class>ReservationServlet</servlet-class> 
+	</servlet>
 	
+	<servlet> 
+		<servlet-name>CaddieServlet</servlet-name> 
+		<servlet-class>CaddieServlet</servlet-class> 
+	</servlet>
+<<<<<<< HEAD
+
+	<servlet> 
+		<servlet-name>CaddieValideServlet</servlet-name> 
+		<servlet-class>CaddieValideServlet</servlet-class> 
+	</servlet>
+=======
+
+>>>>>>> aa6328347a662735add0240a9445bf7f02aaf075
 	
 	
 	<servlet-mapping> 
@@ -35,5 +53,24 @@
 		<url-pattern>/servlet/NouvelleRepresentationServlet</url-pattern> 
 	</servlet-mapping>
 
+	<servlet-mapping> 
+		<servlet-name>ReservationServlet</servlet-name> 
+		<url-pattern>/servlet/ReservationServlet</url-pattern> 
+	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>CaddieServlet</servlet-name> 
+		<url-pattern>/servlet/CaddieServlet</url-pattern> 
+	</servlet-mapping>
+<<<<<<< HEAD
+
+	<servlet-mapping> 
+		<servlet-name>CaddieValideServlet</servlet-name> 
+		<url-pattern>/servlet/CaddieValideServlet</url-pattern> 
+	</servlet-mapping>
+
+
+=======
+
+>>>>>>> aa6328347a662735add0240a9445bf7f02aaf075
 </web-app>
