@@ -637,7 +637,8 @@ public class BDCategories {
 					+ "Message " + e.getMessage());
 		}
 	}
-
+	
+<<<<<<< HEAD
 	public static String identification(Utilisateur user, String name, String pswd){
 		String requete= null ;
 		Statement stmt ;
@@ -667,6 +668,7 @@ public class BDCategories {
 					
 	}
 	
+=======
 	public static Ticket getTicket (Utilisateur user, int numS, String dateRep, int numZ) throws CategorieException, ExceptionConnexion, ParseException {
 		Ticket res;
 		int noPlace, noRang, noSerie;
@@ -732,6 +734,7 @@ public class BDCategories {
 		}
 		return 0;
 	}
+>>>>>>> f1108f8a274465c680148dedfa039093f36ac090
 }
 
 

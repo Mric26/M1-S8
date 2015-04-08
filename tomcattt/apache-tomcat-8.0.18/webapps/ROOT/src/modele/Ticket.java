@@ -4,21 +4,22 @@ import java.util.Date;
 
 public class Ticket {
 	private int noSerie; 
-	private int numS;  
-	private Date dateRep; 
+	private int numS;
+	private int numZ;
+	private String dateRep; 
 	private int noPlace; 
 	private int noRang;
-	private Date dateEmission; 
-	private int noDossier; 
+//	private int noDossier; 
 	
-	public Ticket (int ns, int n, Date dr, int np, int nr, Date de, int nd) {
+	public Ticket (int ns, int n, String dr, int np, int nr, int nz) {
 		this.setNoSerie(ns);
-		this.setNumS(numS);
+		this.setNumS(n);
 		this.setDateRep(dr);
 		this.setNoPlace(np);
 		this.setNoRang(nr);
-		this.setDateEmission(de);
-		this.setNoDossier(nd);
+//		this.setDateEmission(de);
+		this.setNumZ(nz);
+//		this.setNoDossier(nd);
 	}
 
 	public int getNumS() {
@@ -37,11 +38,11 @@ public class Ticket {
 		this.noSerie = noSerie;
 	}
 
-	public Date getDateRep() {
+	public String getDateRep() {
 		return dateRep;
 	}
 
-	public void setDateRep(Date dateRep) {
+	public void setDateRep(String dateRep) {
 		this.dateRep = dateRep;
 	}
 
@@ -61,20 +62,28 @@ public class Ticket {
 		this.noPlace = noPlace;
 	}
 
-	public Date getDateEmission() {
-		return dateEmission;
+//	public Date getDateEmission() {
+//		return dateEmission;
+//	}
+//
+//	public void setDateEmission(Date dateEmission) {
+//		this.dateEmission = dateEmission;
+//	}
+
+	public int getNumZ() {
+		return numZ;
 	}
 
-	public void setDateEmission(Date dateEmission) {
-		this.dateEmission = dateEmission;
+	public void setNumZ(int numZ) {
+		this.numZ = numZ;
 	}
 
-	public int getNoDossier() {
-		return noDossier;
-	}
-
-	public void setNoDossier(int noDossier) {
-		this.noDossier = noDossier;
-	}
+//	public int getNoDossier() {
+//		return noDossier;
+//	}
+//
+//	public void setNoDossier(int noDossier) {
+//		this.noDossier = noDossier;
+//	}
 	
 }

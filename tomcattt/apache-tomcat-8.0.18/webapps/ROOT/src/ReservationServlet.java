@@ -4,12 +4,17 @@ import javax.servlet.http.*;
 import exceptions.CategorieException;
 import exceptions.ExceptionConnexion;
 import exceptions.ExceptionUtilisateur;
+import modele.Caddie;
 import modele.Representation;
+import modele.Ticket;
 import modele.Utilisateur;
 import utils.Utilitaires;
 import accesBD.BDCategories;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
 public class ReservationServlet extends HttpServlet {
@@ -18,12 +23,21 @@ public class ReservationServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException
     {
-    	//TODO: ajouter caddie ici!
 	  String dateRep,numSString,zoneString;
 	  int numS =0;
 	  int zone = 0;
           ServletOutputStream out = res.getOutputStream();   
 
+          Caddie caddie;
+          if( req.getSession().getAttribute("Caddie") != null ){
+        	  caddie = (Caddie) req.getSession().getAttribute("Caddie");
+        	  out.println("session existante");
+          }
+          else{
+        	  req.getSession().setAttribute("Caddie", new Caddie());
+        	  caddie = (Caddie) req.getSession().getAttribute("Caddie");
+        	  out.println("pas session");
+          }
 	  res.setContentType("text/html");
 
 	  out.println("<HEAD><TITLE> Reservation </TITLE></HEAD>");
@@ -86,7 +100,7 @@ public class ReservationServlet extends HttpServlet {
          	    out.println("</TR>");
 	 	}
         out.println("</TABLE>");
-		  
+		   
             	out.println("<font color=\"#FFFFFF\">Veuillez saisir les informations relatives &agrave; la nouvelle repr&eacute;sentation :");
             	out.println("<P>");
             	out.print("<form action=\"");
@@ -109,6 +123,14 @@ public class ReservationServlet extends HttpServlet {
 	  } else {
 	  	// TO DO
 		//  ajouter un ticket au caddie
+		  	out.println("<p> numS = " + numS + "</p>");
+			String[] dateSplit = dateRep.split(" ");
+			out.println("<p> dateRep = " + dateSplit[0] + "</p>");
+			out.println("<p> nuMZ = " + zone + "</p>");
+			Ticket t = new Ticket(0, numS, dateSplit[0], 0, 0, zone);
+			caddie.ajouterTicket(t);
+			out.println("<p> " + caddie.getNoCaddie() + "</p>");
+		
 		//END TO DO */
 	  }
 
