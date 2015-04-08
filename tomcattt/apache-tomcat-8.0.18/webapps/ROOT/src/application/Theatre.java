@@ -9,7 +9,7 @@ import utils.Utilitaires;
 import jus.util.IO;
 import modele.Utilisateur;
 import modele.Categorie;
-
+ 
 import exceptions.ExceptionTheatre;
 
 /**

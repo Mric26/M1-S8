@@ -22,6 +22,11 @@
 		<servlet-class>NouvelleRepresentationServlet</servlet-class> 
 	</servlet>
 	
+	<servlet> 
+		<servlet-name>ReservationServlet</servlet-name> 
+		<servlet-class>ReservationServlet</servlet-class> 
+	</servlet>
+	
 	
 	
 	
@@ -35,5 +40,8 @@
 		<url-pattern>/servlet/NouvelleRepresentationServlet</url-pattern> 
 	</servlet-mapping>
 
-
+	<servlet-mapping> 
+		<servlet-name>ReservationServlet</servlet-name> 
+		<url-pattern>/servlet/ReservationServlet</url-pattern> 
+	</servlet-mapping>
 </web-app>

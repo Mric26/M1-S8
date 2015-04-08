@@ -18,7 +18,8 @@ public class ReservationServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException
     {
-	  String dateRep;
+    	//TODO: ajouter caddie ici!
+	  String dateRep,numSString,zoneString;
 	  int numS =0;
 	  int zone = 0;
           ServletOutputStream out = res.getOutputStream();   
@@ -28,11 +29,17 @@ public class ReservationServlet extends HttpServlet {
 	  out.println("<HEAD><TITLE> Reservation </TITLE></HEAD>");
 	  out.println("<BODY bgproperties=\"fixed\" background=\"/images/rideau.JPG\">");
 	  out.println("<font color=\"#FFFFFF\"><h1> Reserver une place </h1>");
-
-	  numS		= Integer.parseInt( req.getParameter("numS") );
+	  
+	  numSString = req.getParameter("numS");
+	  if (numSString != null) {
+		  numS		= Integer.parseInt( numSString );	
+	  }
 	  dateRep		= req.getParameter("dateRep");
-	  zone	= Integer.parseInt( req.getParameter("zone") );
-	  if (numS == 0 || dateRep == null || zone == 0) {
+	  zoneString = req.getParameter("zone");
+	  if (zoneString != null) {
+		  zone	= Integer.parseInt( zoneString );		
+	  }
+	  if (zoneString == null || dateRep == null || numSString == null) {
 		  Utilisateur user = null;
 		  Vector<Representation> res2 = new Vector<Representation>();
 		try {
@@ -43,7 +50,6 @@ public class ReservationServlet extends HttpServlet {
 		} catch (CategorieException e) {
 			e.printStackTrace();
 		}
-		
 		out.println("<TABLE BORDER>");
 		out.println("<CAPTION> Programme du Theatre </CAPTION>");
 		out.println("<TR>");
@@ -53,6 +59,7 @@ public class ReservationServlet extends HttpServlet {
    	    int nbZone = 0;
 		try {
 			nbZone = BDCategories.nbZone(user);
+			out.println("boop");
 		} catch (CategorieException | ExceptionConnexion e) {
 			e.printStackTrace();
 		}
