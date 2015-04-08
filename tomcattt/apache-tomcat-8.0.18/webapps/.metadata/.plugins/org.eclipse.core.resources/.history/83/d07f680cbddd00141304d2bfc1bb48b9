@@ -1,0 +1,17 @@
+package modele;
+
+import java.util.ArrayList;
+
+public class Caddie {
+
+	int noCaddie;
+	public double montant;
+	ArrayList<String> representations;
+	
+	public Caddie(){
+		noCaddie = (int) (Math.random()*9999);
+		representations = new ArrayList<String>();
+		montant =0;
+	}
+	
+}
