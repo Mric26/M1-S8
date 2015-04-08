@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /IdentificationServlet.class
 /NouvelleRepresentationServlet.class
 /ProgrammeServlet.class
@@ -7,3 +8,6 @@
 /exceptions/
 /modele/
 /utils/
+=======
+/accesBD/
+>>>>>>> 55f565c5f6a7b1419f29de53b8eb6d45aba80960

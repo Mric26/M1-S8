@@ -403,28 +403,43 @@ public class BDCategories {
 	public static int nbPlacesDispoDansZone(Utilisateur user, int numS, String dateRep, int numZ) throws CategorieException, ExceptionConnexion {
 		int nbPlaces = 0;
 		String requete ;
-		Statement stmt ;
+//		Statement stmt ;
 		ResultSet rs ;
+		PreparedStatement preparedStatement;
 		
 		try {
 			Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 			
-			requete = "select count(*) from LesPlaces NATURAL JOIN LesZones where numS ="+numS+" and dateRep=" + dateRep + " and numZ=" + numZ;
-			
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(requete);
+			requete = "select count(noPlace) from LesPlaces NATURAL JOIN LesZones where numZ = ?";
+
+			Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRep);
+			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numZ);
+//			preparedStatement.setInt(1, numS);
+//			preparedStatement.setDate(2, sqlDate);
+			rs = preparedStatement.executeQuery();
+			rs.next();
 			int nbPlacesTotal = rs.getInt(1);
-			
-			requete = "select count(*) from LesTickets NATURAL JOIN LesZones where numS ="+numS+" and dateRep=" + dateRep + " and numZ=" + numZ;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(requete);
+			preparedStatement.close();
+//			nbPlaces = nbPlacesTotal;
+			requete = "select count(noPlace) from LesTickets NATURAL JOIN LesZones NATURAL JOIN LesPlaces where numS = ? and dateRep= ? and numZ= ?";
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numS);
+			preparedStatement.setDate(2, sqlDate);
+			preparedStatement.setInt(3, numZ);
+			rs = preparedStatement.executeQuery();
+			rs.next();
 			nbPlaces = nbPlacesTotal - rs.getInt(1);	
+			preparedStatement.close();
 			
-			BDConnexion.FermerTout(conn, stmt, rs);
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."
 					+ "Code Oracle " + e.getErrorCode()
 					+ "Message " + e.getMessage());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		
@@ -576,8 +591,6 @@ public class BDCategories {
 		ResultSet rs ;PreparedStatement preparedStatement;
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 		
-		
-		
 		requete = "(select noPlace, noRang from LesPlaces ) minus (select noPlace, noRang from LesTickets where numS = ? and dateRep = ?)";
 		try {
 			preparedStatement = conn.prepareStatement(requete);
@@ -599,6 +612,7 @@ public class BDCategories {
 	}
 	
 	public static int nbZone(Utilisateur user) throws CategorieException, ExceptionConnexion {
+		int nb = 0;
 		String requete ;
 		Statement stmt ;
 		ResultSet rs ;
@@ -606,14 +620,15 @@ public class BDCategories {
 		try {
 			Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 			
-			requete = "select count(*) from LesZones";
+			requete = "select count(numZ) from LesZones";
 			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(requete);
 			rs.next();
+			nb = rs.getInt(1);
 			BDConnexion.FermerTout(conn, stmt, rs);
 			
-			return rs.getInt(1);
+			return nb;
 				
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."

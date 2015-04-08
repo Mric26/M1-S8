@@ -18,7 +18,8 @@ public class ReservationServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException
     {
-	  String dateRep;
+    	//TODO: ajouter caddie ici!
+	  String dateRep,numSString,zoneString;
 	  int numS =0;
 	  int zone = 0;
           ServletOutputStream out = res.getOutputStream();   
@@ -28,11 +29,17 @@ public class ReservationServlet extends HttpServlet {
 	  out.println("<HEAD><TITLE> Reservation </TITLE></HEAD>");
 	  out.println("<BODY bgproperties=\"fixed\" background=\"/images/rideau.JPG\">");
 	  out.println("<font color=\"#FFFFFF\"><h1> Reserver une place </h1>");
-
-	  numS		= Integer.parseInt( req.getParameter("numS") );
+	  
+	  numSString = req.getParameter("numS");
+	  if (numSString != null) {
+		  numS		= Integer.parseInt( numSString );	
+	  }
 	  dateRep		= req.getParameter("dateRep");
-	  zone	= Integer.parseInt( req.getParameter("zone") );
-	  if (numS == 0 || dateRep == null || zone == 0) {
+	  zoneString = req.getParameter("zone");
+	  if (zoneString != null) {
+		  zone	= Integer.parseInt( zoneString );		
+	  }
+	  if (zoneString == null || dateRep == null || numSString == null) {
 		  Utilisateur user = null;
 		  Vector<Representation> res2 = new Vector<Representation>();
 		try {
@@ -43,7 +50,6 @@ public class ReservationServlet extends HttpServlet {
 		} catch (CategorieException e) {
 			e.printStackTrace();
 		}
-		
 		out.println("<TABLE BORDER>");
 		out.println("<CAPTION> Programme du Theatre </CAPTION>");
 		out.println("<TR>");
@@ -52,11 +58,12 @@ public class ReservationServlet extends HttpServlet {
    	    out.println("<TH>date de representation</TH>");
    	    int nbZone = 0;
 		try {
+			out.println("boop");
 			nbZone = BDCategories.nbZone(user);
 		} catch (CategorieException | ExceptionConnexion e) {
 			e.printStackTrace();
 		}
-   	    for (int i = 0; i < nbZone; i++) {
+   	    for (int i = 1; i < nbZone+1; i++) {
    	    	out.println("<TH>Place dispo zone " + i + " </TH>");
 		}
    	    out.println("</TR>");
@@ -65,10 +72,13 @@ public class ReservationServlet extends HttpServlet {
     			out.println("<TD> "+ res2.elementAt(i).getNumS() + "</TD>");
     			out.println("<TD> "+ res2.elementAt(i).getNom() + "</TD>");
     			out.println("<TD>" + res2.elementAt(i).getDate() + "</TD>");
-    			for (int j = 0; j < nbZone; j++) {
+    			for (int j = 1; j < nbZone+1; j++) {
     				int place = 0;
-					try {
-						place = BDCategories.nbPlacesDispoDansZone(user, res2.elementAt(i).getNumS(), res2.elementAt(i).getDate(), j);
+					try {;
+						String dateStirng = res2.elementAt(i).getDate();
+						String[] dateSplit = dateStirng.split(" ");
+//						out.println("dateSPlit = "+dateSplit[0]);
+						place = BDCategories.nbPlacesDispoDansZone(user, res2.elementAt(i).getNumS(), dateSplit[0], j);
 					} catch (CategorieException | ExceptionConnexion e) {
 					}
     	   	    	out.println("<TD>" + place + "</TD>");
@@ -88,6 +98,9 @@ public class ReservationServlet extends HttpServlet {
             	out.println("Date de la repr&eacute;sentation :");
             	out.println("<input type=text size=20 name=dateRep>");
             	out.println("<br>");
+            	out.println("Numéro de zone :");
+            	out.println("<input type=text size=20 name=zone>");
+            	out.println("<br>");
 //            	out.println("Zone :");
 //            	out.println("<input type=text size=20 name=zone>");
 //            	out.println("<br>");
@@ -95,7 +108,7 @@ public class ReservationServlet extends HttpServlet {
             	out.println("</form>");
 	  } else {
 	  	// TO DO
-
+		//  ajouter un ticket au caddie
 		//END TO DO */
 	  }
 
