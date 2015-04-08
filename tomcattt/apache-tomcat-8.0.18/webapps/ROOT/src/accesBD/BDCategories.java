@@ -622,6 +622,35 @@ public class BDCategories {
 		}
 	}
 	
+	public static String identification(Utilisateur user, String name, String pswd){
+		String requete= null ;
+		Statement stmt ;
+		ResultSet rs ;
+		String res= null;
+		
+			Connection conn;
+			try {
+				conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+				
+				requete = "select role from Users where name='" + name + "' and password='" + pswd +"'" ;
+				
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(requete);
+				rs.next();
+				res= rs.getString(1);
+				BDConnexion.FermerTout(conn, stmt, rs);
+			} catch (ExceptionConnexion e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				//return e.getMessage();
+				return requete;
+			}
+			
+			return res;
+					
+	}
+	
 }
 
 
