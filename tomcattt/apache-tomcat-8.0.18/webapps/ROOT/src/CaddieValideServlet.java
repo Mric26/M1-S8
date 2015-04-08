@@ -3,6 +3,7 @@ import javax.servlet.http.*;
 
 import exceptions.CategorieException;
 import exceptions.ExceptionConnexion;
+import exceptions.ExceptionUtilisateur;
 import utils.Utilitaires;
 
 import java.io.IOException;
@@ -14,10 +15,19 @@ public class CaddieValideServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     	
       ServletOutputStream out = res.getOutputStream(); 
-//      Utilisateur user = Utilitaires.Identification();
+      Utilisateur user = null;
+	try {
+		user = Utilitaires.Identification();
+	} catch (ExceptionConnexion e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (ExceptionUtilisateur e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
       Caddie caddie;
       
-      if( req.getSession().getAttribute("caddie") != null ){
+      if( req.getSession().getAttribute("Caddie") != null ){
     	  caddie = (Caddie) req.getSession().getAttribute("Caddie");
       }
       else{
@@ -25,15 +35,14 @@ public class CaddieValideServlet extends HttpServlet {
     	  caddie = (Caddie) req.getSession().getAttribute("Caddie");
       }
 
-//      try {
-//		caddie.confirmerCommande(user);
-//      } catch (CategorieException | ExceptionConnexion e) {
-//    	  out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de la confirmation de la commande - Contacter un administrateur </i></p>");
-//  		  out.println("<p><i><font color=\"#FFFFFF\">" +  e + " </i></p>");
-//      }
+      try {
+		caddie.confirmerCommande(user,out);
+      } catch (CategorieException | ExceptionConnexion e) {
+    	  out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de la confirmation de la commande - Contacter un administrateur </i></p>");
+  		  out.println("<p><i><font color=\"#FFFFFF\">" +  e + " </i></p>");
+      }
       
 	  res.setContentType("text/html");
-
 	  out.println("<HEAD><TITLE> Caddie </TITLE></HEAD>");
 	  out.println("<BODY bgproperties=\"fixed\" background=\"/images/rideau.JPG\">");
 	  out.println("<font color=\"#FFFFFF\"><h1> Caddie Validé </h1>");

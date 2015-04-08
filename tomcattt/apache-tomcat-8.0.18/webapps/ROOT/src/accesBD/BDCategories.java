@@ -15,6 +15,7 @@ import exceptions.ExceptionConnexion;
 import modele.Categorie;
 import modele.Place;
 import modele.Representation;
+import modele.Ticket;
 import modele.Utilisateur;
 
 public class BDCategories {
@@ -637,6 +638,71 @@ public class BDCategories {
 		}
 	}
 	
+	public static Ticket getTicket (Utilisateur user, int numS, String dateRep, int numZ) throws CategorieException, ExceptionConnexion, ParseException {
+		Ticket res;
+		int noPlace, noRang, noSerie;
+		String requete ;
+//		Statement stmt ;
+		ResultSet rs ;PreparedStatement preparedStatement;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "(select noPlace, noRang from LesPlaces where numZ = ? ) minus (select noPlace, noRang from LesTickets where numS = ? and dateRep = ?)";
+		try {
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numZ);
+			preparedStatement.setInt(2, numS);
+			Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRep);
+			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
+//			dateRep = sqlDate.toString();
+			preparedStatement.setDate(3, sqlDate);
+			rs =  preparedStatement.executeQuery();
+//			while (rs.next()) {
+//				res.addElement(new Place (rs.getInt(1), rs.getInt(2)));
+//			}
+			rs.next();
+			noPlace = rs.getInt(1);
+			noRang = rs.getInt(2);
+			
+			//Création du numSérie
+			requete = "select max (noSerie) from LesTickets";
+			preparedStatement = conn.prepareStatement(requete);
+			rs =  preparedStatement.executeQuery();
+			rs.next();
+			noSerie = rs.getInt(1)+1;
+			
+			res = new Ticket(noSerie, numS, dateRep, noPlace, noRang,numZ);
+			return res;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static double getPrix (Utilisateur user, int numZ) throws CategorieException, ExceptionConnexion, ParseException {
+		Ticket res;
+		String requete ;
+		ResultSet rs ;
+		PreparedStatement preparedStatement;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "(select prix FROM LesZones NATURAL JOIN LesCategories where numZ = ? ";
+		try {
+			preparedStatement = conn.prepareStatement(requete);
+			rs =  preparedStatement.executeQuery();
+//			while (rs.next()) {
+//				res.addElement(new Place (rs.getInt(1), rs.getInt(2)));
+//			}
+			rs.next();
+			return rs.getDouble(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }
 
 
