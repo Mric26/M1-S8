@@ -11,6 +11,6 @@ public class Constantes {
 	
 	public static final String Invite = "Votre choix" ;
 	
-	public static final String Config = "/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/ROOT/connection.conf";
+	public static final String Config = "/home/s/segureta/Documents/S8/M1…ttt/apache-tomcat-8.0.18/webapps/ROOT/connection.conf";
 	
 }
