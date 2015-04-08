@@ -77,7 +77,7 @@ QString MainWindow::pointToString( QVector3D p ){
 }
 
 void MainWindow::ecrireFichier(string Nomfichier){ //écrit le conteu de result dans un fichier dont le nom est passé en paramètre
-    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/Tp6_GeoNum/" + Nomfichier, ios::out | ios::trunc);
+    ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/Tp6_GeoNum/" + Nomfichier, ios::out | ios::trunc);
         if(fichier){
 
             //écriture des points selon la convention "v x y z"
@@ -113,7 +113,7 @@ void MainWindow::ecrireFichier(string Nomfichier){ //écrit le conteu de result 
 
 void MainWindow::lancerAlgo(){
     recupererPoints();
-    afficherMatrice();
+    //afficherMatrice();
     result = matricePts;
     ecrireFichier("source.obj");
     result.clear();

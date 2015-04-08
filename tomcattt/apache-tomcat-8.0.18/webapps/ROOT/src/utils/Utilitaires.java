@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.util.Vector;
 import java.awt.Frame;
 
+import javax.servlet.ServletOutputStream;
 import javax.swing.JOptionPane;
 
 import jus.util.IO;
@@ -63,6 +64,7 @@ public class Utilitaires {
 
 	/**
 	 * effectue la connexion pour l'utilisateur
+	 * @param out 
 	 * 
 	 * @return l'oid de l'objet utilisateur
 	 * @throws ExceptionUtilisateur

@@ -173,14 +173,14 @@ public class Utilitaires {
 		
 		//recup
 		JOptionPane j = new JOptionPane();
-		String nomC = j.showInputDialog("Entrez l'ancien nom de la categorie :");
+		int id = Integer.parseInt( j.showInputDialog("Entrez l'id de la categorie :") );
 		String nomC2 = j.showInputDialog("Entrez le nouveau nom de la categorie :");
 		
 		try {
 			IO.afficherln("===================");
 			IO.afficherln("Modification de :");
-			IO.afficherln(nomC + " en : " + nomC2);
-			BDCategories.modifierNomCategorie(user, nomC, nomC2);
+			IO.afficherln(id + " en : " + nomC2);
+			BDCategories.modifierNomCategorie(user, id, nomC2);
 			IO.afficherln("===================");
 			IO.afficherln("Listes des categories après modification :");
 			res = BDCategories.getCategorie(user);
@@ -188,7 +188,7 @@ public class Utilitaires {
 				IO.afficherln(" Liste vide ");
 			} else {
 				for (int i = 0; i < res.size(); i++) {
-					IO.afficherln(res.elementAt(i).getCategorie() + " (prix : "
+					IO.afficherln(res.elementAt(i).getId()+ ". "+  res.elementAt(i).getCategorie() + " (prix : "
 							+ res.elementAt(i).getPrix() + ")");
 				}
 			}
@@ -283,7 +283,7 @@ public class Utilitaires {
 				IO.afficherln(" Liste vide ");
 			} else {
 				for (int i = 0; i < res.size(); i++) {
-					IO.afficherln(res.elementAt(i).getNom() + " (date : " + res.elementAt(i).getDate() + ")");
+					IO.afficherln(res.elementAt(i).getNumS() + ". " + res.elementAt(i).getNom() + " (date : " + res.elementAt(i).getDate() + ")");
 				}
 			}
 			IO.afficherln("===================");

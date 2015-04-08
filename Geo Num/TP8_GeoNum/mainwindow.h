@@ -22,7 +22,7 @@ public:
     void afficherMatrice();
     QString pointToString(QVector3D p);
     QString pointsToFace(std::vector<int> tab);
-    void ecrireFichier();
+    void ecrireFichier(std::string Nomfichier);
     void recupererPoints();
     void AlgoChaikin();
 

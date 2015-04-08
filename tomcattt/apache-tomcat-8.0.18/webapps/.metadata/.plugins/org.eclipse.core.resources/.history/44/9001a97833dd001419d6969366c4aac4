@@ -1,0 +1,13 @@
+package modele;
+
+public class Place {
+	
+	int noRang;
+	int noPlace;
+	
+	public Place(int r, int p){
+		noRang = r;
+		noPlace = p;
+	}
+
+}
