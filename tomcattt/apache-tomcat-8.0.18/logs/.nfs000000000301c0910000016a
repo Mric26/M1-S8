@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 127.0.0.1 - - [08/Apr/2015:08:20:10 +0200] "GET / HTTP/1.1" 200 2243
 127.0.0.1 - - [08/Apr/2015:08:20:10 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 200 6953
 127.0.0.1 - - [08/Apr/2015:08:20:10 +0200] "GET /images/theatre.jpg HTTP/1.1" 200 39378
@@ -137,21 +136,3 @@
 127.0.0.1 - - [08/Apr/2015:12:12:36 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1293
 127.0.0.1 - - [08/Apr/2015:12:13:14 +0200] "GET /servlet/ProgrammeServlet HTTP/1.1" 200 1312
 127.0.0.1 - - [08/Apr/2015:12:14:09 +0200] "POST /servlet/ProgrammeServlet HTTP/1.1" 200 11591
-=======
-127.0.0.1 - - [08/Apr/2015:10:10:06 +0200] "GET /index.html HTTP/1.1" 200 2402
-127.0.0.1 - - [08/Apr/2015:10:10:06 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:10:06 +0200] "GET /images/rideau-droit.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:10:06 +0200] "GET /images/theatre.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:03 +0200] "GET /index.html HTTP/1.1" 200 2285
-127.0.0.1 - - [08/Apr/2015:10:11:03 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:03 +0200] "GET /images/theatre.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:03 +0200] "GET /images/rideau-droit.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:04 +0200] "GET /index.html HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:04 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:04 +0200] "GET /images/theatre.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:04 +0200] "GET /images/rideau-droit.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:27 +0200] "GET /index.html HTTP/1.1" 200 2293
-127.0.0.1 - - [08/Apr/2015:10:11:27 +0200] "GET /images/rideau-gauche.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:27 +0200] "GET /images/theatre.jpg HTTP/1.1" 304 -
-127.0.0.1 - - [08/Apr/2015:10:11:27 +0200] "GET /images/rideau-droit.jpg HTTP/1.1" 304 -
->>>>>>> aa6328347a662735add0240a9445bf7f02aaf075

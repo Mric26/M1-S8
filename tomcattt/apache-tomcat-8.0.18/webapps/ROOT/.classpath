@@ -8,5 +8,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/WEB"/>
+	<classpathentry kind="lib" path="src/jus.util.jar"/>
+	<classpathentry kind="lib" path="src/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="/home/a/amorel/m1info/M1-S8/tomcattt/apache-tomcat-8.0.18/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

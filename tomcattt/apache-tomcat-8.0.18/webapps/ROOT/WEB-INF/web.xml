@@ -23,6 +23,12 @@
 	</servlet>
 	
 	<servlet> 
+
+		<servlet-name>ReservationServlet</servlet-name> 
+		<servlet-class>ReservationServlet</servlet-class> 
+	</servlet>
+	
+	<servlet> 
 		<servlet-name>CaddieServlet</servlet-name> 
 		<servlet-class>CaddieServlet</servlet-class> 
 	</servlet>
@@ -33,6 +39,8 @@
 	</servlet>
 	
 	
+
+
 	<servlet-mapping> 
 		<servlet-name>ProgrammeServlet</servlet-name> 
 		<url-pattern>/servlet/ProgrammeServlet</url-pattern> 
@@ -44,6 +52,11 @@
 	</servlet-mapping>
 
 	<servlet-mapping> 
+		<servlet-name>ReservationServlet</servlet-name> 
+		<url-pattern>/servlet/ReservationServlet</url-pattern> 
+	</servlet-mapping>
+
+	<servlet-mapping>
 		<servlet-name>CaddieServlet</servlet-name> 
 		<url-pattern>/servlet/CaddieServlet</url-pattern> 
 	</servlet-mapping>
