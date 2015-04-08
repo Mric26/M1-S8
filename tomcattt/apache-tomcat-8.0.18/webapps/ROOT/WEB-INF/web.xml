@@ -26,6 +26,11 @@
 		<servlet-name>CaddieServlet</servlet-name> 
 		<servlet-class>CaddieServlet</servlet-class> 
 	</servlet>
+
+	<servlet> 
+		<servlet-name>CaddieValideServlet</servlet-name> 
+		<servlet-class>CaddieValideServlet</servlet-class> 
+	</servlet>
 	
 	
 	<servlet-mapping> 
@@ -41,6 +46,11 @@
 	<servlet-mapping> 
 		<servlet-name>CaddieServlet</servlet-name> 
 		<url-pattern>/servlet/CaddieServlet</url-pattern> 
+	</servlet-mapping>
+
+	<servlet-mapping> 
+		<servlet-name>CaddieValideServlet</servlet-name> 
+		<url-pattern>/servlet/CaddieValideServlet</url-pattern> 
 	</servlet-mapping>
 
 

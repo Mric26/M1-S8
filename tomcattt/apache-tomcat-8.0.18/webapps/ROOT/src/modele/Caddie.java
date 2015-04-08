@@ -1,6 +1,13 @@
 package modele;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Vector;
+
+import accesBD.BDConnexion;
+import exceptions.CategorieException;
+import exceptions.ExceptionConnexion;
 
 public class Caddie {
 
@@ -48,6 +55,52 @@ public class Caddie {
 		representations.remove(t);
 		montant -= 5;
 		return true;
+	}
+	
+	private void clean(){
+		representations.clear();
+		montant = 0;
+		
+	}
+	
+	public boolean confirmerCommande(Utilisateur user) throws CategorieException, ExceptionConnexion {
+		String requete ;
+		PreparedStatement preparedStatement;
+		java.sql.Date sqlDate;
+		
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		//requete
+		for (int i = 0; i <representations.size(); i++) {
+			requete = "INSERT INTO LesTickets VALUES(?,?,?,?,?,?,?)";
+			try {
+				preparedStatement = conn.prepareStatement(requete);
+				preparedStatement.setInt(1, representations.elementAt(i).getNoSerie());
+				preparedStatement.setInt(2, representations.elementAt(i).getNumS());
+				sqlDate = new java.sql.Date(representations.elementAt(i).getDateRep().getTime());
+				preparedStatement.setDate(3, sqlDate);
+				preparedStatement.setInt(4, representations.elementAt(i).getNoPlace());
+				preparedStatement.setInt(5, representations.elementAt(i).getNoRang());
+				sqlDate = new java.sql.Date(representations.elementAt(i).getDateEmission().getTime());
+				preparedStatement.setDate(6, sqlDate);
+				preparedStatement.setInt(7, representations.elementAt(i).getNoDossier());
+				preparedStatement.executeUpdate();
+			} catch (SQLException e) {
+				System.err.println("Erreur lors du lancement de la requete " + i + " sur " + representations.size());
+				e.printStackTrace();
+				return false;
+			}
+		}
+		clean();
+		//Deconexion
+		try {
+			conn.close();
+			return true;
+		} catch (SQLException e) {
+			System.err.println("Erreur lors de la fermeture de la connexion");
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 }

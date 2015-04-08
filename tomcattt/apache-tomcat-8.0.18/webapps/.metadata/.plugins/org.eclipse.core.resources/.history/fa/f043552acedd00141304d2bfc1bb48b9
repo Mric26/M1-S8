@@ -1,0 +1,99 @@
+package modele;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Vector;
+
+import accesBD.BDConnexion;
+import exceptions.CategorieException;
+import exceptions.ExceptionConnexion;
+
+public class Caddie {
+
+	private int noCaddie;
+	private double montant;
+	private Vector<Ticket> representations = new Vector<Ticket>();
+	
+	public Caddie(){
+		setNoCaddie((int) (Math.random()*9999));
+		setRepresentations(new Vector<Ticket>());
+		setMontant(0);
+	}
+
+	public int getNoCaddie() {
+		return noCaddie;
+	}
+
+	public void setNoCaddie(int noCaddie) {
+		this.noCaddie = noCaddie;
+	}
+
+	public double getMontant() {
+		return montant;
+	}
+
+	public void setMontant(double montant) {
+		this.montant = montant;
+	}
+
+	public Vector<Ticket> getRepresentations() {
+		return representations;
+	}
+
+	public void setRepresentations(Vector<Ticket> representations) {
+		this.representations = representations;
+	}
+	
+	public boolean ajouterTicket( Ticket t ){
+		representations.add(t);
+		montant += 5;
+		return true;
+	}
+	
+	public boolean retirerTicket( Ticket t ){
+		representations.remove(t);
+		montant -= 5;
+		return true;
+	}
+	
+	public boolean confirmerCommande(Utilisateur user) throws CategorieException, ExceptionConnexion {
+		String requete ;
+		PreparedStatement preparedStatement;
+		java.sql.Date sqlDate;
+		
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		//requete
+		for (int i = 0; i <representations.size() ; i++) {
+			requete = "INSERT INTO LesTickets VALUES(?,?,?,?,?,?,?)";
+			try {
+				preparedStatement = conn.prepareStatement(requete);
+				preparedStatement.setInt(1, representations.elementAt(i).getNoSerie());
+				preparedStatement.setInt(2, representations.elementAt(i).getNumS());
+				sqlDate = new java.sql.Date(representations.elementAt(i).getDateRep().getTime());
+				preparedStatement.setDate(3, sqlDate);
+				preparedStatement.setInt(4, representations.elementAt(i).getNoPlace());
+				preparedStatement.setInt(5, representations.elementAt(i).getNoRang());
+				sqlDate = new java.sql.Date(representations.elementAt(i).getDateEmission().getTime());
+				preparedStatement.setDate(6, sqlDate);
+				preparedStatement.setInt(7, representations.elementAt(i).getNoDossier());
+				preparedStatement.executeUpdate();
+			} catch (SQLException e) {
+				System.err.println("Erreur lors du lancement de la requete");
+				e.printStackTrace();
+				return false;
+			}
+		}
+		//Deconexion
+		try {
+			conn.close();
+			return true;
+		} catch (SQLException e) {
+			System.err.println("Erreur lors de la fermeture de la connexion");
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+}
