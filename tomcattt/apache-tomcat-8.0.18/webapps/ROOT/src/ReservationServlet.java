@@ -31,12 +31,12 @@ public class ReservationServlet extends HttpServlet {
           Caddie caddie;
           if( req.getSession().getAttribute("Caddie") != null ){
         	  caddie = (Caddie) req.getSession().getAttribute("Caddie");
-        	  out.println("session existante");
+        	  //out.println("session existante");
           }
           else{
         	  req.getSession().setAttribute("Caddie", new Caddie());
         	  caddie = (Caddie) req.getSession().getAttribute("Caddie");
-        	  out.println("pas session");
+        	  //out.println("pas session");
           }
 	  res.setContentType("text/html");
 
@@ -72,7 +72,6 @@ public class ReservationServlet extends HttpServlet {
    	    out.println("<TH>date de representation</TH>");
    	    int nbZone = 0;
 		try {
-			out.println("boop");
 			nbZone = BDCategories.nbZone(user);
 		} catch (CategorieException | ExceptionConnexion e) {
 			e.printStackTrace();
