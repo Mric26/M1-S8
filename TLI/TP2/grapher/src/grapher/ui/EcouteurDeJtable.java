@@ -1,5 +1,7 @@
 package grapher.ui;
 
+import java.awt.Color;
+
 import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -19,7 +21,12 @@ public class EcouteurDeJtable implements TableModelListener {
         int[] selectedColumns = table.getSelectedColumns();
 
         if( (selectedRow.length == 1) && (selectedColumns[0] == 1) ){
-        	//changement de coueleur
+        	//changement de couleur
+        	int nbElem = table.getRowCount();
+        	grapher.tabColor = new Color[nbElem];
+        	for (int i = 0; i < nbElem; i++) {
+				grapher.tabColor[i] = (Color) table.getValueAt(i, 1);
+			}
         }
         else {
         	//mise en gras
@@ -29,10 +36,10 @@ public class EcouteurDeJtable implements TableModelListener {
     	        	for (int k = 0; k < selectedRow.length; k++) {
     	        		grapher.tabSelected[k] = selectedRow[k];
     				}
-    	        	grapher.repaint();
                 }
         	}
         }
+        grapher.repaint();
 	}
 	
 }

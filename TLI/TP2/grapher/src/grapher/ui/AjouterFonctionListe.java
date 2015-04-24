@@ -35,9 +35,8 @@ public class AjouterFonctionListe implements ActionListener {
 		functions.add(functions.size(), f);
 		//ajout dans jtable
 		DefaultTableModel model = (DefaultTableModel) tableau.getModel();
-		JButton b = new JButton();
-	    b.setBackground(Color.ORANGE);
-		model.addRow(new Object[]{f, b});
+
+		model.addRow(new Object[]{f, "swag"});
 		//repaint
 		grapher.repaint();
 	}

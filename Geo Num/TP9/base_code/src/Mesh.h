@@ -62,7 +62,6 @@ public:
   
   // Subdivision
   Mesh subdivide() const;   // Computes the Catmull-Clark subdivision of the mesh
-
 };
 
 

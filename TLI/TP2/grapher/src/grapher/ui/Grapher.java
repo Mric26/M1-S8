@@ -37,6 +37,7 @@ public class Grapher extends JPanel {
 	private EcouteurDeSouris ec;
 	
 	public int[] tabSelected;
+	public Color[] tabColor;
 	
 	public Grapher() {
 		xmin = -PI/2.; xmax = 3*PI/2;
@@ -47,6 +48,7 @@ public class Grapher extends JPanel {
 		this.addMouseWheelListener(ec);
 		functions = new DefaultListModel<Function>();
 		tabSelected = new int[0];
+		tabColor = new Color[0];
 	}
 	
 	public Grapher( DefaultListModel<Function> functions2 ) {
@@ -58,6 +60,7 @@ public class Grapher extends JPanel {
 		this.addMouseWheelListener(ec);
 		functions = functions2;
 		tabSelected = new int[0];
+		tabColor = new Color[0];
 	}
 	
 	public void add(String expression) {
@@ -116,6 +119,9 @@ public class Grapher extends JPanel {
 		
 		int indice = 0;
 		for (int j = 0; j < functions.size(); j++) {
+			if( tabColor.length != 0 ){
+				g2.setColor(tabColor[j]);
+			}
 			//fonctions en gras
 			Stroke ancienneTaille = g2.getStroke();
 			if( (tabSelected.length > 0) && (indice < tabSelected.length) ){
@@ -135,6 +141,7 @@ public class Grapher extends JPanel {
 			
 			g2.drawPolyline(Xs, Ys, N);
 			g2.setStroke( ancienneTaille );
+			g2.setColor(Color.BLACK);
 		}
 		
 

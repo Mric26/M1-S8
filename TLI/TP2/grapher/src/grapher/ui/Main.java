@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -48,16 +49,18 @@ public class Main extends JFrame {
 	    
 	    //table
 	    Object[][] donnees = new Object[functions.size()][2];
-	    JButton b = new JButton();
-	    b.setBackground(Color.ORANGE);
-	    //b.addActionListener( );
 	    for (int i = 0; i < functions.size(); i++) {
 			donnees[i][0] = functions.elementAt(i);
-			donnees[i][1] = b;
+			donnees[i][1] = new Color(0, 0, 0);
 		}
 	    
         String[] entetes = {"Fonctions", "Couleur"};
         JTable tableau = new JTable(new DefaultTableModel(donnees, entetes));
+        tableau.setRowSelectionAllowed(true);
+        ButtonRendered coul = new ButtonRendered();
+        BoutonEditor coul2 = new BoutonEditor();
+        tableau.getColumn("Couleur").setCellRenderer(coul);
+        tableau.getColumn("Couleur").setCellEditor(coul2);
         EcouteurDeJtable ejt = new EcouteurDeJtable(tableau, grapher);
         tableau.getModel().addTableModelListener(ejt);
 	    
