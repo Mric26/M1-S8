@@ -24,7 +24,6 @@ public final class BDConnexion {
 	public static Connection getConnexion(String login, String mdp) throws ExceptionConnexion {
 		Connection conn = null ;
 		try {
-
 			// lecture des parametres de connexion dans connection.conf
 			Properties p = new Properties();
 			InputStream is = null;

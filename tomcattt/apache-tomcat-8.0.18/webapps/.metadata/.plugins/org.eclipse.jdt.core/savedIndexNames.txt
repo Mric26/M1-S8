@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+/home/s/segureta/Documents/S8/M1-S8/tomcattt/apache-tomcat-8.0.18/webapps/.metadata/.plugins/org.eclipse.jdt.core
+2224456763.index

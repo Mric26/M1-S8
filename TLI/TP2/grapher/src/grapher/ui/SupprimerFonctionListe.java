@@ -7,30 +7,34 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JColorChooser;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class SupprimerFonctionListe implements ActionListener {
 	DefaultListModel<Function> functions;
 	JList<Function> list;
 	Grapher grapher;
+	JTable tableau;
 
-	public SupprimerFonctionListe(DefaultListModel<Function> f, JList<Function> l, Grapher g) {
+	public SupprimerFonctionListe(DefaultListModel<Function> f, JList<Function> l, Grapher g, JTable t) {
 		functions = f;
 		list = l;
 		grapher = g;
+		tableau = t;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-        if (list.getSelectedIndex() != -1) {
-        	int[] tab = list.getSelectedIndices();
-        	if( tab.length > 0 ){
-        		for (int i = tab.length-1; i >= 0 ; i--) {
-            		functions.remove(tab[i]);
-    			}
-            	grapher.repaint();
-        	}
-        }
+		int[] selectedRow = tableau.getSelectedRows();
+		
+		for (int i = 0; i < selectedRow.length; i++) {
+			functions.remove(i);
+    		DefaultTableModel model = (DefaultTableModel) tableau.getModel();
+    		model.removeRow(i);
+		}
+		grapher.repaint();
 	}
 
 }

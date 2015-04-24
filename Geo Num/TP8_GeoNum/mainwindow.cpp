@@ -23,7 +23,7 @@ void MainWindow::LancerAlgo(){
             AlgoChaikin();
         }
     }
-    ecrireFichier();
+    ecrireFichier("yolo");
     QFile file("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP8_GeoNum/dessin.txt");
     file.rename("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP8_GeoNum/dessin.obj");
     cout << "END" << endl;
@@ -68,46 +68,46 @@ void MainWindow::AlgoChaikin(){
 
 void MainWindow::recupererPoints(){ //format du texte: (x1;y1;z1)(x2;y2;z2)...(xn;yn;zn)
     QString contenu = ui->zonePoints->toPlainText();
-    nbCols = ui->colonnes->value();
-    nbLignes = ui->lignes->value();
-    QVector3D tabPoints[nbCols*nbLignes];
-    int sizeText = contenu.size();
-    int nbPoints = 0;
-    QString num= NULL;
-    bool deuxiemeValeur= false;
+        nbCols = ui->colonnes->value();
+        nbLignes = ui->lignes->value();
+        QVector3D tabPoints[nbCols*nbLignes];
+        int sizeText = contenu.size();
+        int nbPoints = 0;
+        QString num= NULL;
+        bool deuxiemeValeur= false;
 
-    for (int i = 0; i < sizeText; ++i) {
-        QChar c = contenu.at(i); //récupération du caractère
-        if (c.isNumber()){ //récupération d'un digit
-            num += (QString)(c);
-        }else{
-            if(c ==  '('){
-                nbPoints++;
-                tabPoints[nbPoints-1]= *(new QVector3D(0,0,0));
-                deuxiemeValeur= false;
-            }else if(c == (QChar)(';')){ //insèrer la nouvelle valeur X ou Y dans le tableau de points et réinitialiser la valeur de 'num'
-                if(!deuxiemeValeur){ //on enregistre la premiere valeur
-                    tabPoints[nbPoints-1].setX(num.toFloat());
-                    num = "";
-                    deuxiemeValeur = true;
-                }else{ //on enregistre la deuxième valeur
-                    tabPoints[nbPoints-1].setY(num.toFloat());
+        for (int i = 0; i < sizeText; ++i) {
+            QChar c = contenu.at(i); //récupération du caractère
+            if (c.isNumber() || c == '-'){ //récupération d'un digit
+                num += (QString)(c);
+            }else{
+                if(c ==  '('){
+                    nbPoints++;
+                    tabPoints[nbPoints-1]= *(new QVector3D(0,0,0));
+                    deuxiemeValeur= false;
+                }else if(c == (QChar)(';')){ //insèrer la nouvelle valeur X ou Y dans le tableau de points et réinitialiser la valeur de 'num'
+                    if(!deuxiemeValeur){ //on enregistre la premiere valeur
+                        tabPoints[nbPoints-1].setX(num.toFloat());
+                        num = "";
+                        deuxiemeValeur = true;
+                    }else{ //on enregistre la deuxième valeur
+                        tabPoints[nbPoints-1].setY(num.toFloat());
+                        num = "";
+                    }
+                }else if(c == (QChar)(')')){ //insèrer la nouvelle valeur Z dans le tableau de points et réinitialiser la valeur de 'num'
+                    tabPoints[nbPoints-1].setZ(num.toFloat());
                     num = "";
                 }
-            }else if(c == (QChar)(')')){ //insèrer la nouvelle valeur Z dans le tableau de points et réinitialiser la valeur de 'num'
-                tabPoints[nbPoints-1].setZ(num.toFloat());
-                num = "";
             }
         }
-    }
-    taille= nbPoints;
+        taille= nbPoints;
 
-    for (int L = 0; L < nbLignes; ++L) {
-        matricePts.push_back(std::vector<QVector3D>());
-         for (int k = 0; k < nbCols; ++k){
-            matricePts[L].push_back(tabPoints[ L*nbCols + k]);
+        for (int L = 0; L < nbLignes; ++L) {
+            matricePts.push_back(std::vector<QVector3D>());
+             for (int k = 0; k < nbCols; ++k){
+                matricePts[L].push_back(tabPoints[ L*nbCols + k]);
+            }
         }
-    }
 }
 
 void MainWindow::afficherMatrice(){
@@ -135,9 +135,8 @@ QString MainWindow::pointsToFace( vector<int> tab ){
     return res;
 }
 
-
-void MainWindow::ecrireFichier(){
-    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/TP8_GeoNum/res.obj" , ios::out | ios::trunc);
+void MainWindow::ecrireFichier(string Nomfichier){
+    ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP8_GeoNum/dessin.txt", ios::out | ios::trunc);
     if(fichier){
 
         //écriture des points selon la convention "v x y z"

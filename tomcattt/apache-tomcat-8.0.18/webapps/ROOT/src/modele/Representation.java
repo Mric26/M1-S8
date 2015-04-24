@@ -3,10 +3,12 @@ package modele;
 public class Representation {
 	private String nom;
 	private String date;
+	private int numS;
 	
-	public Representation (String n, String d) {
+	public Representation (String n, String d, int id) {
 		this.nom = n;
 		this.date = d;
+		this.setNumS(id);
 	}
 
 	public String getNom () {
@@ -23,5 +25,13 @@ public class Representation {
 	
 	public void setDate (String d) {
 		this.date = d;
+	}
+
+	public int getNumS() {
+		return numS;
+	}
+
+	public void setNumS(int numS) {
+		this.numS = numS;
 	}
 }

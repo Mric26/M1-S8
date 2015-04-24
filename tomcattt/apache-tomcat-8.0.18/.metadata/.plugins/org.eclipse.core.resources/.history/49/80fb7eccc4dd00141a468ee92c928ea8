@@ -1,0 +1,8 @@
+package modele;
+
+public class Users {
+	private String name;
+	private String pswd;
+	private String role;
+
+}

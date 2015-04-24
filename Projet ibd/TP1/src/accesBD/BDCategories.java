@@ -66,12 +66,12 @@ public class BDCategories {
 		ResultSet rs ;
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 		
-		requete = "select numS, dateRep from LesRepresentations order by numS";
+		requete = "select nomS, dateRep, numS from LesRepresentations NATURAL JOIN LesSpectacles order by numS";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(requete);
 			while (rs.next()) {
-				res.addElement(new Representation (rs.getString(1), rs.getString(2)));
+				res.addElement(new Representation (rs.getString(1), rs.getString(2), rs.getInt(3)));
 			}
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."
@@ -81,6 +81,30 @@ public class BDCategories {
 		BDConnexion.FermerTout(conn, stmt, rs);
 		return res;
 	}
+	
+	public static Vector<Representation> getRepresentationDUnSpectacle (Utilisateur user, int numS) throws CategorieException, ExceptionConnexion {
+		Vector<Representation> res = new Vector<Representation>();
+		String requete ;
+		Statement stmt ;
+		ResultSet rs ;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "select nomS, dateRep, numS from LesRepresentations NATURAL JOIN LesSpectacles where numS = "+numS;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			while (rs.next()) {
+				res.addElement(new Representation (rs.getString(1), rs.getString(2), rs.getInt(3)));
+			}
+		} catch (SQLException e) {
+			throw new CategorieException (" Problème dans l'interrogation des catégories.."
+					+ "Code Oracle " + e.getErrorCode()
+					+ "Message " + e.getMessage());
+		}
+		BDConnexion.FermerTout(conn, stmt, rs);
+		return res;
+	}
+	
 	
 	/**
 	 * Permet d'ajouter une catégorie
@@ -163,8 +187,7 @@ public class BDCategories {
 	/**
 	 * Permet de retirer une catégorie
 	 * @param user
-	 * @param nomCat
-	 * @param prix
+	 * @param catId
 	 * @throws CategorieException
 	 * @throws ExceptionConnexion
 	 */
@@ -231,43 +254,25 @@ public class BDCategories {
 	 * @throws CategorieException
 	 * @throws ExceptionConnexion
 	 */
-	public static void modifierNomCategorie(Utilisateur user, String ancienNom,String nouvNom) throws CategorieException, ExceptionConnexion {
+	public static void modifierNomCategorie(Utilisateur user, int catId, String nouvNom) throws CategorieException, ExceptionConnexion {
 		// TODO
 		String requete ;
 		PreparedStatement preparedStatement;
-		Statement stmt ;
 		ResultSet rs ;
 		
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
-	
-		//1ere requete : creer nouvelle catgeorie avec le nouveau nom et l'ancien prix
-		int prix = 0;
-		requete = "select prix from LesCategories where nomC = " + ancienNom;
-		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(requete);
-			prix = rs.getInt(1);
-		} catch (SQLException e) {
-			System.err.println("Erreur lors de la recuperation du prix");
-			e.printStackTrace();
-		}
 		
-		ajouterCategorie(user, nouvNom, prix);
-		
-		//2eme requete : modifier les zones afin de mettre en relation avec la nouvelle categorie
-		requete = "update LesZones set nomC = ? where nomC = ?";
+		//requete : supprimer l'ancienne categorie
+		requete = "UPDATE LesCategories set nomC = ? where catId = ?";
 		try {
 			preparedStatement = conn.prepareStatement(requete);
 			preparedStatement.setString(1, nouvNom);
-			preparedStatement.setString(2, ancienNom);
-			rs = preparedStatement.executeQuery(requete);
+			preparedStatement.setInt(2, catId);
+			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			System.err.println("Erreur lors de la modification des zones");
+			System.err.println("Erreur lors de la recuperation de l'id");
 			e.printStackTrace();
 		}
-		
-		//3eme requete : supprimer l'ancienne categorie
-		enleverCategorie(user, ancienNom);
 		
 		try {
 			conn.close();
@@ -548,6 +553,31 @@ public class BDCategories {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public static Vector<Place> getPlacePourRep (Utilisateur user, int numS, String dateRep) throws CategorieException, ExceptionConnexion {
+		Vector<Place> res = new Vector<Representation>();
+		String requete ;
+		Statement stmt ;
+		ResultSet rs ;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "(select noPlace, noRang from LesPlaces where numS = "+numS;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			while (rs.next()) {
+				res.addElement(new Representation (rs.getString(1), rs.getString(2), rs.getInt(3)));
+			}
+		} catch (SQLException e) {
+			throw new CategorieException (" Problème dans l'interrogation des catégories.."
+					+ "Code Oracle " + e.getErrorCode()
+					+ "Message " + e.getMessage());
+		}
+		BDConnexion.FermerTout(conn, stmt, rs);
+		return res;
+	}
+	
 	
 }
 

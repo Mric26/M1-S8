@@ -5,6 +5,7 @@ drop table LesSpectacles ;
 drop table LesPlaces ; 
 drop table LesZones ; 
 drop table LesCategories ; 
+drop table Users;
  
 create table LesCategories (catId number (3),nomC varchar2(20), prix number (8,2), 
       constraint cat_c1 primary key (catId), 
@@ -44,3 +45,10 @@ create table LesTickets (noSerie number (4), numS number (4),
       constraint tickets_c6 foreign key (noDossier)  
                  references LesDossiers (noDossier)
 ) ; 
+
+create table Users (
+	name VARCHAR(32),
+	password VARCHAR(32),
+	role VARCHAR(32),
+	constraint clef_prim primary key (name)
+);

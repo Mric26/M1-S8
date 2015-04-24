@@ -1,0 +1,80 @@
+
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+import modele.Utilisateur;
+import utils.Utilitaires;
+import accesBD.BDCategories;
+
+import java.io.IOException;
+
+public class IdentificationServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+	{
+	  String name, pswd, result;
+	  ServletOutputStream out = res.getOutputStream();   
+	
+	  res.setContentType("text/html");
+	
+	  out.println("<HEAD><TITLE> Identification </TITLE></HEAD>");
+	  out.println("<BODY bgproperties=\"fixed\" background=\"/images/rideau.JPG\">");
+	  out.println("<font color=\"#FFFFFF\"><h1> identifaction pour acces &agrave la page d'administration </h1>");
+	
+	  name		= req.getParameter("name");
+	  pswd		= req.getParameter("pswd");
+	  if (name == null || pswd == null ) {
+	        	out.println("<font color=\"#FFFFFF\">Veuillez saisir votre login et mot de passe administrateur :");
+	        	out.println("<P>");
+	        	out.print("<form action=\"");
+	        	out.print("IdentificationServlet\" ");
+	        	out.println("method=POST>");
+	        	out.println("nom administateur :");
+	        	out.println("<input type=text size=20 name=name>");
+	        	out.println("<br>");
+	        	out.println("mot de passe :");
+	        	out.println("<input type=text size=20 name=pswd>");
+	        	out.println("<input type=submit>");
+	        	out.println("</form>");
+	  } else {
+		try {
+			Utilisateur user = Utilitaires.Identification();
+			result= BDCategories.identification(user, name, pswd);
+			if(result != "admin"){
+				out.println("<p><i><font color=\"#FFFFFF\">login et mot de passe incorrects, reessayer</i></p>");
+				out.println("<p><i><font color=\"#FFFFFF\">role trouvé: "+ result + "</i></p>");
+			}else{
+				out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/admin/admin.html\">Page d'administration</a></p>");
+				out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/index.html\">Page d'accueil</a></p>");
+			}
+			
+		} catch (Exception e) {
+			out.println("<p><i><font color=\"#FFFFFF\">login et mot de passe incorrects, reessayer</i></p>");
+			out.println("<p><i><font color=\"#FFFFFF\">" +  e + " </i></p>");
+		}
+		//END TO DO
+	  }
+	
+	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/index.html\">Page d'accueil</a></p>");
+	  out.println("</BODY>");
+	  out.close();
+	
+	}
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse res)	throws ServletException, IOException
+	{
+	  doGet(req, res);
+	}
+	
+	
+	   /**
+	* Returns information about this servlet.
+	*
+	* @return String information about this servlet
+	*/
+	
+	public String getServletInfo() {
+	    return "Ajoute une representation a une date donnee pour un spectacle existant";
+	}
+}

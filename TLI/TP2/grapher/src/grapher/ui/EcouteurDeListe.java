@@ -16,7 +16,6 @@ public class EcouteurDeListe implements ListSelectionListener {
 		grapher = g;
 	}
 	
-
 	public void valueChanged(ListSelectionEvent e) {
 		if (e.getValueIsAdjusting() == false) {
 			//Selection

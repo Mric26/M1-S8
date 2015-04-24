@@ -1,0 +1,169 @@
+
+/*
+ * @(#)ProgrammeServlet.java	1.0 2007/10/31
+ * 
+ * Copyright (c) 2007 Sara Bouchenak.
+ */
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+import utils.Utilitaires;
+
+import java.io.IOException;
+import java.util.Vector;
+
+import accesBD.*;
+import exceptions.*;
+import modele.*;
+
+/**
+ * Proramme Servlet.
+ *
+ * This servlet dynamically returns the theater program.
+ *
+ * @author <a href="mailto:Sara.Bouchenak@imag.fr">Sara Bouchenak</a>
+ * @version 1.0, 31/10/2007
+ */
+
+public class ProgrammeServlet extends HttpServlet {
+
+   /**
+    * HTTP GET request entry point.
+    *
+    * @param req	an HttpServletRequest object that contains the request 
+    *			the client has made of the servlet
+    * @param res	an HttpServletResponse object that contains the response 
+    *			the servlet sends to the client
+    *
+    * @throws ServletException   if the request for the GET could not be handled
+    * @throws IOException	   if an input or output error is detected 
+    *					   when the servlet handles the GET request
+    */
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException, IOException
+    {
+        ServletOutputStream out = res.getOutputStream();   
+
+	  res.setContentType("text/html");
+
+	  out.println("<HEAD><TITLE> Programme de la saison </TITLE></HEAD>");
+	  out.println("<BODY bgproperties=\"fixed\" background=\"/images/rideau.JPG\">");
+	  out.println("<font color=\"#FFFFFF\"><h1> Programme de la saison </h1>");
+	  out.println("<CAPTION> Programme du Theatre </CAPTION>");
+
+	  // Recuperation de la liste de tous les spectacles de la saison.
+	  // Puis construction dynamique d'une page web decrivant ces spectacles.
+	  //recuperation
+	  String numSstring = req.getParameter("numS") ;
+	  int numS = 0;
+	  if (numSstring != null) {
+		  numS = Integer.parseInt(req.getParameter("numS"));		
+	}
+	  
+	  if (numSstring==null) {
+		out.println("<CAPTION> 5 </CAPTION>");
+		try {
+		out.println("<CAPTION> 1 </CAPTION>");
+		Utilisateur user = Utilitaires.Identification();
+		out.println("<CAPTION> 2 </CAPTION>");
+	  	Vector<Representation> res2 = new Vector<Representation>();
+	  	out.println("<CAPTION> 3 </CAPTION>");
+
+ 	  	res2 = BDCategories.getRepresentation(user);
+ 	  	
+ 		//AFFICHAGE
+	  	out.println("<TABLE BORDER>");
+          	out.println("<CAPTION> Programme du Theatre </CAPTION>");
+          	out.println("<TR>");
+         	    out.println("<TH>Titre de la piece</TH>");
+         	    out.println("<TH>date de representation</TH>");
+         	 out.println("</TR>");
+	 	 for( int i =0; i<res2.size(); i++){
+          		out.println("<TR>");
+                	  out.println("<TD> "+ res2.elementAt(i).getNom() + "</TD>");
+            	      out.println("<TD>" + res2.elementAt(i).getDate() + "</TD>");
+           	    out.println("</TR>");
+	 	 }
+          	out.println("</TABLE>");
+          	
+          	//Formulaire
+          	out.print("<form action=\"");
+        	out.print("ProgrammeServlet\" ");
+        	out.println("method=POST>");
+        	out.println("Num&eacute;ro de spectacle :");
+        	out.println("<input type=text size=20 name=numS>");
+        	out.println("<br>");
+        	out.println("<input type=submit>");
+        	out.println("</form>");
+          	
+          	
+	  } catch (CategorieException e) {
+		out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de l'affichage du programme - Contacter un administrateur </i></p>");
+	  } catch (ExceptionConnexion e) {
+		  out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de l'affichage du programme - Contacter un administrateur </i></p>");
+	  } catch (ExceptionUtilisateur e) {
+		out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de l'affichage du programme - Contacter un administrateur </i></p>");
+	  }
+	} else{
+		out.println("<CAPTION> 4 </CAPTION>");
+		try {
+			Utilisateur user = Utilitaires.Identification();
+		  	Vector<Representation> res2 = new Vector<Representation>();
+	 	  	res2 = BDCategories.getRepresentationDUnSpectacle(user, numS);
+	 		//AFFICHAGE
+		  	out.println("<TABLE BORDER>");
+	          	out.println("<CAPTION> Programme du Theatre </CAPTION>");
+	          	out.println("<TR>");
+	         	    out.println("<TH>Titre de la piece</TH>");
+	         	    out.println("<TH>date de representation</TH>");
+	         	 out.println("</TR>");
+		 	 for( int i =0; i<res2.size(); i++){
+	          		out.println("<TR>");
+	                	  out.println("<TD> "+ res2.elementAt(i).getNom() + "</TD>");
+	            	      out.println("<TD>" + res2.elementAt(i).getDate() + "</TD>");
+	           	    out.println("</TR>");
+		 	 }
+	          	out.println("</TABLE>");
+		  } catch (ExceptionConnexion e) {
+			  out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de l'affichage du programme - Contacter un administrateur </i></p>");
+		} catch (ExceptionUtilisateur e) {
+			out.println("<p><i><font color=\"#FFFFFF\"> Erreur lors de l'affichage du programme - Contacter un administrateur </i></p>");
+		}
+		
+	}
+
+	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/index.html\">Accueil</a></p>");
+	  out.println("</BODY>");
+	  out.close();
+    }
+
+   /**
+    * HTTP POST request entry point.
+    *
+    * @param req	an HttpServletRequest object that contains the request 
+    *			the client has made of the servlet
+    * @param res	an HttpServletResponse object that contains the response 
+    *			the servlet sends to the client
+    *
+    * @throws ServletException   if the request for the POST could not be handled
+    * @throws IOException	   if an input or output error is detected 
+    *					   when the servlet handles the POST request
+    */
+    public void doPost(HttpServletRequest req, HttpServletResponse res)
+	throws ServletException, IOException
+    {
+	  doGet(req, res);
+    }
+
+
+   /**
+    * Returns information about this servlet.
+    *
+    * @return String information about this servlet
+    */
+
+    public String getServletInfo() {
+        return "Retourne le programme du theatre";
+    }
+
+}

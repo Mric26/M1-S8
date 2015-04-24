@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -91,7 +91,7 @@ public:
         lignes = new QSpinBox(centralWidget);
         lignes->setObjectName(QStringLiteral("lignes"));
         lignes->setMaximumSize(QSize(50, 24));
-        lignes->setValue(4);
+        lignes->setValue(5);
 
         horizontalLayout_2->addWidget(lignes);
 
@@ -104,7 +104,7 @@ public:
         colonnes = new QSpinBox(centralWidget);
         colonnes->setObjectName(QStringLiteral("colonnes"));
         colonnes->setMaximumSize(QSize(50, 25));
-        colonnes->setValue(4);
+        colonnes->setValue(5);
 
         horizontalLayout_2->addWidget(colonnes);
 
@@ -131,7 +131,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1200, 20));
+        menuBar->setGeometry(QRect(0, 0, 1200, 19));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -151,7 +151,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        zonePoints->setPlainText(QApplication::translate("MainWindow", "(0;0;0)(1;0;0)(2;0;0)(3;0;0)(0;1;0)(1;1;1)(2;1;1)(3;1;0)(0;2;0)(1;2;1)(2;2;1)(3;2;0)(0;3;0)(1;3;0)(2;3;0)(3;3;0)", 0));
+        zonePoints->setPlainText(QApplication::translate("MainWindow", "(0;0;0)(1;0;0)(2;0;0)(3;0;0)(4;0;0)(0;1;0)(1;1;0)(2;1;0)(3;1;0)(4;1;0)(0;2;0)(1;2;0)(2;2;5)(3;2;0)(4;2;0)(0;3;0)(1;3;0)(2;3;0)(3;3;0)(4;3;0)(0;4;0)(1;4;0)(2;4;0)(3;4;0)(4;4;0)", 0));
         label->setText(QApplication::translate("MainWindow", "  nombre de lignes", 0));
         label_2->setText(QApplication::translate("MainWindow", " nombre de colonnes", 0));
         Algo->setText(QApplication::translate("MainWindow", "Algo", 0));
