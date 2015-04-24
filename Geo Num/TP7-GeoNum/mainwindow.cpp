@@ -150,18 +150,18 @@ QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
     int m = tab.size() + k;
     int nbNoeuds = m ;
     double tabNoeuds[nbNoeuds];
-    for (int i = 0; i < nbNoeuds; ++i) {
-        tabNoeuds[i] = double(i);
-    }
-//    tabNoeuds[0] =0;
-//    tabNoeuds[1] =0;
-//    tabNoeuds[2] =0;
-//    tabNoeuds[3] =1;
-//    tabNoeuds[4] =2;
-//    tabNoeuds[5] =3;
-//    tabNoeuds[6] =4;
-//    tabNoeuds[7] =4;
-//    tabNoeuds[8] =4;
+//    for (int i = 0; i < nbNoeuds; ++i) {
+//        tabNoeuds[i] = double(i);
+//    }
+    tabNoeuds[0] =0;
+    tabNoeuds[1] =0;
+    tabNoeuds[2] =0;
+    tabNoeuds[3] =1;
+    tabNoeuds[4] =2;
+    tabNoeuds[5] =3;
+    tabNoeuds[6] =4;
+    tabNoeuds[7] =4;
+    tabNoeuds[8] =4;
 
 
     int j= TrouverJ(t, tabNoeuds, nbNoeuds);

@@ -135,8 +135,14 @@ QString MainWindow::pointsToFace( vector<int> tab ){
     return res;
 }
 
+<<<<<<< HEAD
+
+void MainWindow::ecrireFichier(){
+    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/TP8_GeoNum/res.obj" , ios::out | ios::trunc);
+=======
 void MainWindow::ecrireFichier(string Nomfichier){
     ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP8_GeoNum/dessin.txt", ios::out | ios::trunc);
+>>>>>>> f01537af6550e349a66fde1216bd9b0fc416cecc
     if(fichier){
 
         //écriture des points selon la convention "v x y z"
