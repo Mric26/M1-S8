@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 3.0.1, 2015-04-06T16:32:01. -->
-=======
-<<<<<<< HEAD
-<!-- Written by QtCreator 3.0.1, 2015-03-27T15:38:06. -->
-=======
-<!-- Written by QtCreator 3.1.1, 2015-03-31T10:12:19. -->
->>>>>>> a4ee07b1729f7e3e07ffa778b9be21571d8678f1
->>>>>>> 2d725759db5ca4bc43983aa1071b610fc49b67ef
+<!-- Written by QtCreator 3.0.1, 2015-04-20T12:52:14. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -57,11 +49,6 @@
   <valuemap type="QVariantMap"/>
  </data>
  <data>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 2d725759db5ca4bc43983aa1071b610fc49b67ef
   <variable>ProjectExplorer.Project.Target.0</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop</value>
@@ -259,24 +246,12 @@
   </valuemap>
  </data>
  <data>
-<<<<<<< HEAD
-=======
->>>>>>> a4ee07b1729f7e3e07ffa778b9be21571d8678f1
->>>>>>> 2d725759db5ca4bc43983aa1071b610fc49b67ef
   <variable>ProjectExplorer.Project.TargetCount</variable>
   <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.EnvironmentId</variable>
-<<<<<<< HEAD
   <value type="QByteArray">{a17e8e06-833c-4e72-9a96-399ecfcc9ada}</value>
-=======
-<<<<<<< HEAD
-  <value type="QByteArray">{faf80e58-157e-442f-b6ee-6c4446149574}</value>
-=======
-  <value type="QByteArray">{9ad77c20-c24f-42ff-b59a-152256cbf05d}</value>
->>>>>>> a4ee07b1729f7e3e07ffa778b9be21571d8678f1
->>>>>>> 2d725759db5ca4bc43983aa1071b610fc49b67ef
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.FileVersion</variable>

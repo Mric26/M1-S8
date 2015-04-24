@@ -19,7 +19,7 @@ MainWindow::~MainWindow(){
 void MainWindow::LancerAlgo(){
     recupererPoints();
     if( matricePts.size() != 0 ){
-        for (int nb = 0; nb < 5; ++nb) {
+        for (int nb = 0; nb < 1; ++nb) {
             AlgoChaikin();
         }
     }
@@ -137,36 +137,34 @@ QString MainWindow::pointsToFace( vector<int> tab ){
 
 
 void MainWindow::ecrireFichier(){
-    ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP8_GeoNum/dessin.txt", ios::out | ios::trunc);
+    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/TP8_GeoNum/res.obj" , ios::out | ios::trunc);
     if(fichier){
-        int nbpoints = 0;
-        vector<QVector3D> yolo;
-        //ajout des point
-        for (int j = 0; j < matricePts.size(); ++j) {
-           yolo = result[j];
-           for (int i = 0; i < yolo.size(); ++i) {
-               QVector3D duSwag = yolo[i];
-               QString chaine = pointToString(duSwag);
+
+        //écriture des points selon la convention "v x y z"
+        for (int j = 0; j < result.size(); ++j) {
+           for (int i = 0; i < result.at(j).size(); ++i) {
+               QVector3D vect = result.at(j)[i];
+               QString chaine = pointToString(vect);
                fichier << chaine.toStdString() << endl;
-               nbpoints++;
            }
         }
-        //ajout des faces
-        int ligne = matricePts.size();
-        int colone = matricePts[0].size();
-        vector<int> tab;
-        for (int k = 0; k < ligne-1; ++k) {
-            for (int l = 0; l < colone-1; ++l) {
-               tab.clear();
-               tab.push_back( k*colone + l + 1 );
-               tab.push_back( k*colone + l + 2 );
-               tab.push_back( (k+1)*colone + l + 1 );
-               tab.push_back( (k+1)*colone + l + 2 );
-               QString face = pointsToFace(tab);
-               fichier << face.toStdString() << endl;
-            }
+        //écriture des faces selon la convention "f PtNumero1 PtNumero2 PtNumero3 PtNumero4"
+        for (int i = 0; i < result.size()-1; ++i) {
+            vector <QVector3D> ligne1= result.at(i);
+            vector <QVector3D> ligne2= result.at(i+1);
+           for (int j = 0; j < result.at(i).size()-1; ++j) {
+               string face=
+                        "f " + to_string(i*result.at(0).size() +j + 1)
+                       + " " + to_string(i*result.at(0).size() +j + 2)
+                       + " " + to_string((i+1)*result.at(0).size() +j + 2)
+                       + " " + to_string((i+1)*result.at(0).size() +j + 1)
+                       ;
+               //QString chaine = to(face);
+               fichier << face << endl;
+           }
         }
         fichier.close();
+        cout << "réussite de l'écriture" << endl;
     }
     else{
         cerr << "Erreur à l'ouverture !" << endl;
