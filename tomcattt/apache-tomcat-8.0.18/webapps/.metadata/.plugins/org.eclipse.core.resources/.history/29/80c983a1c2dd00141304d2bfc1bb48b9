@@ -1,0 +1,14 @@
+package modele;
+
+public class Ticket {
+	private String nom;
+	private String date;
+	private int numS;
+	
+	public Ticket (String n, String d, int id) {
+		this.nom = n;
+		this.date = d;
+		this.setNumS(id);
+	}
+	
+}

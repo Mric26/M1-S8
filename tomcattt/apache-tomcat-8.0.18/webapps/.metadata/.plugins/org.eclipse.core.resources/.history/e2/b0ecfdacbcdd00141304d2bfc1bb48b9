@@ -1,0 +1,11 @@
+package modele;
+
+import java.util.ArrayList;
+
+public class Caddie {
+
+	int noCaddie;
+	public double montant;
+	ArrayList<String> representations;
+	
+}

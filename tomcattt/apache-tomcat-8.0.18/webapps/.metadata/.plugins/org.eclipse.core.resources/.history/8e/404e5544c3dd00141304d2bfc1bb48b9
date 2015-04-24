@@ -1,0 +1,53 @@
+package modele;
+
+import java.util.Vector;
+
+public class Caddie {
+
+	private int noCaddie;
+	private double montant;
+	private Vector<Ticket> representations = new Vector<Ticket>();
+	
+	public Caddie(){
+		setNoCaddie((int) (Math.random()*9999));
+		setRepresentations(new Vector<Representation>());
+		setMontant(0);
+	}
+
+	public int getNoCaddie() {
+		return noCaddie;
+	}
+
+	public void setNoCaddie(int noCaddie) {
+		this.noCaddie = noCaddie;
+	}
+
+	public double getMontant() {
+		return montant;
+	}
+
+	public void setMontant(double montant) {
+		this.montant = montant;
+	}
+
+	public Vector<Ticket> getRepresentations() {
+		return representations;
+	}
+
+	public void setRepresentations(Vector<Ticket> representations) {
+		this.representations = representations;
+	}
+	
+	public boolean ajouterRepresentation( Representation r ){
+		representations.add(r);
+		montant += 5;
+		return true;
+	}
+	
+	public boolean retirerRepresentation( Representation r ){
+		representations.remove(r);
+		montant -= 5;
+		return true;
+	}
+	
+}

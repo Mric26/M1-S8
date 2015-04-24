@@ -13,7 +13,9 @@ import java.util.Vector;
 import exceptions.CategorieException;
 import exceptions.ExceptionConnexion;
 import modele.Categorie;
+import modele.Place;
 import modele.Representation;
+import modele.Ticket;
 import modele.Utilisateur;
 
 public class BDCategories {
@@ -66,12 +68,12 @@ public class BDCategories {
 		ResultSet rs ;
 		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 		
-		requete = "select numS, dateRep from LesRepresentations order by numS";
+		requete = "select nomS, dateRep, numS from LesRepresentations NATURAL JOIN LesSpectacles";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(requete);
 			while (rs.next()) {
-				res.addElement(new Representation (rs.getString(1), rs.getString(2)));
+				res.addElement(new Representation (rs.getString(1), rs.getString(2), rs.getInt(3)));
 			}
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."
@@ -402,28 +404,43 @@ public class BDCategories {
 	public static int nbPlacesDispoDansZone(Utilisateur user, int numS, String dateRep, int numZ) throws CategorieException, ExceptionConnexion {
 		int nbPlaces = 0;
 		String requete ;
-		Statement stmt ;
+//		Statement stmt ;
 		ResultSet rs ;
+		PreparedStatement preparedStatement;
 		
 		try {
 			Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
 			
-			requete = "select count(*) from LesPlaces NATURAL JOIN LesZones where numS ="+numS+" and dateRep=" + dateRep + " and numZ=" + numZ;
-			
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(requete);
+			requete = "select count(noPlace) from LesPlaces NATURAL JOIN LesZones where numZ = ?";
+
+			Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRep);
+			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numZ);
+//			preparedStatement.setInt(1, numS);
+//			preparedStatement.setDate(2, sqlDate);
+			rs = preparedStatement.executeQuery();
+			rs.next();
 			int nbPlacesTotal = rs.getInt(1);
-			
-			requete = "select count(*) from LesTickets NATURAL JOIN LesZones where numS ="+numS+" and dateRep=" + dateRep + " and numZ=" + numZ;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(requete);
+			preparedStatement.close();
+//			nbPlaces = nbPlacesTotal;
+			requete = "select count(noPlace) from LesTickets NATURAL JOIN LesZones NATURAL JOIN LesPlaces where numS = ? and dateRep= ? and numZ= ?";
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numS);
+			preparedStatement.setDate(2, sqlDate);
+			preparedStatement.setInt(3, numZ);
+			rs = preparedStatement.executeQuery();
+			rs.next();
 			nbPlaces = nbPlacesTotal - rs.getInt(1);	
+			preparedStatement.close();
 			
-			BDConnexion.FermerTout(conn, stmt, rs);
 		} catch (SQLException e) {
 			throw new CategorieException (" Problème dans l'interrogation des catégories.."
 					+ "Code Oracle " + e.getErrorCode()
 					+ "Message " + e.getMessage());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		
@@ -536,7 +553,185 @@ public class BDCategories {
 			e.printStackTrace();
 		}
 	}
+	public static Vector<Representation> getRepresentationDUnSpectacle(Utilisateur user, int numS) {
+		Vector<Representation> res = new Vector<Representation>();
+		String requete ;
+		Statement stmt ;
+		ResultSet rs ;
+		Connection conn;
+		try {
+			conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+			requete = "select nomS, dateRep, numS from LesRepresentations NATURAL JOIN LesSpectacles where numS = "+numS;
+
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			while (rs.next()) {
+				res.addElement(new Representation (rs.getString(1), rs.getString(2), rs.getInt(3)));
+			}
+			BDConnexion.FermerTout(conn, stmt, rs);
+		} catch (SQLException e) {
+			try {
+				throw new CategorieException (" Problème dans l'interrogation des catégories.."
+						+ "Code Oracle " + e.getErrorCode()
+						+ "Message " + e.getMessage());
+			} catch (CategorieException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} catch (ExceptionConnexion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
 	
+	public static Vector<Place> getPlacePourRep (Utilisateur user, int numS, String dateRep) throws CategorieException, ExceptionConnexion, ParseException {
+		Vector<Place> res = new Vector<Place>();
+		String requete ;
+//		Statement stmt ;
+		ResultSet rs ;PreparedStatement preparedStatement;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "(select noPlace, noRang from LesPlaces ) minus (select noPlace, noRang from LesTickets where numS = ? and dateRep = ?)";
+		try {
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numS);
+			Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRep);
+			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
+//			dateRep = sqlDate.toString();
+			preparedStatement.setDate(2, sqlDate);
+			rs =  preparedStatement.executeQuery();
+			while (rs.next()) {
+				res.addElement(new Place (rs.getInt(1), rs.getInt(2)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	public static int nbZone(Utilisateur user) throws CategorieException, ExceptionConnexion {
+		int nb = 0;
+		String requete ;
+		Statement stmt ;
+		ResultSet rs ;
+		
+		try {
+			Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+			
+			requete = "select count(numZ) from LesZones";
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(requete);
+			rs.next();
+			nb = rs.getInt(1);
+			BDConnexion.FermerTout(conn, stmt, rs);
+			
+			return nb;
+				
+		} catch (SQLException e) {
+			throw new CategorieException (" Problème dans l'interrogation des catégories.."
+					+ "Code Oracle " + e.getErrorCode()
+					+ "Message " + e.getMessage());
+		}
+	}
+
+	public static String identification(Utilisateur user, String name, String pswd){
+		String requete= null ;
+		Statement stmt ;
+		ResultSet rs ;
+		String res= null;
+		
+			Connection conn;
+			try {
+				conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+				
+				requete = "select role from Users where name='" + name + "' and password='" + pswd +"'" ;
+				
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(requete);
+				rs.next();
+				res= rs.getString(1);
+				BDConnexion.FermerTout(conn, stmt, rs);
+			} catch (ExceptionConnexion e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				//return e.getMessage();
+				return requete;
+			}
+			
+			return res;
+					
+	}
+	
+	public static Ticket getTicket (Utilisateur user, int numS, String dateRep, int numZ) throws CategorieException, ExceptionConnexion, ParseException {
+		Ticket res;
+		int noPlace, noRang, noSerie;
+		String requete ;
+//		Statement stmt ;
+		ResultSet rs ;PreparedStatement preparedStatement;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "(select noPlace, noRang from LesPlaces where numZ = ? ) minus (select noPlace, noRang from LesTickets where numS = ? and dateRep = ?)";
+		try {
+			preparedStatement = conn.prepareStatement(requete);
+			preparedStatement.setInt(1, numZ);
+			preparedStatement.setInt(2, numS);
+			Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRep);
+			java.sql.Date sqlDate = new java.sql.Date(d.getTime());
+//			dateRep = sqlDate.toString();
+			preparedStatement.setDate(3, sqlDate);
+			rs =  preparedStatement.executeQuery();
+//			while (rs.next()) {
+//				res.addElement(new Place (rs.getInt(1), rs.getInt(2)));
+//			}
+			rs.next();
+			noPlace = rs.getInt(1);
+			noRang = rs.getInt(2);
+			
+			//Création du numSérie
+			requete = "select max (noSerie) from LesTickets";
+			preparedStatement = conn.prepareStatement(requete);
+			rs =  preparedStatement.executeQuery();
+			rs.next();
+			noSerie = rs.getInt(1)+1;
+			
+			res = new Ticket(noSerie, numS, dateRep, noPlace, noRang,numZ);
+			return res;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static double getPrix (Utilisateur user, int numZ) throws CategorieException, ExceptionConnexion, ParseException {
+		Ticket res;
+		String requete ;
+		ResultSet rs ;
+		PreparedStatement preparedStatement;
+		Connection conn = BDConnexion.getConnexion(user.getLogin(), user.getmdp());
+		
+		requete = "(select prix FROM LesZones NATURAL JOIN LesCategories where numZ = ? ";
+		try {
+			preparedStatement = conn.prepareStatement(requete);
+			rs =  preparedStatement.executeQuery();
+//			while (rs.next()) {
+//				res.addElement(new Place (rs.getInt(1), rs.getInt(2)));
+//			}
+			rs.next();
+			return rs.getDouble(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }
 
 

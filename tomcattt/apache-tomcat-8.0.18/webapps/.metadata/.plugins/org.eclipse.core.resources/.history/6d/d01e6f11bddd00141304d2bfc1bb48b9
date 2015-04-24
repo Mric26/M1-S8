@@ -1,0 +1,18 @@
+package modele;
+
+import java.util.ArrayList;
+import java.util.Vector;
+
+public class Caddie {
+
+	int noCaddie;
+	public double montant;
+	Vector<Representation> representations = new Vector<Representation>();
+	
+	public Caddie(){
+		noCaddie = (int) (Math.random()*9999);
+		representations = new Vector<Representation>;
+		montant =0;
+	}
+	
+}

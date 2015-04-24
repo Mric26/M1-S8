@@ -95,7 +95,7 @@ public:
         degK = new QSpinBox(centralWidget);
         degK->setObjectName(QStringLiteral("degK"));
         degK->setMaximum(10);
-        degK->setValue(2);
+        degK->setValue(3);
 
         horizontalLayout_2->addWidget(degK);
 

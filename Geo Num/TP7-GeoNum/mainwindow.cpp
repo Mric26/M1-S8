@@ -30,7 +30,7 @@ void MainWindow::recupererPoints(){ //format du texte: (x1;y1;z1)(x2;y2;z2)...(x
 
         for (int i = 0; i < sizeText; ++i) {
             QChar c = contenu.at(i); //récupération du caractère
-            if (c.isNumber()){ //récupération d'un digit
+            if (c.isNumber() || c == '-'){ //récupération d'un digit
                 num += (QString)(c);
             }else{
                 if(c ==  '('){
@@ -80,23 +80,40 @@ void MainWindow::setTaille(int value){
 }
 
 QString MainWindow::pointToString( QVector3D p ){
-    const string temp = "( " + to_string(p.x()) + " ; " + to_string(p.y()) + " ; " + to_string(p.z()) + " )";
+    const string temp = "v " + to_string(p.x()) + " " + to_string(p.y()) + " " + to_string(p.z()) + " ";
     QString res = QString::fromStdString(temp);
     return res;
 }
 
-void MainWindow::ecrireFichier(){
-    ofstream fichier("/home/s/segureta/Documents/S8/M1-S8/Geo Num/TP7-GeoNum/test.txt", ios::out | ios::trunc);
+void MainWindow::ecrireFichier(string Nomfichier){
+    ofstream fichier("/home/chevailler/Documents/école/M1/S2/dépôt GIT tp/M1-S8/Geo Num/TP7-GeoNum/" + Nomfichier, ios::out | ios::trunc);
     if(fichier){
+
+        //écriture des points selon la convention "v x y z"
         for (int j = 0; j < result.size(); ++j) {
-           vector<QVector3D> yolo = result[j];
-           for (int i = 0; i < yolo.size(); ++i) {
-               QVector3D duSwag = yolo[i];
-               QString chaine = pointToString(duSwag);
+           for (int i = 0; i < result.at(j).size(); ++i) {
+               QVector3D vect = result.at(j)[i];
+               QString chaine = pointToString(vect);
                fichier << chaine.toStdString() << endl;
            }
         }
+        //écriture des faces selon la convention "f PtNumero1 PtNumero2 PtNumero3 PtNumero4"
+        for (int i = 0; i < result.size()-1; ++i) {
+            vector <QVector3D> ligne1= result.at(i);
+            vector <QVector3D> ligne2= result.at(i+1);
+           for (int j = 0; j < result.at(i).size()-1; ++j) {
+               string face=
+                        "f " + to_string(i*result.at(0).size() +j + 1)
+                       + " " + to_string(i*result.at(0).size() +j + 2)
+                       + " " + to_string((i+1)*result.at(0).size() +j + 2)
+                       + " " + to_string((i+1)*result.at(0).size() +j + 1)                       
+                       ;
+               //QString chaine = to(face);
+               fichier << face << endl;
+           }
+        }
         fichier.close();
+        cout << "réussite de l'écriture" << endl;
     }
     else{
         cerr << "Erreur à l'ouverture !" << endl;
@@ -131,11 +148,21 @@ int MainWindow::TrouverJ(double t, double tabnoeuds[], int tailleTabNoeuds){ //f
 QVector3D MainWindow::PointBSplines( vector<QVector3D> tab, double t, int k){
     //table des noeuds
     int m = tab.size() + k;
-    int nbNoeuds = m + 1;
+    int nbNoeuds = m ;
     double tabNoeuds[nbNoeuds];
     for (int i = 0; i < nbNoeuds; ++i) {
         tabNoeuds[i] = double(i);
     }
+//    tabNoeuds[0] =0;
+//    tabNoeuds[1] =0;
+//    tabNoeuds[2] =0;
+//    tabNoeuds[3] =1;
+//    tabNoeuds[4] =2;
+//    tabNoeuds[5] =3;
+//    tabNoeuds[6] =4;
+//    tabNoeuds[7] =4;
+//    tabNoeuds[8] =4;
+
 
     int j= TrouverJ(t, tabNoeuds, nbNoeuds);
 
@@ -167,20 +194,24 @@ void MainWindow::AlgoBSplines(){
     recupererPoints();
 
     afficherMatrice();
+
+    //nuage de points source
+    result = matricePts;
+    ecrireFichier("source.obj");
+    result.clear();
+
     vector<QVector3D> resultLigne, vect, temp;
     int k = ui->degK->value();
     int l = ui->degL->value();
 
     for (double u = k; u < ui->lignes->value(); u+=0.1) {
-        cout << "étape pour u=" << u << endl;
         for (double v = l; v < ui->colonnes->value(); v+=0.1) {
             vect.clear();
             temp.clear();
             for (int i = 0; i < matricePts.size(); ++i) {
                 vect = matricePts.at(i);
                 QVector3D tmp= PointBSplines(vect, u, k);
-                //problème de génération de points
-                cout << tmp.x() << ";" << tmp.y() << ";" << tmp.z() << endl;
+                //cout << tmp.x() << ";" << tmp.y() << ";" << tmp.z() << endl;
                 temp.push_back( tmp );
                 vect.clear();
             }
@@ -195,13 +226,17 @@ void MainWindow::AlgoBSplines(){
         for (int var2 = 0; var2 < result.at(var).size(); ++var2) {
             //string sortie = to_string(result.at(var)[var2].x()) + "   " + to_string(result.at(var)[var2].y()) + "   " + to_string(result.at(var)[var2].z()) + " \n";
             //ui->zoneSortie->setText(  ui->zoneSortie->toPlainText() + QString::fromStdString(sortie) );
-            cout << result.at(var).at(var2).x() << ";" << result.at(var).at(var2).y() << ";" << result.at(var).at(var2).z() << "   ";
+            //cout << result.at(var).at(var2).x() << ";" << result.at(var).at(var2).y() << ";" << result.at(var).at(var2).z() << "   ";
         }
         cout << endl;
     }
-    cout << "verif de valeur des points récupérés" << endl;
 
-    ecrireFichier();
+    ecrireFichier("test.obj");
     resultLigne.clear(); vect.clear(); temp.clear();
+
+    //clear
+    resultLigne.clear();
+    vect.clear();
+    temp.clear();
 }
 

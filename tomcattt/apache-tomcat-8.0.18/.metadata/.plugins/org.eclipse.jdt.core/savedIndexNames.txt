@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+/home/g/gchev/Documents/M1-S8/tomcattt/apache-tomcat-8.0.18/.metadata/.plugins/org.eclipse.jdt.core

@@ -1,3 +1,4 @@
+
 /*
  * @(#)NouvelleRepresentationServlet.java	1.0 2007/10/31
  * 
@@ -64,19 +65,11 @@ public class NouvelleRepresentationServlet extends HttpServlet {
             	out.println("</form>");
 	  } else {
 	  	// TO DO
-		// Transformation des parametres vers les types adequats.
-	  	// Ajout de la nouvelle representation.
-	  	// Puis construction dynamique d'une page web de reponse.
-		try {
-			BDCategories.ajouterRepresentations(user, numS, dateS);
-			out.println("<p><i><font color=\"#FFFFFF\">Ajout reussi</i></p>");
-		} catch (CategorieException e) {
-			out.println("<p><i><font color=\"#FFFFFF\">TRY AGAINr</i></p>");
-		}
-		//END TO DO
+		//END TO DO */
 	  }
 
-	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/admin/admin.html\">Page d'administration</a></p>");
+		  
+	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/admin\">Page d'administration</a></p>");
 	  out.println("<hr><p><font color=\"#FFFFFF\"><a href=\"/index.html\">Page d'accueil</a></p>");
 	  out.println("</BODY>");
 	  out.close();
