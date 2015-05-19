@@ -216,14 +216,20 @@ Mesh Mesh::subdivide() const
     // barycentres des faces
     vector<vec3> barycentres;
     vector<unsigned int> faceCourante;
+    vec3 pp0, pp1, pp2, pp3;
     for (int i = 0; i < faces.size(); ++i) {
-        faceCourante = faces[i];
         double x, y, z;
-        x = (1/4) * (vertices[faceCourante[0]].x + vertices[faceCourante[1]].x + vertices[faceCourante[2]].x + vertices[faceCourante[3]].x );
-        y = (1/4) * (vertices[faceCourante[0]].y + vertices[faceCourante[1]].y + vertices[faceCourante[2]].y + vertices[faceCourante[3]].y );
-        z = (1/4) * (vertices[faceCourante[0]].z + vertices[faceCourante[1]].z + vertices[faceCourante[2]].z + vertices[faceCourante[3]].z );
-        vec3 point = vec3(x, y, z);
-        barycentres.push_back(point);
+        faceCourante.clear();
+        faceCourante = faces[i];
+        pp0 = vertices[faceCourante[0]];
+        pp1 = vertices[faceCourante[1]];
+        pp2 = vertices[faceCourante[2]];
+        pp3 = vertices[faceCourante[3]];
+        x = (1/4.0) * (double)(pp0.x + pp1.x + pp2.x + pp3.x );
+        y = (1/4.0) * (double)(pp0.y + pp1.y + pp2.y + pp3.y );
+        z = (1/4.0) * (double)(pp0.z + pp1.z + pp2.z + pp3.z );
+        vec3 bar = vec3(x, y, z);
+        barycentres.push_back(bar);
     }
 
     // construction du milieu des arrètes
@@ -235,9 +241,9 @@ Mesh Mesh::subdivide() const
         Edge arreteCourante = arretes[i];
         p1 = vertices[arreteCourante.m_i0];
         p2 = vertices[arreteCourante.m_i1];
-        x = (p1.x + p2.x)/2;
-        x = (p1.y + p2.y)/2;
-        x = (p1.z + p2.z)/2;
+        x = (double)(p1.x + p2.x)/2.0;
+        y = (double)(p1.y + p2.y)/2.0;
+        z = (double)(p1.z + p2.z)/2.0;
         vec3 milieu = vec3(x, y, z);
         milieux.push_back(milieu);
     }
@@ -258,32 +264,24 @@ Mesh Mesh::subdivide() const
     }
 
     //construction du nouveau maillage
-    faceCourante.clear();
     vector<vector< unsigned int > > nouvellesFaces;
-    vec3 pointCourant, milieu1, milieu2, barycentreFace;
     vector< vector< unsigned int > > tableauArretes = get_vertex_edges(arretes);
     vector<unsigned int> arretesPointCourant;
     //parcour des sommets
     for (int i = 0; i < vertices.size(); ++i) {
-        pointCourant = vertices[i];
         arretesPointCourant.clear();
         arretesPointCourant = tableauArretes[i];
         //parcours des arretes
         for (int j = 0; j < arretesPointCourant.size(); ++j) {
-            indiceE1 = arretesPointCourant[j];
+            cout << j << endl;
             //arrete 1
-            Edge e1 = arretes[ indiceE1 ];
+            indiceE1 = arretesPointCourant[j];
             //arrete 2
             indiceE2 = arretesPointCourant[ (j+1) % arretesPointCourant.size() ];
-            Edge e2 = arretes[ indiceE2 ];
-            //milieux 1 & 2
-            milieu1 = milieux[ indiceE1 ];
-            milieu2 = milieux[ indiceE2 ];
+            //indice de la face
             ////////////////////// soucis ici ////////////////////////////////
             indiceFace = get_oriented_face(indiceE1, indiceE2);
             //////////////////////////////////////////////////////////////////
-            //barycentre de la face associée
-            barycentreFace = barycentres[indiceFace];
             //nouvelle face = pointCourant; milieu1; barycentreFace; milieu2
             faceCourante.clear();
             faceCourante.push_back( i ); //indice du point initial
